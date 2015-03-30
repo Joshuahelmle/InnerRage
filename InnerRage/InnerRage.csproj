@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F00EBD0-55DF-4CA8-8D74-01001BE34B2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InnerRage</RootNamespace>
+    <AssemblyName>InnerRage</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GreyMagic">
+      <HintPath>..\..\..\..\..\..\..\newHonorBuddy\GreyMagic.dll</HintPath>
+    </Reference>
+    <Reference Include="Honorbuddy">
+      <HintPath>..\..\..\..\..\..\..\newHonorBuddy\Honorbuddy.exe</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tripper.Tools">
+      <HintPath>..\..\..\..\..\..\..\newHonorBuddy\Tripper.Tools.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Abilities\AbilityBase.cs" />
+    <Compile Include="Core\Abilities\AbilityCategory.cs" />
+    <Compile Include="Core\Abilities\AbilityException.cs" />
+    <Compile Include="Core\Abilities\Arms\CollosusSmashAbility.cs" />
+    <Compile Include="Core\Abilities\Arms\MortalStrikeAbility.cs" />
+    <Compile Include="Core\Abilities\Arms\RendAbility.cs" />
+    <Compile Include="Core\Abilities\Arms\SlamAbility.cs" />
+    <Compile Include="Core\Abilities\Arms\SweepingStrikesAbility.cs" />
+    <Compile Include="Core\Abilities\BlockedAbility.cs" />
+    <Compile Include="Core\Abilities\BlockedAbilityList.cs" />
+    <Compile Include="Core\Abilities\Fury\AwaitBloodThirstCooldownAbility.cs" />
+    <Compile Include="Core\Abilities\Fury\BloodThirstToEnrageOrRagingBlowStacksAbility.cs" />
+    <Compile Include="Core\Abilities\Fury\FillerBloodThirstAbility.cs" />
+    <Compile Include="Core\Abilities\Fury\RagingBlowAbility.cs" />
+    <Compile Include="Core\Abilities\Fury\RagingBlowWithMeatCleaverAbility.cs" />
+    <Compile Include="Core\Abilities\Fury\RagingBlowWithMeatCleaverToNotCapAbility.cs" />
+    <Compile Include="Core\Abilities\Fury\WhirlWindToGetMeatCleaverStacksAbility.cs" />
+    <Compile Include="Core\Abilities\Fury\WildStrikeWithBloodSurgeUpAbility.cs" />
+    <Compile Include="Core\Abilities\Fury\WildStrikeWithoutBloodSurgeAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\BladeStormAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\DragonRoarAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\ExecuteAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\ExecuteWithSuddenDeathAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\ImpendingVictoryAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\Racials\RacialHumanAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\RavagerAbility.cs" />
+    <Compile Include="Core\Abilities\Fury\WildStrikeRageDumpAbility.cs" />
+    <Compile Include="Core\Abilities\IAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\AvatarAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\BattleShoutAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\BerserkerRageAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\BloodBathAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\CommandingShoutAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\Racials\RacialOrcBloodFuryAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\Racials\RacialsBloodElfAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\Racials\RacialsTrollBerserkingAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\RecklessnessAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\ShockWaveAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\SiegeBreakerAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\StormBoltAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\ThunderclapAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\WhirlWindAbility.cs" />
+    <Compile Include="Core\Conditions\Auras\AuraMaxRemaningTimeCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\BloodBathIsUpCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\DoesNotHaveAuraUpCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\DoesNotHaveMeatCleaverStacksCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\HasBloodSurgeStacksCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\HasSuddenDeathProccCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\HasRagingBlowProccCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\DoesHaveMinAuraStacksCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\TargetAuraUpCondition.cs" />
+    <Compile Include="Core\Conditions\BooleanCondition.cs" />
+    <Compile Include="Core\Conditions\BloodThirstWillNotCapRageCondition.cs" />
+    <Compile Include="Core\Conditions\ConditionException.cs" />
+    <Compile Include="Core\Conditions\ConditionOrList.cs" />
+    <Compile Include="Core\Conditions\ConditionAndList.cs" />
+    <Compile Include="Core\Conditions\ConditionSwitchTester.cs" />
+    <Compile Include="Core\Conditions\CoolDownLeftMinCondition.cs" />
+    <Compile Include="Core\Conditions\CooldownTimeLeftMaxCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\DoesHaveEnrageUpCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\DoesNotHaveAttackPowerBuffCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\DoesNotHaveEnrageUpCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\DoesNotHaveFullRagingBlowStacksCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\DoesNotHaveStaminaBuffCondition.cs" />
+    <Compile Include="Core\Conditions\Glyphs\GlyphUnendingRageCondition.cs" />
+    <Compile Include="Core\Conditions\ICondition.cs" />
+    <Compile Include="Core\Conditions\IsInCurrentSpecializationCondition.cs" />
+    <Compile Include="Core\Conditions\IsOffGlobalCooldownCondition.cs" />
+    <Compile Include="Core\Conditions\IsRaceCondition.cs" />
+    <Compile Include="Core\Conditions\LastSpellCastBloodThirstCondition.cs" />
+    <Compile Include="Core\Conditions\MaxRageCondition.cs" />
+    <Compile Include="Core\Conditions\MinRageCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\RecklessnessIsUpCondition.cs" />
+    <Compile Include="Core\Conditions\Auras\RendIsTickingCondition.cs" />
+    <Compile Include="Core\Conditions\SpellCoolDownLowerThanCondition.cs" />
+    <Compile Include="Core\Conditions\SpellIsNotOnCooldownCondition.cs" />
+    <Compile Include="Core\Conditions\SpellIsOnCooldownConditioncs.cs" />
+    <Compile Include="Core\Conditions\Talents\BloodBathUpOrNotEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentBladeStormEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentDragonRoarEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentImpendingVictoryEnabled.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentRavagerEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentShockWaveEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentSlamEnabled.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentStormBoltEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentAvatarEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentBloodBathEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentBloodBathNotEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentSiegebreakerEnabled.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentSuddenDeathEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentUnquenchableThirstCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentUnquenchableThirstNotEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\TargetInExecuteRangeCondition.cs" />
+    <Compile Include="Core\Conditions\TargetIsInHealthRangeCondition.cs" />
+    <Compile Include="Core\Conditions\TargetMaxTimeToDieCondition.cs" />
+    <Compile Include="Core\Conditions\TargetNotInExecuteRangeCondition.cs" />
+    <Compile Include="Core\Extensions.cs" />
+    <Compile Include="Core\Managers\AbilityException.cs" />
+    <Compile Include="Core\Managers\AbilityManager.cs" />
+    <Compile Include="Core\Managers\CastManager.cs" />
+    <Compile Include="Core\Managers\GlobalSettings.cs" />
+    <Compile Include="Core\Managers\HotKeyManager.cs" />
+    <Compile Include="Core\Managers\SettingsManager.cs" />
+    <Compile Include="Core\Managers\UnitManager.cs" />
+    <Compile Include="Core\Routines\Combat.cs" />
+    <Compile Include="Core\Routines\CombatBuff.cs" />
+    <Compile Include="Core\Routines\Heal.cs" />
+    <Compile Include="Core\Routines\PreCombat.cs" />
+    <Compile Include="Core\SpellBook.cs" />
+    <Compile Include="Core\Utilities\Log.cs" />
+    <Compile Include="Debug\DebugTalents.cs" />
+    <Compile Include="Debug\IDebug.cs" />
+    <Compile Include="Interface\Resources.Designer.cs" />
+    <Compile Include="Interface\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\VerticalTabs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Interface\Resources.resx" />
+    <EmbeddedResource Include="Interface\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
