@@ -11,7 +11,7 @@ namespace InnerRage.Core.Abilities.Fury
         {
             base.Category = AbilityCategory.Combat;
             base.Conditions.Add(new CooldownTimeLeftMaxCondition(this.Spell, TimeSpan.FromSeconds(0.5)));
-            base.Conditions.Add(new MinRageCondition(50));
+            base.Conditions.Add(new MaxRageCondition(50));
         }
     }
 }

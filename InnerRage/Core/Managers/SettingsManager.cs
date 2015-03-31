@@ -43,6 +43,7 @@ namespace InnerRage.Core.Managers
         public bool BuffBattleshout { get; set; }
         [Setting, DefaultValue(false)]
         public bool BuffCommandingShout { get; set; }
+        [Setting, DefaultValue(false)]
         public bool BuffEnabled { get; set; }
         [Setting,DefaultValue(false)]
         public bool InterruptPummel { get; set; }

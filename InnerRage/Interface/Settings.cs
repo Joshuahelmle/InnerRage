@@ -18,8 +18,11 @@ namespace InnerRage.Interface
             {
                 var pathToFile = GlobalSettings.GetFullPathToProfile(openFileDialog1.FileName);
                 SettingsManager.Init(pathToFile);
-
                 InitSettings();
+                SettingsManager.Instance.Save();
+                GlobalSettings.Instance.Save();
+
+                
             }
         }
 
@@ -120,9 +123,11 @@ namespace InnerRage.Interface
 
 
             TalentsBloodBathCondition.SelectedIndex = SMInstance.Instance.TalentBloodbathAlways ? 0 : 1;
-            TalentsRecklessnessCondition.SelectedIndex = SMInstance.Instance.TalentRecklessnessAlways
-                ? 0
-                : (SMInstance.Instance.TalentRecklessnessOnBloodBath ? 1 : 2);
+            if (SMInstance.Instance.TalentRecklessnessAlways)
+                TalentsRecklessnessCondition.SelectedIndex = 0;
+            else if (SMInstance.Instance.TalentRecklessnessOnBloodBath)
+                TalentsRecklessnessCondition.SelectedIndex = 1;
+            else TalentsRecklessnessCondition.SelectedIndex = 2;
             TalentSyncAvatar.Checked = SMInstance.Instance.TalentSyncAvatar;
             TalentSyncDragonRoar.Checked = SMInstance.Instance.TalentSyncDragonRoar;
             TalentSyncBladestorm.Checked = SMInstance.Instance.TalentSyncBladeStorm;

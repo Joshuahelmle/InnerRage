@@ -10,7 +10,7 @@ namespace InnerRage.Core.Abilities.Arms
     class MortalStrikeAbility : AbilityBase
     {
            public MortalStrikeAbility() 
-            : base(WoWSpell.FromId(SpellBook.SpellCollosusSmash), true, true)
+            : base(WoWSpell.FromId(SpellBook.SpellMortalStrike), true, true)
         {
             base.Category = AbilityCategory.Combat;
         }

@@ -13,7 +13,7 @@ namespace InnerRage.Core.Conditions
 
         public bool Satisfied()
         {
-            return StyxWoW.Me.CurrentRage < _minRage;
+            return StyxWoW.Me.CurrentRage > _minRage;
         }
     }
 }
