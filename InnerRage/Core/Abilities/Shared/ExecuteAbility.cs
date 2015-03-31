@@ -24,6 +24,7 @@ namespace InnerRage.Core.Abilities.Shared
             base.Conditions.Clear();
             if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
             if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
+            base.Conditions.Add(new InMeeleRangeCondition());
             base.Conditions.Add(new TargetInExecuteRangeCondition(Target));
             base.Conditions.Add(new ConditionSwitchTester(
                 new IsInCurrentSpecializationCondition(WoWSpec.WarriorFury),

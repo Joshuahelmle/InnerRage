@@ -199,6 +199,7 @@ namespace InnerRage.Core.Managers
             this.Abilities.Add(new RendAbility());
             this.Abilities.Add(new SlamAbility());
             this.Abilities.Add(new SweepingStrikesAbility());
+            this.Abilities.Add(new WhirlwindAoeAbility());
 
 
             #endregion

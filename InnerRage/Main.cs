@@ -24,7 +24,7 @@ namespace InnerRage
         /// <summary>
         /// used to log debug Messages, defaults to false.
         /// </summary>
-        public static bool Debug = true;
+        public static bool Debug = false;
         private static Version _version = new Version(1, 0, 0);
 
         public static Version Version { get { return _version; } }

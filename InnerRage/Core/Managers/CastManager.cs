@@ -47,8 +47,10 @@ namespace InnerRage.Core
             foreach (var condition in conditions)
                 if (!condition.Satisfied())
                 {
+                    if(Main.Debug && !(condition is IsOffGlobalCooldownCondition))
                     if (Main.Debug) Log.Diagnostics("In " + ability + "call.");
-                   if(Main.Debug) Log.Diagnostics("Failed at condition:" + condition);
+                    if (Main.Debug) 
+                       Log.Diagnostics("Failed at condition:" + condition);
                     
                    // if(Main.Debug) Log.Diagnostics("current Target: " + target);
                     return false;
@@ -103,6 +105,7 @@ namespace InnerRage.Core
                 if (!condition.Satisfied())
                 {
                     if (Main.Debug) Log.Diagnostics("Failed at condition:" + condition);
+                   
                     return false;
                 }
 

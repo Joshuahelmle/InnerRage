@@ -62,6 +62,7 @@ namespace InnerRage.Core.Abilities
 
             if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
             if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
+            this.Conditions.Add(new InMeeleRangeCondition());
         }
 
         /// <summary>

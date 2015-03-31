@@ -116,7 +116,7 @@ namespace InnerRage.Core.Managers
                 {
                     this.LastKnownSurroundingEnemies = ObjectManager.GetObjectsOfTypeFast<WoWUnit>().Where(o =>
                         o.Attackable &&
-                        //o.Distance <= SettingsManager.Instance.AOERange &&
+                        o.Distance <= SettingsManager.Instance.AOERange &&
                         o.IsValid &&
                         o.IsAlive &&
                         !o.IsFriendly &&

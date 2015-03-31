@@ -23,11 +23,12 @@ namespace InnerRage.Core.Abilities.Arms
         }
 
 
-        public override Task<bool> CastOnTarget(WoWUnit target)
+        public override async Task<bool> CastOnTarget(WoWUnit target)
         {
              base.Conditions.Clear();
             if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
             if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
+            base.Conditions.Add(new InMeeleRangeCondition());
             base.Conditions.Add(new BooleanCondition(Target != null));
             base.Conditions.Add(new ConditionOrList(
                 new AuraMaxRemaningTimeCondition(TimeSpan.FromSeconds(4.5), Spell, Target),
@@ -40,7 +41,7 @@ namespace InnerRage.Core.Abilities.Arms
                 new BooleanCondition(Me.KnowsSpell(SpellBook.SpellTasteForBlood)),
                 new BooleanCondition(UnitManager.Instance.LastKnownBleedingEnemies.Count < 4),
                 new BooleanCondition(UnitManager.Instance.LastKnownBleedingEnemies.Count < 3)));
-           return base.CastOnTarget(Target);
+           return await base.CastOnTarget(Target);
        
            
         }

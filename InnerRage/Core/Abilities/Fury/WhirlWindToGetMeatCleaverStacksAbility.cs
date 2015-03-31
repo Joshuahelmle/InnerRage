@@ -19,13 +19,14 @@ namespace InnerRage.Core.Abilities.Fury
             
         }
 
-        public override Task<bool> CastOnTarget(WoWUnit target)
+        public override async Task<bool> CastOnTarget(WoWUnit target)
         {
             if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
             if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
+            base.Conditions.Add(new InMeeleRangeCondition());
             base.Conditions.Add(new DoesNotHaveMeatCleaverStacksCondition());
             base.Conditions.Add(new TargetNotInExecuteRangeCondition(Target));
-            return base.CastOnTarget(Target);
+            return await base.CastOnTarget(Target);
         }
     }
 }

@@ -60,6 +60,7 @@
     <Compile Include="Core\Abilities\Arms\RendAbility.cs" />
     <Compile Include="Core\Abilities\Arms\SlamAbility.cs" />
     <Compile Include="Core\Abilities\Arms\SweepingStrikesAbility.cs" />
+    <Compile Include="Core\Abilities\Arms\WhirlwindAoeAbility.cs" />
     <Compile Include="Core\Abilities\BlockedAbility.cs" />
     <Compile Include="Core\Abilities\BlockedAbilityList.cs" />
     <Compile Include="Core\Abilities\Fury\AwaitBloodThirstCooldownAbility.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Core\Conditions\Auras\DoesNotHaveStaminaBuffCondition.cs" />
     <Compile Include="Core\Conditions\Glyphs\GlyphUnendingRageCondition.cs" />
     <Compile Include="Core\Conditions\ICondition.cs" />
+    <Compile Include="Core\Conditions\InMeeleRangeCondition.cs" />
     <Compile Include="Core\Conditions\IsInCurrentSpecializationCondition.cs" />
     <Compile Include="Core\Conditions\IsOffGlobalCooldownCondition.cs" />
     <Compile Include="Core\Conditions\IsRaceCondition.cs" />

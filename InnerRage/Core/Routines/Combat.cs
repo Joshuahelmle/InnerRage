@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using InnerRage.Core.Abilities.Arms;
 using InnerRage.Core.Abilities.Fury;
 using InnerRage.Core.Abilities.Shared;
 using InnerRage.Core.Managers;
@@ -159,10 +160,10 @@ namespace InnerRage.Core.Routines
             if (await Abilities.Cast<ExecuteWithSuddenDeathAbility>(MyCurrentTarget))
                 return true; //DPS Loss regarding simcraft
             if (await Abilities.Cast<ExecuteAbility>(MyCurrentTarget)) return true;
-            if (
+           /* if (
                 await
                     Abilities.Cast<ExecuteAbility>(
-                        UnitManager.Instance.LastKnownSurroundingEnemies.FirstOrDefault())) return true;
+                        UnitManager.Instance.LastKnownSurroundingEnemies.FirstOrDefault())) return true; */
             if (await Abilities.Cast<RagingBlowAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<WhirlWindToGetMeatCleaverStacksAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<WildStrikeWithBloodSurgeUpAbility>(MyCurrentTarget)) return true;
@@ -200,17 +201,17 @@ namespace InnerRage.Core.Routines
 
         private static async Task<bool> ArmsAoeRotation()
         {
-            if (await Abilities.Cast<Abilities.Arms.SweepingStrikesAbility>(Me)) return true;
-            if (await Abilities.Cast<Abilities.Arms.RendAbility>(MyCurrentTarget)) return true;
-            if (await Abilities.Cast<Abilities.Arms.RendAbility>(Units.LastKnownNonBleedingEnemies.FirstOrDefault())) return true;
+            if (await Abilities.Cast<SweepingStrikesAbility>(Me)) return true;
+            if (await Abilities.Cast<RendAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<RendAbility>(Units.LastKnownNonBleedingEnemies.FirstOrDefault())) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<BladeStormAbility>(MyCurrentTarget)) return true;
-            if (await Abilities.Cast<Abilities.Arms.CollosusSmashAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<CollosusSmashAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<ExecuteAbility>(MyCurrentTarget)) return true;
-            if (await Abilities.Cast<Abilities.Arms.MortalStrikeAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<MortalStrikeAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<DragonRoarAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<ThunderclapAbility>(MyCurrentTarget)) return true;
-            if (await Abilities.Cast<WhirlWindAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<WhirlwindAoeAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<SiegeBreakerAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<StormBoltAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<ShockWaveAbility>(MyCurrentTarget)) return true;
