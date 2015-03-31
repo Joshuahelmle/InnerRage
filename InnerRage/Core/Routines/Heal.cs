@@ -21,8 +21,8 @@ namespace InnerRage.Core.Routines
             if (Me.IsDead || Me.IsGhost || Me.IsCasting || Me.IsChanneling || Me.IsFlying || Me.OnTaxi || Me.Mounted)
                 return false;
 
-            if (Me.HasTotalLossOfControl())
-                return false;
+           // if (Me.HasTotalLossOfControl())
+           //     return false;
 
           return await HealRotation();
         }

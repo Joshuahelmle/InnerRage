@@ -11,7 +11,7 @@ namespace InnerRage.Core.Conditions
     {
         public bool Satisfied()
         {
-            return StyxWoW.Me.IsWithinMeleeRangeOf(StyxWoW.Me.CurrentTarget);
+            return StyxWoW.Me.HasAttackableTarget() && StyxWoW.Me.CurrentTarget.IsWithinMeleeRange;
         }
     }
 }

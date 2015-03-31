@@ -39,7 +39,7 @@ namespace InnerRage.Core.Routines
             get { return UnitManager.Instance; }
         }
 
-        private static Stopwatch _locDelay;
+        private static Stopwatch _locDelay = new Stopwatch();
 
         public static async Task<bool> Rotation()
         {

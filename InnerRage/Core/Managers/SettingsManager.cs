@@ -38,7 +38,7 @@ namespace InnerRage.Core.Managers
 
 #region [IR] - Shared Settings
         [Setting, DefaultValue(10)]
-        public UInt32 AOERange { get; set; }
+        public int AOERange { get; set; }
         //Buffs
         [Setting, DefaultValue(false)]
         public bool BuffBattleshout { get; set; }

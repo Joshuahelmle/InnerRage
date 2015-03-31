@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
 using InnerRage.Core.Conditions;
 using InnerRage.Core.Conditions.Auras;
 using InnerRage.Core.Conditions.Talents;
 using InnerRage.Core.Managers;
 using Styx;
 using Styx.WoWInternals;
+using Styx.WoWInternals.WoWObjects;
 
 namespace InnerRage.Core.Abilities.Shared
 {
@@ -14,6 +16,16 @@ namespace InnerRage.Core.Abilities.Shared
             : base(WoWSpell.FromId(SpellBook.SpellBladestorm), true, true)
         {
             base.Category = AbilityCategory.Combat;
+            
+
+        }
+
+        public override async Task<bool> CastOnTarget(WoWUnit target)
+        {
+            base.Conditions.Clear();
+            if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
+            if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
+            base.Conditions.Add(new InMeeleRangeCondition());
             base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentBladeStorm));
             base.Conditions.Add(new TalentBladeStormEnabledCondition());
             base.Conditions.Add(new ConditionSwitchTester(
@@ -25,7 +37,7 @@ namespace InnerRage.Core.Abilities.Shared
                     new BloodBathUpOrNotEnabledCondition()));
             base.Conditions.Add(new ConditionSwitchTester(
                 new IsInCurrentSpecializationCondition(WoWSpec.WarriorArms), // if in Arms specc then
-                new ConditionOrList(  
+                new ConditionOrList(
                     new ConditionAndList(
                         new TargetNotInExecuteRangeCondition(MyCurrentTarget), //target is not in ExecuteRange and
                         new ConditionOrList(
@@ -35,7 +47,7 @@ namespace InnerRage.Core.Abilities.Shared
                         new TargetInExecuteRangeCondition(MyCurrentTarget),
                         new MaxRageCondition(30)), //have no more than 30 rage or
                         new SpellCoolDownLowerThanCondition(WoWSpell.FromId(SpellBook.SpellCollosusSmash), TimeSpan.FromSeconds(4))))); //collosussmash cooldown remains for more than 4 seconds
-
+            return await base.CastOnTarget(target);
         }
     }
 }
