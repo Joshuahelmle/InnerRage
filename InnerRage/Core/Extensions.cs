@@ -250,14 +250,37 @@ namespace InnerRage.Core
             {
                 if (unit == null || !unit.IsValid)
                     return false;
-                var aura = isMyAura ? unit.GetAllAuras().FirstOrDefault(a => a.SpellId == auraId && a.CreatorGuid == StyxWoW.Me.Guid) : unit.GetAllAuras().FirstOrDefault(a => a.SpellId == auraId);
+                var aura = isMyAura
+                    ? unit.GetAllAuras().FirstOrDefault(a => a.SpellId == auraId && a.CreatorGuid == StyxWoW.Me.Guid)
+                    : unit.GetAllAuras().FirstOrDefault(a => a.SpellId == auraId);
                 return aura != null;
             }
             catch (Exception xException)
             {
-                Log.Diagnostics("Exception in auraExists(): "+ xException);
+                Log.Diagnostics("Exception in auraExists(): " + xException);
                 return false;
             }
-        } 
+        }
+
+
+        public static TimeSpan AuraRemainingTime(this WoWUnit unit, int auraId, bool isMyAura = false)
+        {
+            try
+            {
+                if (!AuraExists(unit, auraId, isMyAura))
+                    return TimeSpan.FromSeconds(0);
+
+                if (unit == null) return TimeSpan.FromSeconds(0);
+                var aura = isMyAura
+                    ? unit.GetAllAuras().First(a => a.SpellId == auraId && a.CreatorGuid == StyxWoW.Me.Guid)
+                    : unit.GetAllAuras().First(a => a.SpellId == auraId);
+                return aura.TimeLeft;
+            }
+            catch (Exception xException)
+            {
+                Log.Diagnostics("Exception in auraRemainingTime(): " + xException);
+                return TimeSpan.FromSeconds(0);
+            }
+        }
     }
 }

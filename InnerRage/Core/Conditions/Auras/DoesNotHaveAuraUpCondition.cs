@@ -22,7 +22,7 @@ namespace InnerRage.Core.Conditions.Auras
 
         public bool Satisfied()
         {
-            return  _target != null && !_target.HasAura(_aura.Id);
+            return  _target != null && !_target.AuraExists(_aura.Id, true);
         }
     }
 }

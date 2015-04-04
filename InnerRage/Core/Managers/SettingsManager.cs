@@ -112,6 +112,8 @@ namespace InnerRage.Core.Managers
         public int InterruptDelay { get;set; }
         [Setting, DefaultValue(300)]
         public int LoCDelay { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool RecklessOnlyOnBoss { get; set; }
 
         #endregion
 

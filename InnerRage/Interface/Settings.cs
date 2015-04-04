@@ -83,12 +83,12 @@ namespace InnerRage.Interface
         {
             try
             {
-                rtfAbout.LoadFile(@"Routines\InnerRage\InnerRage\Resources\release-notes.rtf");
+                rtfAbout.LoadFile(@"Routines\InnerRage\Resources\release-notes.rtf");
             }
             catch
             {
                 rtfAbout.Text =
-                    "Unable to load the release notes. Ensure that the path looks like this:\n\n.\\Routines\\InnerRage\\InnerRage\\Resources\\release-notes.rtf\n\n" +
+                    "Unable to load the release notes. Ensure that the path looks like this:\n\n.\\Routines\\InnerRage\\Resources\\release-notes.rtf\n\n" +
                     "It may also be possible that you have the release notes open in an external editor such as Microsoft Word.";
             }
         }
@@ -133,6 +133,7 @@ namespace InnerRage.Interface
             TalentSyncBladestorm.Checked = SMInstance.Instance.TalentSyncBladeStorm;
             TalentSyncRavager.Checked = SMInstance.Instance.TalentSyncRavager;
             TrinketAura.Text = Convert.ToString(SMInstance.Instance.TrinketProccAura);
+            RecklessnessOnlyOnBossCB.Checked = SMInstance.Instance.RecklessOnlyOnBoss;
 
 
             //Trinkets
@@ -194,6 +195,8 @@ namespace InnerRage.Interface
             SMInstance.Instance.TalentSyncRavager = TalentSyncRavager.Checked;
 
             SMInstance.Instance.TrinketProccAura = Convert.ToInt32(TrinketAura.Text);
+
+            SMInstance.Instance.RecklessOnlyOnBoss = RecklessnessOnlyOnBossCB.Checked;
 
 
             //Trinkets
@@ -343,5 +346,7 @@ namespace InnerRage.Interface
         }
 
         #endregion
+
+       
     }
 }

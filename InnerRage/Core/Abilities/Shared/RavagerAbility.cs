@@ -25,6 +25,7 @@ namespace InnerRage.Core.Abilities.Shared
             : base(WoWSpell.FromId(SpellBook.SpellRavager),true, true)
         {
             base.Category = AbilityCategory.Combat;
+            base.Conditions.Add(new BooleanCondition(Me.CurrentTarget != null));
             base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentRavager));
             base.Conditions.Add(new TalentRavagerEnabledCondition());
             base.Conditions.Add(

@@ -128,6 +128,7 @@
     <Compile Include="Core\Conditions\MinRageCondition.cs" />
     <Compile Include="Core\Conditions\Auras\RecklessnessIsUpCondition.cs" />
     <Compile Include="Core\Conditions\Auras\RendIsTickingCondition.cs" />
+    <Compile Include="Core\Conditions\OnlyOnBossCondition.cs" />
     <Compile Include="Core\Conditions\SpellCoolDownLowerThanCondition.cs" />
     <Compile Include="Core\Conditions\SpellIsNotOnCooldownCondition.cs" />
     <Compile Include="Core\Conditions\SpellIsOnCooldownConditioncs.cs" />

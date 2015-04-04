@@ -31,7 +31,7 @@ namespace InnerRage.Core.Abilities.Arms
             base.Conditions.Add(new InMeeleRangeCondition());
             base.Conditions.Add(new BooleanCondition(Target != null));
             base.Conditions.Add(new ConditionOrList(
-                new AuraMaxRemaningTimeCondition(TimeSpan.FromSeconds(4.5), Spell, Target),
+                new AuraMaxRemaningTimeCondition(TimeSpan.FromSeconds(4.5), Spell, target),
                 new DoesNotHaveAuraUpCondition(Target, Spell)));
             base.Conditions.Add(new ConditionOrList(
                 new TargetNotInExecuteRangeCondition(Target),

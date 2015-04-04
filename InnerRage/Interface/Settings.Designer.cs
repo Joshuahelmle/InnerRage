@@ -52,6 +52,7 @@ namespace InnerRage.Interface {
             this.Trinket1LoCCB = new System.Windows.Forms.CheckBox();
             this.Trinket1CB = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.RecklessnessOnlyOnBossCB = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TrinketAura = new System.Windows.Forms.TextBox();
             this.TalentsRecklessnessCondition = new System.Windows.Forms.ComboBox();
@@ -341,6 +342,7 @@ namespace InnerRage.Interface {
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.RecklessnessOnlyOnBossCB);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.TrinketAura);
             this.groupBox3.Controls.Add(this.TalentsRecklessnessCondition);
@@ -358,6 +360,16 @@ namespace InnerRage.Interface {
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Talents - Advanced Options";
+            // 
+            // RecklessnessOnlyOnBossCB
+            // 
+            this.RecklessnessOnlyOnBossCB.AutoSize = true;
+            this.RecklessnessOnlyOnBossCB.Location = new System.Drawing.Point(389, 69);
+            this.RecklessnessOnlyOnBossCB.Name = "RecklessnessOnlyOnBossCB";
+            this.RecklessnessOnlyOnBossCB.Size = new System.Drawing.Size(113, 23);
+            this.RecklessnessOnlyOnBossCB.TabIndex = 10;
+            this.RecklessnessOnlyOnBossCB.Text = "Only on Boss";
+            this.RecklessnessOnlyOnBossCB.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -682,6 +694,7 @@ namespace InnerRage.Interface {
             this.rtfAbout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtfAbout.Location = new System.Drawing.Point(3, 3);
             this.rtfAbout.Name = "rtfAbout";
+            this.rtfAbout.ReadOnly = true;
             this.rtfAbout.Size = new System.Drawing.Size(481, 324);
             this.rtfAbout.TabIndex = 0;
             this.rtfAbout.Text = "";
@@ -880,5 +893,6 @@ namespace InnerRage.Interface {
         private Label label6;
         private Label label5;
         private TextBox InterruptDelay;
+        private CheckBox RecklessnessOnlyOnBossCB;
 	}
 }

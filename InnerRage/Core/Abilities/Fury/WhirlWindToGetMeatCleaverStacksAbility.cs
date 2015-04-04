@@ -21,6 +21,7 @@ namespace InnerRage.Core.Abilities.Fury
 
         public override async Task<bool> CastOnTarget(WoWUnit target)
         {
+            base.Conditions.Clear();
             if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
             if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
             base.Conditions.Add(new InMeeleRangeCondition());
