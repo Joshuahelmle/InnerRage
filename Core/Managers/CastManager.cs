@@ -123,7 +123,7 @@ namespace InnerRage.Core
                 return false;
             }
 
-            WoWPoint targetLocationOnGround = new WoWPoint(target.Location.X, target.Location.Y, HeightOffTheGround(target));
+            WoWPoint targetLocationOnGround = new WoWPoint(target.Location.X, target.Location.Y, StyxWoW.Me.Z);
             SpellManager.ClickRemoteLocation(targetLocationOnGround);
 
             var logColor = Colors.CornflowerBlue;
@@ -142,12 +142,13 @@ namespace InnerRage.Core
             }
 
             {
-                Log.AppendLine(string.Format("[{0}] Casted {1} on {2}(Rage: {3}, HP: {4:0.##}%)",
+                Log.AppendLine(string.Format("[{0}] Casted {1} on {2}(Rage: {3}, HP: {4:0.##}%) at Location Z : {5}",
                     ability.Category,
                     ability.Spell.Name,
                     target == null ? "Nothing" : (target.IsMe ? "Me" : target.SafeName),
                     StyxWoW.Me.CurrentRage,
-                    StyxWoW.Me.HealthPercent
+                    StyxWoW.Me.HealthPercent,
+                    targetLocationOnGround
                     ), logColor);
             }
 
@@ -165,7 +166,7 @@ namespace InnerRage.Core
             if (listMeshZ.Any())
                 return unitLoc.Z - listMeshZ.Max();
 
-            return float.MaxValue;
+            return unit.Z;
         }
 
     }

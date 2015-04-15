@@ -387,7 +387,7 @@ namespace InnerRage.Interface {
             // TalentsRecklessnessCondition
             // 
             this.TalentsRecklessnessCondition.BackColor = System.Drawing.Color.Silver;
-            this.TalentsRecklessnessCondition.ForeColor = System.Drawing.Color.White;
+            this.TalentsRecklessnessCondition.ForeColor = System.Drawing.Color.Black;
             this.TalentsRecklessnessCondition.FormattingEnabled = true;
             this.TalentsRecklessnessCondition.Items.AddRange(new object[] {
             "On Cooldown",
@@ -444,7 +444,7 @@ namespace InnerRage.Interface {
             // TalentsBloodBathCondition
             // 
             this.TalentsBloodBathCondition.BackColor = System.Drawing.Color.Silver;
-            this.TalentsBloodBathCondition.ForeColor = System.Drawing.Color.White;
+            this.TalentsBloodBathCondition.ForeColor = System.Drawing.Color.Black;
             this.TalentsBloodBathCondition.FormattingEnabled = true;
             this.TalentsBloodBathCondition.Items.AddRange(new object[] {
             "Everytime avaiable",
@@ -622,7 +622,7 @@ namespace InnerRage.Interface {
             // BuffComboBox
             // 
             this.BuffComboBox.BackColor = System.Drawing.Color.Silver;
-            this.BuffComboBox.ForeColor = System.Drawing.Color.White;
+            this.BuffComboBox.ForeColor = System.Drawing.Color.Black;
             this.BuffComboBox.FormattingEnabled = true;
             this.BuffComboBox.Items.AddRange(new object[] {
             "Battle Shout",

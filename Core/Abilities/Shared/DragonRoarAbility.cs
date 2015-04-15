@@ -13,6 +13,7 @@ namespace InnerRage.Core.Abilities.Shared
             : base(WoWSpell.FromId(SpellBook.SpellDragonRoar), true, true)
         {
             base.Category = AbilityCategory.Combat;
+            Conditions.Add(new InMeeleRangeCondition());
             base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentDragonRoar));
             base.Conditions.Add(new TalentDragonRoarEnabledCondition());
             base.Conditions.Add(// Sync with bloodbath
