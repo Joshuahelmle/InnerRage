@@ -1,5 +1,6 @@
 ﻿/* CREDIT : Almost all of the code in this class is Work of SnowCrash , thanks for giving me insight and creative ideas buddy! */
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Buddy.Coroutines;
@@ -11,6 +12,7 @@ using InnerRage.Core.Utilities;
 using Styx;
 using Styx.CommonBot;
 using Styx.CommonBot.Coroutines;
+using Styx.Pathing;
 using Styx.WoWInternals;
 using Styx.WoWInternals.WoWObjects;
 
@@ -121,7 +123,8 @@ namespace InnerRage.Core
                 return false;
             }
 
-            SpellManager.ClickRemoteLocation(target.Location);
+            WoWPoint targetLocationOnGround = new WoWPoint(target.Location.X, target.Location.Y, HeightOffTheGround(target));
+            SpellManager.ClickRemoteLocation(targetLocationOnGround);
 
             var logColor = Colors.CornflowerBlue;
 
@@ -153,6 +156,17 @@ namespace InnerRage.Core
 
 
         
-        } 
+        }
+
+        public static float HeightOffTheGround(WoWUnit unit)
+        {
+            var unitLoc = new WoWPoint(unit.Location.X, unit.Location.Y, unit.Location.Z);
+            var listMeshZ = Navigator.FindHeights(unitLoc.X, unitLoc.Y).Where(h => h <= unitLoc.Z);
+            if (listMeshZ.Any())
+                return unitLoc.Z - listMeshZ.Max();
+
+            return float.MaxValue;
+        }
+
     }
 }
