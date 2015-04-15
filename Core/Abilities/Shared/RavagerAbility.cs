@@ -25,6 +25,15 @@ namespace InnerRage.Core.Abilities.Shared
             : base(WoWSpell.FromId(SpellBook.SpellRavager),true, true)
         {
             base.Category = AbilityCategory.Combat;
+        }
+
+
+        public async override Task<bool> CastOnTarget(WoWUnit target)
+        {
+            
+            base.Conditions.Clear();
+            if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
+            if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
             base.Conditions.Add(new BooleanCondition(Me.CurrentTarget != null));
             base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentRavager));
             base.Conditions.Add(new TalentRavagerEnabledCondition());
@@ -34,12 +43,7 @@ namespace InnerRage.Core.Abilities.Shared
                     new BloodBathUpOrNotEnabledCondition()));
             base.Conditions.Add(new ConditionSwitchTester(// If we are in Armsspecc, test if Collosus Smash is up in 4 seconds, if so, wait with ravager to sync it
                 new IsInCurrentSpecializationCondition(WoWSpec.WarriorArms),
-                new SpellCoolDownLowerThanCondition(WoWSpell.FromId(SpellBook.SpellCollosusSmash),TimeSpan.FromSeconds(4))));
-        }
-
-
-        public async override Task<bool> CastOnTarget(WoWUnit target)
-        {
+                new SpellCoolDownLowerThanCondition(WoWSpell.FromId(SpellBook.SpellCollosusSmash), TimeSpan.FromSeconds(4))));
            if(await CastManager.DropCast(this, target, this.Conditions)) return true;
             return false;
         }

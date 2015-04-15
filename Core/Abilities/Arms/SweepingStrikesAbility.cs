@@ -13,6 +13,7 @@ namespace InnerRage.Core.Abilities.Arms
             : base(WoWSpell.FromId(SpellBook.SpellSweepingStrikes), false, true)
         {
             base.Category = AbilityCategory.Buff;
+
             
         }
     }

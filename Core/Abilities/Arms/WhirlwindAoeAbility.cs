@@ -21,6 +21,7 @@ namespace InnerRage.Core.Abilities.Arms
         public async override Task<bool> CastOnTarget(WoWUnit target)
         {
             base.Conditions.Clear();
+            base.Conditions.Add(new InMeeleRangeCondition());
             if (MustWaitForGlobalCooldown) base.Conditions.Add(new IsOffGlobalCooldownCondition());
             if (MustWaitForSpellCooldown) base.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
             base.Conditions.Add(new InMeeleRangeCondition());

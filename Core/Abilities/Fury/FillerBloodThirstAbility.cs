@@ -1,4 +1,5 @@
-﻿using Styx.WoWInternals;
+﻿using InnerRage.Core.Conditions;
+using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Fury
 {

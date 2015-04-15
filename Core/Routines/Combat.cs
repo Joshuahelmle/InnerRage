@@ -181,10 +181,10 @@ namespace InnerRage.Core.Routines
         {
 
             if (await InterruptManager.CheckMyTarget()) return true;
-            if (await Abilities.Cast<Abilities.Arms.RendAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<RendAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
-            if (await Abilities.Cast<Abilities.Arms.CollosusSmashAbility>(MyCurrentTarget)) return true;
-            if (await Abilities.Cast<Abilities.Arms.MortalStrikeAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<CollosusSmashAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<MortalStrikeAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<BladeStormAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<StormBoltAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<SiegeBreakerAbility>(MyCurrentTarget)) return true;
@@ -192,7 +192,7 @@ namespace InnerRage.Core.Routines
             if (await Abilities.Cast<ExecuteWithSuddenDeathAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<ExecuteAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<ImpendingVictoryAbility>(MyCurrentTarget)) return true;
-            if (await Abilities.Cast<Abilities.Arms.SlamAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<SlamAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<ThunderclapAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<WhirlWindAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<ShockWaveAbility>(MyCurrentTarget)) return true;
