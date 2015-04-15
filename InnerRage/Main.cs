@@ -103,6 +103,7 @@ namespace InnerRage
             AbilityManager.Instance.Update();
             UnitManager.Instance.Update();
          //   SnapshotManager.Instance.Update();
+            
 
             base.Pulse();
         }

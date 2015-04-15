@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Windows.Media;
 using InnerRage.Core.Utilities;
 using Styx;
 using Styx.WoWInternals;
@@ -76,7 +75,8 @@ namespace InnerRage.Core.Managers
         /// </summary>
         public List<WoWUnit> LastKnownBleedingEnemies { get; private set; }
         public List<WoWUnit> LastKnownEnemiesInExecuteRange { get; private set; }
-        public List<WoWUnit> LastKnownNonBleedingEnemies { get; private set; } 
+        public List<WoWUnit> LastKnownNonBleedingEnemies { get; private set; }
+        public int nearFlameshockedCount;
 
         /// <summary>
         /// Gets the number of the last known group size.
@@ -126,7 +126,7 @@ namespace InnerRage.Core.Managers
                         )
                         .OrderBy(o => o.Distance)
                         .ToList();
-                    if(Main.Debug) Log.Combat("sorrounding enemies: "+LastKnownSurroundingEnemies.Count);
+                    if (Main.Debug) Log.Combat("sorrounding enemies: " + LastKnownSurroundingEnemies.Count);
 
                     this.LastKnownNonBleedingEnemies =
                         LastKnownSurroundingEnemies.Where(o => !o.AuraExists(SpellBook.SpellRend, true)).ToList();
@@ -135,7 +135,7 @@ namespace InnerRage.Core.Managers
                     this.LastKnownBleedingEnemies =
                         LastKnownSurroundingEnemies.Where(o => o.AuraExists(SpellBook.SpellRend, true)).ToList();
                     if (Main.Debug) Log.Combat("sorrounding  bleeding :" + LastKnownBleedingEnemies.Count);
-                   
+
                     //Track Enemies in ExecuteRange
                     this.LastKnownEnemiesInExecuteRange.Where(o => o.HealthPercent < 20).ToList();
                     //TODO: Highly experimental way of calculating how long the current Target will be alive.
@@ -144,7 +144,9 @@ namespace InnerRage.Core.Managers
                     currentTargetHealth = StyxWoW.Me.CurrentTarget.HealthPercent;
                      */
                     _enemyScanner.Restart();
+
                 }
+
             }
             else
             {
