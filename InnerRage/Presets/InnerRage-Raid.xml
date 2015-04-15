@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SettingsManager>
+  <AOERange>10</AOERange>
+  <BuffBattleshout>True</BuffBattleshout>
+  <BuffCommandingShout>False</BuffCommandingShout>
+  <BuffEnabled>True</BuffEnabled>
+  <InterruptPummel>True</InterruptPummel>
+  <InterruptDisruptingShout>False</InterruptDisruptingShout>
+  <InterruptShockWave>False</InterruptShockWave>
+  <InterruptStormBolt>False</InterruptStormBolt>
+  <TalentAvatar>True</TalentAvatar>
+  <TalentBloodBath>True</TalentBloodBath>
+  <TalentBladeStorm>True</TalentBladeStorm>
+  <TalentDragonRoar>True</TalentDragonRoar>
+  <TalentRavager>True</TalentRavager>
+  <TalentShockWave>True</TalentShockWave>
+  <TalentStormBolt>True</TalentStormBolt>
+  <TalentBloodbathOnTrinket>False</TalentBloodbathOnTrinket>
+  <TalentBloodbathAlways>True</TalentBloodbathAlways>
+  <TalentRecklessnessAlways>False</TalentRecklessnessAlways>
+  <TalentRecklessnessOnBloodBath>True</TalentRecklessnessOnBloodBath>
+  <TalentRecklessnessNever>False</TalentRecklessnessNever>
+  <TalentSyncBladeStorm>False</TalentSyncBladeStorm>
+  <TalentSyncRavager>True</TalentSyncRavager>
+  <TalentSyncAvatar>False</TalentSyncAvatar>
+  <TalentSyncDragonRoar>True</TalentSyncDragonRoar>
+  <UseTrinket1>False</UseTrinket1>
+  <UseTrinket1OnLoC>False</UseTrinket1OnLoC>
+  <UseTrinket1ToBurst>False</UseTrinket1ToBurst>
+  <UseTrinket2>False</UseTrinket2>
+  <UseTrinket2OnLoC>False</UseTrinket2OnLoC>
+  <UseTrinket2ToBurst>False</UseTrinket2ToBurst>
+  <UseOrcRacial>False</UseOrcRacial>
+  <UseTrollRacial>False</UseTrollRacial>
+  <UseHumanRacial>True</UseHumanRacial>
+  <UseBloodElfRacial>False</UseBloodElfRacial>
+  <TrinketProccAura>0</TrinketProccAura>
+  <InterruptDelay>300</InterruptDelay>
+  <LoCDelay>300</LoCDelay>
+  <RecklessOnlyOnBoss>False</RecklessOnlyOnBoss>
+</SettingsManager>
