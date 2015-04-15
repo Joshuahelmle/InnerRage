@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* CREDIT : UI Skeleton and  vertical tabs from Hackersrage Thread
+ * https://www.thebuddyforum.com/honorbuddy-forum/community-developer-forum/201626-4k-resolution-skinned-form-plugin-sample.html 
+ * Thanks a lot! */
+using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -108,7 +111,6 @@ namespace InnerRage.Interface
 
             //Interrupts
             InterruptPummelCB.Checked = SMInstance.Instance.InterruptPummel;
-            InterruptDisruptingShoutCB.Checked = SMInstance.Instance.InterruptDisruptingShout;
             InterruptShockWaveCB.Checked = SMInstance.Instance.InterruptShockWave;
             InterruptStormBoltCB.Checked = SMInstance.Instance.InterruptStormBolt;
 
@@ -130,7 +132,7 @@ namespace InnerRage.Interface
             else TalentsRecklessnessCondition.SelectedIndex = 2;
             TalentSyncAvatar.Checked = SMInstance.Instance.TalentSyncAvatar;
             TalentSyncDragonRoar.Checked = SMInstance.Instance.TalentSyncDragonRoar;
-            TalentSyncBladestorm.Checked = SMInstance.Instance.TalentSyncBladeStorm;
+          
             TalentSyncRavager.Checked = SMInstance.Instance.TalentSyncRavager;
             TrinketAura.Text = Convert.ToString(SMInstance.Instance.TrinketProccAura);
             RecklessnessOnlyOnBossCB.Checked = SMInstance.Instance.RecklessOnlyOnBoss;
@@ -169,7 +171,7 @@ namespace InnerRage.Interface
 
             //Interrupts
             SMInstance.Instance.InterruptPummel = InterruptPummelCB.Checked;
-            SMInstance.Instance.InterruptDisruptingShout = InterruptDisruptingShoutCB.Checked;
+           
             SMInstance.Instance.InterruptStormBolt = InterruptStormBoltCB.Checked;
             SMInstance.Instance.InterruptShockWave = InterruptShockWaveCB.Checked;
 
@@ -191,7 +193,7 @@ namespace InnerRage.Interface
 
             SMInstance.Instance.TalentSyncAvatar = TalentSyncAvatar.Checked;
             SMInstance.Instance.TalentSyncDragonRoar = TalentSyncDragonRoar.Checked;
-            SMInstance.Instance.TalentSyncBladeStorm = TalentSyncBladestorm.Checked;
+           
             SMInstance.Instance.TalentSyncRavager = TalentSyncRavager.Checked;
 
             SMInstance.Instance.TrinketProccAura = Convert.ToInt32(TrinketAura.Text);

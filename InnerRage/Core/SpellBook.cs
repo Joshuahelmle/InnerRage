@@ -56,6 +56,7 @@ namespace InnerRage.Core
             SpellHamString = 1715,
             SpellImpendingVictory = 103840,
             SpellMortalStrike = 12294,
+            SpellPummel = 6552,
             SpellRagingBlow = 85288,
             SpellRavager = 152277,
             SpellRecklessness = 1719,

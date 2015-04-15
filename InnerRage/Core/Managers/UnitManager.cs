@@ -1,4 +1,5 @@
-﻿using System;
+﻿/* CREDIT : Almost all of the code in this class is Work of SnowCrash , thanks for giving me insight and creative ideas buddy! */
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;

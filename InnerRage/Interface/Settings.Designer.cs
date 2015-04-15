@@ -57,7 +57,6 @@ namespace InnerRage.Interface {
             this.TrinketAura = new System.Windows.Forms.TextBox();
             this.TalentsRecklessnessCondition = new System.Windows.Forms.ComboBox();
             this.TalentSyncRavager = new System.Windows.Forms.CheckBox();
-            this.TalentSyncBladestorm = new System.Windows.Forms.CheckBox();
             this.TalentSyncAvatar = new System.Windows.Forms.CheckBox();
             this.TalentSyncDragonRoar = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,7 +73,6 @@ namespace InnerRage.Interface {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.InterruptStormBoltCB = new System.Windows.Forms.CheckBox();
             this.InterruptShockWaveCB = new System.Windows.Forms.CheckBox();
-            this.InterruptDisruptingShoutCB = new System.Windows.Forms.CheckBox();
             this.InterruptPummelCB = new System.Windows.Forms.CheckBox();
             this.Buffs = new System.Windows.Forms.GroupBox();
             this.checkBuffs = new System.Windows.Forms.CheckBox();
@@ -347,7 +345,6 @@ namespace InnerRage.Interface {
             this.groupBox3.Controls.Add(this.TrinketAura);
             this.groupBox3.Controls.Add(this.TalentsRecklessnessCondition);
             this.groupBox3.Controls.Add(this.TalentSyncRavager);
-            this.groupBox3.Controls.Add(this.TalentSyncBladestorm);
             this.groupBox3.Controls.Add(this.TalentSyncAvatar);
             this.groupBox3.Controls.Add(this.TalentSyncDragonRoar);
             this.groupBox3.Controls.Add(this.label2);
@@ -406,24 +403,12 @@ namespace InnerRage.Interface {
             this.TalentSyncRavager.AutoSize = true;
             this.TalentSyncRavager.Checked = true;
             this.TalentSyncRavager.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TalentSyncRavager.Location = new System.Drawing.Point(268, 137);
+            this.TalentSyncRavager.Location = new System.Drawing.Point(11, 167);
             this.TalentSyncRavager.Name = "TalentSyncRavager";
             this.TalentSyncRavager.Size = new System.Drawing.Size(216, 23);
             this.TalentSyncRavager.TabIndex = 6;
             this.TalentSyncRavager.Text = "Sync Ravager with Bloodbath";
             this.TalentSyncRavager.UseVisualStyleBackColor = true;
-            // 
-            // TalentSyncBladestorm
-            // 
-            this.TalentSyncBladestorm.AutoSize = true;
-            this.TalentSyncBladestorm.Checked = true;
-            this.TalentSyncBladestorm.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TalentSyncBladestorm.Location = new System.Drawing.Point(268, 109);
-            this.TalentSyncBladestorm.Name = "TalentSyncBladestorm";
-            this.TalentSyncBladestorm.Size = new System.Drawing.Size(237, 23);
-            this.TalentSyncBladestorm.TabIndex = 5;
-            this.TalentSyncBladestorm.Text = "Sync Bladestorm with Bloodbath";
-            this.TalentSyncBladestorm.UseVisualStyleBackColor = true;
             // 
             // TalentSyncAvatar
             // 
@@ -569,7 +554,6 @@ namespace InnerRage.Interface {
             // 
             this.groupBox1.Controls.Add(this.InterruptStormBoltCB);
             this.groupBox1.Controls.Add(this.InterruptShockWaveCB);
-            this.groupBox1.Controls.Add(this.InterruptDisruptingShoutCB);
             this.groupBox1.Controls.Add(this.InterruptPummelCB);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 91);
@@ -582,7 +566,8 @@ namespace InnerRage.Interface {
             // InterruptStormBoltCB
             // 
             this.InterruptStormBoltCB.AutoSize = true;
-            this.InterruptStormBoltCB.Location = new System.Drawing.Point(7, 108);
+            this.InterruptStormBoltCB.Enabled = false;
+            this.InterruptStormBoltCB.Location = new System.Drawing.Point(6, 82);
             this.InterruptStormBoltCB.Name = "InterruptStormBoltCB";
             this.InterruptStormBoltCB.Size = new System.Drawing.Size(89, 22);
             this.InterruptStormBoltCB.TabIndex = 3;
@@ -592,22 +577,13 @@ namespace InnerRage.Interface {
             // InterruptShockWaveCB
             // 
             this.InterruptShockWaveCB.AutoSize = true;
-            this.InterruptShockWaveCB.Location = new System.Drawing.Point(6, 80);
+            this.InterruptShockWaveCB.Enabled = false;
+            this.InterruptShockWaveCB.Location = new System.Drawing.Point(6, 54);
             this.InterruptShockWaveCB.Name = "InterruptShockWaveCB";
             this.InterruptShockWaveCB.Size = new System.Drawing.Size(97, 22);
             this.InterruptShockWaveCB.TabIndex = 2;
             this.InterruptShockWaveCB.Text = "ShockWave";
             this.InterruptShockWaveCB.UseVisualStyleBackColor = true;
-            // 
-            // InterruptDisruptingShoutCB
-            // 
-            this.InterruptDisruptingShoutCB.AutoSize = true;
-            this.InterruptDisruptingShoutCB.Location = new System.Drawing.Point(6, 52);
-            this.InterruptDisruptingShoutCB.Name = "InterruptDisruptingShoutCB";
-            this.InterruptDisruptingShoutCB.Size = new System.Drawing.Size(129, 22);
-            this.InterruptDisruptingShoutCB.TabIndex = 1;
-            this.InterruptDisruptingShoutCB.Text = "Disrupting Shout";
-            this.InterruptDisruptingShoutCB.UseVisualStyleBackColor = true;
             // 
             // InterruptPummelCB
             // 
@@ -650,8 +626,7 @@ namespace InnerRage.Interface {
             this.BuffComboBox.FormattingEnabled = true;
             this.BuffComboBox.Items.AddRange(new object[] {
             "Battle Shout",
-            "Commanding Shout",
-            "Auto"});
+            "Commanding Shout"});
             this.BuffComboBox.Location = new System.Drawing.Point(6, 48);
             this.BuffComboBox.Name = "BuffComboBox";
             this.BuffComboBox.Size = new System.Drawing.Size(153, 26);
@@ -844,7 +819,6 @@ namespace InnerRage.Interface {
         private GroupBox groupBox1;
         private CheckBox InterruptStormBoltCB;
         private CheckBox InterruptShockWaveCB;
-        private CheckBox InterruptDisruptingShoutCB;
         private CheckBox InterruptPummelCB;
         private GroupBox Buffs;
         private CheckBox checkBuffs;
@@ -862,7 +836,6 @@ namespace InnerRage.Interface {
         private CheckBox TalentsBloodBathCB;
         private ComboBox TalentsRecklessnessCondition;
         private CheckBox TalentSyncRavager;
-        private CheckBox TalentSyncBladestorm;
         private CheckBox TalentSyncAvatar;
         private CheckBox TalentSyncDragonRoar;
         private PictureBox pictureBox1;

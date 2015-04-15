@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
+using Styx;
 using Styx.Common;
 using Styx.WoWInternals;
 
@@ -26,9 +27,7 @@ namespace InnerRage.Core.Managers
             HotkeysManager.Register("noAoe", Keys.V, ModifierKeys.Alt, ret =>
             {
                 NoAoe = !NoAoe;
-                Lua.DoString(NoAoe
-                    ? @"print('AoE Mode: \124cFF15E61C No AoE allowed!')"
-                    : @"print('AoE Mode: \124cFFE61515 AoE is allowed!')");
+                StyxWoW.Overlay.AddToast((NoAoe ? "Aoe Mode Disabled" : "Aoe Mode Enabled"), 2000);
             });
            
         }

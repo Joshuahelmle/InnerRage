@@ -24,7 +24,7 @@ namespace InnerRage
         /// <summary>
         /// used to log debug Messages, defaults to false.
         /// </summary>
-        public static bool Debug = true;
+        public static bool Debug = false;
         private static Version _version = new Version(1, 0, 0);
 
         public static Version Version { get { return _version; } }
@@ -85,11 +85,11 @@ namespace InnerRage
 
             if (settingsForm.ShowDialog() == DialogResult.OK)
             {
-                SettingsManager.Init(GlobalSettings.GetFullPathToProfile(GlobalSettings.Instance.LastUsedProfile));
+               // SettingsManager.Init(GlobalSettings.GetFullPathToProfile(GlobalSettings.Instance.LastUsedProfile));
                 AbilityManager.ReloadAbilities();
                // ItemManager.LoadDataSet();
 
-                Log.Gui(string.Format("Profile [{0}] saved and loaded.", GlobalSettings.Instance.LastUsedProfile));
+                Log.Gui(string.Format("Profile saved and loaded."));
             }
         }
         public override void Pulse()

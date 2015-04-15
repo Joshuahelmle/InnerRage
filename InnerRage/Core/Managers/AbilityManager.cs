@@ -243,6 +243,7 @@ namespace InnerRage.Core.Managers
             this.Abilities.Add(new RacialsBloodElfAbility());
             this.Abilities.Add(new RacialsTrollBerserkingAbility());
             this.Abilities.Add(new RacialHumanAbility());
+            this.Abilities.Add(new Pummel());
             
             #endregion
 

@@ -82,6 +82,7 @@ namespace InnerRage.Core.Routines
 
         private static async Task<bool> FuryCombatRotation()
         {
+            if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<WildStrikeRageDumpAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<BloodThirstToEnrageOrRagingBlowStacksAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
@@ -106,6 +107,7 @@ namespace InnerRage.Core.Routines
             if (HkM.NoAoe)
                 await FuryCombatRotation();
 
+            if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RagingBlowWithMeatCleaverAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<BloodThirstToEnrageOrRagingBlowStacksAbility>(MyCurrentTarget)) return true;
@@ -125,7 +127,7 @@ namespace InnerRage.Core.Routines
             if (HkM.NoAoe)
                 await FuryCombatRotation();
 
-
+            if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<BladeStormAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<BloodThirstToEnrageOrRagingBlowStacksAbility>(MyCurrentTarget)) return true;
@@ -151,7 +153,7 @@ namespace InnerRage.Core.Routines
             if (HkM.NoAoe)
                 await FuryCombatRotation();
 
-
+            if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<DragonRoarAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<BladeStormAbility>(MyCurrentTarget)) return true;
@@ -178,7 +180,7 @@ namespace InnerRage.Core.Routines
         private static async Task<bool> ArmsCombatRotation()
         {
 
-
+            if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<Abilities.Arms.RendAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<Abilities.Arms.CollosusSmashAbility>(MyCurrentTarget)) return true;
@@ -201,6 +203,7 @@ namespace InnerRage.Core.Routines
 
         private static async Task<bool> ArmsAoeRotation()
         {
+            if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<SweepingStrikesAbility>(Me)) return true;
             if (await Abilities.Cast<RendAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RendAbility>(Units.LastKnownNonBleedingEnemies.FirstOrDefault())) return true;

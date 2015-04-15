@@ -59,18 +59,5 @@ namespace InnerRage.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
-        ///{\*\generator Riched20 6.3.9600}\viewkind4\uc1 
-        ///\pard\sa200\sl276\slmult1\f0\fs22\lang9 This is a sample embedded RTF file. You can use your own and replace the resouce named &quot;About&quot; to load a different file.\par
-        ///You can use WordPad on windows to design this, including any images, links, drawings, etc. This box will display any file that is in Rich Text format so be sure to save it as a .rtf.\par
-        ///I hope this help [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string Document {
-            get {
-                return ResourceManager.GetString("Document", resourceCulture);
-            }
-        }
     }
 }

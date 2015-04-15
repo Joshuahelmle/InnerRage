@@ -77,6 +77,7 @@
     <Compile Include="Core\Abilities\Shared\ExecuteAbility.cs" />
     <Compile Include="Core\Abilities\Shared\ExecuteWithSuddenDeathAbility.cs" />
     <Compile Include="Core\Abilities\Shared\ImpendingVictoryAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\Pummel.cs" />
     <Compile Include="Core\Abilities\Shared\Racials\RacialHumanAbility.cs" />
     <Compile Include="Core\Abilities\Shared\RavagerAbility.cs" />
     <Compile Include="Core\Abilities\Fury\WildStrikeRageDumpAbility.cs" />
@@ -152,7 +153,7 @@
     <Compile Include="Core\Conditions\TargetMaxTimeToDieCondition.cs" />
     <Compile Include="Core\Conditions\TargetNotInExecuteRangeCondition.cs" />
     <Compile Include="Core\Extensions.cs" />
-    <Compile Include="Core\Managers\AbilityException.cs" />
+    <Compile Include="Core\Managers\InterruptManager.cs" />
     <Compile Include="Core\Managers\AbilityManager.cs" />
     <Compile Include="Core\Managers\CastManager.cs" />
     <Compile Include="Core\Managers\GlobalSettings.cs" />
@@ -165,8 +166,6 @@
     <Compile Include="Core\Routines\PreCombat.cs" />
     <Compile Include="Core\SpellBook.cs" />
     <Compile Include="Core\Utilities\Log.cs" />
-    <Compile Include="Debug\DebugTalents.cs" />
-    <Compile Include="Debug\IDebug.cs" />
     <Compile Include="Interface\Resources.Designer.cs" />
     <Compile Include="Interface\Settings.cs">
       <SubType>Form</SubType>
@@ -187,7 +186,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Interface\Resources.resx" />
+    <EmbeddedResource Include="Interface\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,8 +1,7 @@
-﻿using System;
+﻿/* CREDIT : Almost all of the code in this class is Work of SnowCrash , thanks for giving me insight and creative ideas buddy! */
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using InnerRage.Core.Conditions;
-using InnerRage.Core.Utilities;
 using Styx;
 using Styx.WoWInternals;
 using Styx.WoWInternals.WoWObjects;

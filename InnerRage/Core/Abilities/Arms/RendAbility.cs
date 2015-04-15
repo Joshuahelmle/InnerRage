@@ -28,8 +28,8 @@ namespace InnerRage.Core.Abilities.Arms
             base.Conditions.Clear();
             if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
             if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
-            base.Conditions.Add(new InMeeleRangeCondition());
             base.Conditions.Add(new BooleanCondition(Target != null));
+            base.Conditions.Add(new InMeeleRangeCondition());
             base.Conditions.Add(new ConditionOrList(
                 new AuraMaxRemaningTimeCondition(TimeSpan.FromSeconds(4.5), Spell, target),
                 new DoesNotHaveAuraUpCondition(Target, Spell)));
