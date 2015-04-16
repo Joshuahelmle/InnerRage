@@ -66,9 +66,9 @@ namespace InnerRage.Core.Routines
             if (Main.Debug)
             {
                 Log.Diagnostics(String.Format("AbilityQueueDone is Empty: {0}",
-                    AbilityQueueDone.Any()));
+                    !AbilityQueueDone.Any()));
                 Log.Diagnostics(String.Format("AbilityQueue is Empty: {0}",
-                    AbilityQueue.Any()));
+                    !AbilityQueue.Any()));
             }
 
             foreach (var cast in AbilityQueueDone)
@@ -82,6 +82,11 @@ namespace InnerRage.Core.Routines
             {
                 foreach (var cast in AbilityQueue)
                 {
+                    if (cast.MustWaitForSpellCooldown && new SpellIsOnCooldownCondition(cast.Spell).Satisfied())
+                    {
+                        AbilityQueueDone.Add(cast);
+                        return false;
+                    }
                     if (cast.Category == AbilityCategory.Buff)
                     {
                         if (await CastManager.CastOnTarget(Me, cast, cast.Conditions))
