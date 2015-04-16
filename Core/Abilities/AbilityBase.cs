@@ -18,8 +18,8 @@ namespace InnerRage.Core.Abilities
         private WoWSpell _woWSpell;
         // protected static SettingsManager Settings { get { return SettingsManager.Instance; } }
 
-        protected bool MustWaitForGlobalCooldown;
-        protected bool MustWaitForSpellCooldown;
+        protected internal bool MustWaitForGlobalCooldown;
+        protected internal bool MustWaitForSpellCooldown;
 
         /// <summary>
         ///     <para>The default declaration defines an instant use ability that is on the GCD</para>
@@ -91,6 +91,14 @@ namespace InnerRage.Core.Abilities
         public virtual void Update()
         {
             // Filler so that every implementing class does not have to update and those that need to can just override.
+        }
+
+        public virtual void initBaseConditions()
+        {
+            if (MustWaitForGlobalCooldown) Conditions.Add(new IsOffGlobalCooldownCondition());
+            if (MustWaitForSpellCooldown) Conditions.Add(new SpellIsNotOnCooldownCondition(Spell));
+            if (Category == AbilityCategory.Combat)
+                Conditions.Add(new InMeeleRangeCondition());
         }
     }
 }

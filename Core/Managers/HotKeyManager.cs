@@ -1,8 +1,10 @@
 ﻿using System.Windows.Forms;
 using System.Windows.Media;
 using InnerRage.Core.Abilities.Shared;
+using InnerRage.Core.Routines;
 using Styx;
 using Styx.Common;
+using Styx.Patchables;
 using Styx.WoWInternals;
 
 namespace InnerRage.Core.Managers
@@ -27,7 +29,21 @@ namespace InnerRage.Core.Managers
             });
 
             HotkeysManager.Register("Test Ability", Keys.G, ModifierKeys.Control,
-                ret => { AbilityManager.Instance.Cast<DieByTheSwordAbility>(StyxWoW.Me); });
+                ret =>
+                {
+                    RallyingCryAbility cast = new RallyingCryAbility();
+                    cast.Conditions.Clear();
+                    cast.initBaseConditions();
+                    if (!Combat.AbilityQueue.Contains(cast))
+                    {
+                        Combat.AbilityQueue.Add(cast);
+                        StyxWoW.Overlay.AddToast("Queued Rallying Cry", 2000);
+                    }
+                    else
+                    {
+                        StyxWoW.Overlay.AddToast("Rallying Cry already queued up", 2000);  
+                    }
+                });
         }
 
         #endregion
