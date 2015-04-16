@@ -296,6 +296,9 @@ namespace InnerRage.Core.Routines
         {
             if(Main.Debug) Log.Diagnostics("In ProtectionCombatRotation Call()");
             if (await InterruptManager.CheckMyTarget()) return true;
+            if (await Abilities.Cast<ShieldBlock>(Me)) return false; // not on global
+            if (await Abilities.Cast<ShieldBarrierAbility>(Me)) return false; //not on global
+            if (await Abilities.Cast<DemoralizingShoutAbility>(MyCurrentTarget)) return false; //not on global
             if (await Abilities.Cast<HeroicStrikeAbility>(MyCurrentTarget)) return false; //is not on the GCD
             if (await Abilities.Cast<ShieldSlamAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RevengeAbility>(MyCurrentTarget)) return true;

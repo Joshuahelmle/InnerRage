@@ -72,12 +72,17 @@
     <Compile Include="Core\Abilities\Fury\WhirlWindToGetMeatCleaverStacksAbility.cs" />
     <Compile Include="Core\Abilities\Fury\WildStrikeWithBloodSurgeUpAbility.cs" />
     <Compile Include="Core\Abilities\Fury\WildStrikeWithoutBloodSurgeAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\DemoralizingShoutAbility.cs" />
     <Compile Include="Core\Abilities\Protection\DevastateAbility.cs" />
     <Compile Include="Core\Abilities\Protection\HeroicStrikeAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\LastStandAbility.cs" />
     <Compile Include="Core\Abilities\Protection\ProtThunderClapAbility.cs" />
     <Compile Include="Core\Abilities\Protection\RevengeAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\ShieldBarrierAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\ShieldBlock.cs" />
     <Compile Include="Core\Abilities\Protection\ShieldSlamAbility.cs" />
     <Compile Include="Core\Abilities\Protection\ShieldSlamWithBlockUpAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\ShieldWallAbility.cs" />
     <Compile Include="Core\Abilities\Shared\BerserkerBreakCCAbility.cs" />
     <Compile Include="Core\Abilities\Shared\BladeStormAbility.cs" />
     <Compile Include="Core\Abilities\Shared\DieByTheSwordAbility.cs" />

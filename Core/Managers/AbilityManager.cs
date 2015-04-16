@@ -75,12 +75,17 @@ namespace InnerRage.Core.Managers
             #endregion
 
             #region [IR] - Prot
+            Abilities.Add(new DemoralizingShoutAbility());
             Abilities.Add(new DevastateAbility());
             Abilities.Add(new HeroicStrikeAbility());
+            Abilities.Add(new LastStandAbility());
             Abilities.Add(new ProtThunderClapAbility());
             Abilities.Add(new RevengeAbility());
+            Abilities.Add(new ShieldBarrierAbility());
+            Abilities.Add(new ShieldBlock());
             Abilities.Add(new ShieldSlamAbility());
             Abilities.Add(new ShieldSlamWithBlockUpAbility());
+            Abilities.Add(new ShieldWallAbility());
             #endregion
             #region [IR] - Shared
 

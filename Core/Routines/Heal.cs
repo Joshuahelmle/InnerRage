@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using InnerRage.Core.Abilities.Protection;
 using InnerRage.Core.Abilities.Shared;
 using InnerRage.Core.Managers;
 using Styx;
@@ -43,6 +44,8 @@ namespace InnerRage.Core.Routines
         {
             //   if (await ItemManager.UseHealthstone()) return true;
             //  if (await ItemManager.UseEligibleItems(MyState.CombatHealing)) return true;
+            if (await Abilities.Cast<LastStandAbility>(Me)) return false;
+            if (await Abilities.Cast<ShieldWallAbility>(Me)) return false;
             if (await Abilities.Cast<RallyingCryAbility>(Me)) return false;
             if (await Abilities.Cast<DieByTheSwordAbility>(Me)) return false;
             if (await Abilities.Cast<EnragedRegenerationAbility>(Me)) return false;

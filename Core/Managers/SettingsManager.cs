@@ -201,7 +201,15 @@ namespace InnerRage.Core.Managers
 
         [Setting, DefaultValue(25)]
         public int UseDieByTheSwordHP { get; set; }
-
+        [Setting, DefaultValue(false)]
+        public bool UseShieldWall { get; set; }
+        [Setting, DefaultValue(25)]
+        public int UseShieldWallHP { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool UseLastStand { get; set; }
+        [Setting, DefaultValue(25)]
+        public int UseLastStandHP { get; set; }
         #endregion
+       
     }
 }
