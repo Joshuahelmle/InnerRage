@@ -187,6 +187,12 @@ namespace InnerRage.Interface
             Log.Diagnostics(String.Format(" SMInstance.Instance.DieByTheSword : {0} , on {1} HP",
                 SMInstance.Instance.UseDieByTheSword,
                 SMInstance.Instance.UseDieByTheSwordHP));
+            Log.Diagnostics(String.Format("SMInstance.Instance.Bladestorm only on AoECount : {0} , on {1} Targets",
+            SMInstance.Instance.BladestormOnlyOnAoECount,
+            SMInstance.Instance.BladestormAoeCount));
+            Log.Diagnostics(String.Format("SMInstance.Instance.Bladestorm only on Boss : {0}",
+            SMInstance.Instance.BladestormOnlyOnBoss
+            ));
             }
         }
 

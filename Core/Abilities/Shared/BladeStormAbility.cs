@@ -37,10 +37,6 @@ namespace InnerRage.Core.Abilities.Shared
             base.Conditions.Add(new ConditionSwitchTester(
                 new IsInCurrentSpecializationCondition(WoWSpec.WarriorFury),
                 new DoesHaveEnrageUpCondition()));
-            base.Conditions.Add( //Sync with Bloodbath
-                new ConditionSwitchTester(
-                    new BooleanCondition(SettingsManager.Instance.TalentSyncBladeStorm),
-                    new BloodBathUpOrNotEnabledCondition()));
             base.Conditions.Add(new ConditionSwitchTester(
                 new IsInCurrentSpecializationCondition(WoWSpec.WarriorArms), // if in Arms specc then
                 new ConditionOrList(

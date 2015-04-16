@@ -688,17 +688,14 @@ namespace InnerRage.Interface {
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.EnragedRegenerationCB);
-            this.groupBox2.Controls.Add(this.TalentRavagerCB);
-            this.groupBox2.Controls.Add(this.TalentBladeStormCB);
             this.groupBox2.Controls.Add(this.TalentAvatarCB);
-            this.groupBox2.Controls.Add(this.TalentDragonRoarCB);
             this.groupBox2.Controls.Add(this.TalentShockWaveCB);
             this.groupBox2.Controls.Add(this.TalentStormBoltCB);
             this.groupBox2.Controls.Add(this.TalentsBloodBathCB);
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 162);
+            this.groupBox2.Location = new System.Drawing.Point(6, 184);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(183, 298);
+            this.groupBox2.Size = new System.Drawing.Size(183, 276);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Talents";
@@ -716,27 +713,27 @@ namespace InnerRage.Interface {
             // TalentRavagerCB
             // 
             this.TalentRavagerCB.AutoSize = true;
-            this.TalentRavagerCB.Location = new System.Drawing.Point(7, 222);
+            this.TalentRavagerCB.Location = new System.Drawing.Point(7, 27);
             this.TalentRavagerCB.Name = "TalentRavagerCB";
-            this.TalentRavagerCB.Size = new System.Drawing.Size(76, 22);
+            this.TalentRavagerCB.Size = new System.Drawing.Size(130, 22);
             this.TalentRavagerCB.TabIndex = 6;
-            this.TalentRavagerCB.Text = "Ravager";
+            this.TalentRavagerCB.Text = "Ravager enabled";
             this.TalentRavagerCB.UseVisualStyleBackColor = true;
             // 
             // TalentBladeStormCB
             // 
             this.TalentBladeStormCB.AutoSize = true;
-            this.TalentBladeStormCB.Location = new System.Drawing.Point(6, 194);
+            this.TalentBladeStormCB.Location = new System.Drawing.Point(7, 21);
             this.TalentBladeStormCB.Name = "TalentBladeStormCB";
-            this.TalentBladeStormCB.Size = new System.Drawing.Size(98, 22);
+            this.TalentBladeStormCB.Size = new System.Drawing.Size(152, 22);
             this.TalentBladeStormCB.TabIndex = 5;
-            this.TalentBladeStormCB.Text = "Bladestorm";
+            this.TalentBladeStormCB.Text = "Bladestorm enabled";
             this.TalentBladeStormCB.UseVisualStyleBackColor = true;
             // 
             // TalentAvatarCB
             // 
             this.TalentAvatarCB.AutoSize = true;
-            this.TalentAvatarCB.Location = new System.Drawing.Point(7, 138);
+            this.TalentAvatarCB.Location = new System.Drawing.Point(7, 110);
             this.TalentAvatarCB.Name = "TalentAvatarCB";
             this.TalentAvatarCB.Size = new System.Drawing.Size(67, 22);
             this.TalentAvatarCB.TabIndex = 4;
@@ -746,11 +743,11 @@ namespace InnerRage.Interface {
             // TalentDragonRoarCB
             // 
             this.TalentDragonRoarCB.AutoSize = true;
-            this.TalentDragonRoarCB.Location = new System.Drawing.Point(6, 110);
+            this.TalentDragonRoarCB.Location = new System.Drawing.Point(7, 25);
             this.TalentDragonRoarCB.Name = "TalentDragonRoarCB";
-            this.TalentDragonRoarCB.Size = new System.Drawing.Size(96, 22);
+            this.TalentDragonRoarCB.Size = new System.Drawing.Size(150, 22);
             this.TalentDragonRoarCB.TabIndex = 3;
-            this.TalentDragonRoarCB.Text = "Dragonroar";
+            this.TalentDragonRoarCB.Text = "Dragonroar enabled";
             this.TalentDragonRoarCB.UseVisualStyleBackColor = true;
             // 
             // TalentShockWaveCB
@@ -776,7 +773,7 @@ namespace InnerRage.Interface {
             // TalentsBloodBathCB
             // 
             this.TalentsBloodBathCB.AutoSize = true;
-            this.TalentsBloodBathCB.Location = new System.Drawing.Point(6, 166);
+            this.TalentsBloodBathCB.Location = new System.Drawing.Point(7, 138);
             this.TalentsBloodBathCB.Name = "TalentsBloodBathCB";
             this.TalentsBloodBathCB.Size = new System.Drawing.Size(91, 22);
             this.TalentsBloodBathCB.TabIndex = 0;
@@ -787,19 +784,20 @@ namespace InnerRage.Interface {
             // 
             this.groupBox8.Controls.Add(this.DragonRoarAoECount);
             this.groupBox8.Controls.Add(this.DragonRoarAoECountCB);
+            this.groupBox8.Controls.Add(this.TalentDragonRoarCB);
             this.groupBox8.Controls.Add(this.DragonRoarOnlyOnBossCB);
             this.groupBox8.Controls.Add(this.TalentSyncDragonRoar);
             this.groupBox8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(521, 9);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(293, 142);
+            this.groupBox8.Size = new System.Drawing.Size(293, 169);
             this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Dragonroar";
             // 
             // DragonRoarAoECount
             // 
-            this.DragonRoarAoECount.Location = new System.Drawing.Point(7, 80);
+            this.DragonRoarAoECount.Location = new System.Drawing.Point(7, 108);
             this.DragonRoarAoECount.Name = "DragonRoarAoECount";
             this.DragonRoarAoECount.Size = new System.Drawing.Size(100, 26);
             this.DragonRoarAoECount.TabIndex = 4;
@@ -807,7 +805,7 @@ namespace InnerRage.Interface {
             // DragonRoarAoECountCB
             // 
             this.DragonRoarAoECountCB.AutoSize = true;
-            this.DragonRoarAoECountCB.Location = new System.Drawing.Point(7, 49);
+            this.DragonRoarAoECountCB.Location = new System.Drawing.Point(7, 77);
             this.DragonRoarAoECountCB.Name = "DragonRoarAoECountCB";
             this.DragonRoarAoECountCB.Size = new System.Drawing.Size(207, 22);
             this.DragonRoarAoECountCB.TabIndex = 1;
@@ -817,7 +815,7 @@ namespace InnerRage.Interface {
             // DragonRoarOnlyOnBossCB
             // 
             this.DragonRoarOnlyOnBossCB.AutoSize = true;
-            this.DragonRoarOnlyOnBossCB.Location = new System.Drawing.Point(7, 21);
+            this.DragonRoarOnlyOnBossCB.Location = new System.Drawing.Point(7, 49);
             this.DragonRoarOnlyOnBossCB.Name = "DragonRoarOnlyOnBossCB";
             this.DragonRoarOnlyOnBossCB.Size = new System.Drawing.Size(104, 22);
             this.DragonRoarOnlyOnBossCB.TabIndex = 0;
@@ -829,7 +827,7 @@ namespace InnerRage.Interface {
             this.TalentSyncDragonRoar.AutoSize = true;
             this.TalentSyncDragonRoar.Checked = true;
             this.TalentSyncDragonRoar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TalentSyncDragonRoar.Location = new System.Drawing.Point(7, 106);
+            this.TalentSyncDragonRoar.Location = new System.Drawing.Point(6, 140);
             this.TalentSyncDragonRoar.Name = "TalentSyncDragonRoar";
             this.TalentSyncDragonRoar.Size = new System.Drawing.Size(225, 22);
             this.TalentSyncDragonRoar.TabIndex = 3;
@@ -847,9 +845,9 @@ namespace InnerRage.Interface {
             this.groupBox3.Controls.Add(this.TalentsBloodBathCondition);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(195, 162);
+            this.groupBox3.Location = new System.Drawing.Point(195, 184);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(619, 298);
+            this.groupBox3.Size = new System.Drawing.Size(619, 276);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Talents - Advanced Options";
@@ -938,19 +936,20 @@ namespace InnerRage.Interface {
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.BladestormAoECount);
+            this.groupBox7.Controls.Add(this.TalentBladeStormCB);
             this.groupBox7.Controls.Add(this.BladestormOnlyAoECountCB);
             this.groupBox7.Controls.Add(this.BladestormOnlyBossCB);
             this.groupBox7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(263, 9);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(251, 142);
+            this.groupBox7.Size = new System.Drawing.Size(251, 169);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Bladestorm";
             // 
             // BladestormAoECount
             // 
-            this.BladestormAoECount.Location = new System.Drawing.Point(7, 80);
+            this.BladestormAoECount.Location = new System.Drawing.Point(6, 108);
             this.BladestormAoECount.Name = "BladestormAoECount";
             this.BladestormAoECount.Size = new System.Drawing.Size(100, 26);
             this.BladestormAoECount.TabIndex = 2;
@@ -958,7 +957,7 @@ namespace InnerRage.Interface {
             // BladestormOnlyAoECountCB
             // 
             this.BladestormOnlyAoECountCB.AutoSize = true;
-            this.BladestormOnlyAoECountCB.Location = new System.Drawing.Point(7, 52);
+            this.BladestormOnlyAoECountCB.Location = new System.Drawing.Point(7, 77);
             this.BladestormOnlyAoECountCB.Name = "BladestormOnlyAoECountCB";
             this.BladestormOnlyAoECountCB.Size = new System.Drawing.Size(207, 22);
             this.BladestormOnlyAoECountCB.TabIndex = 1;
@@ -968,7 +967,7 @@ namespace InnerRage.Interface {
             // BladestormOnlyBossCB
             // 
             this.BladestormOnlyBossCB.AutoSize = true;
-            this.BladestormOnlyBossCB.Location = new System.Drawing.Point(7, 24);
+            this.BladestormOnlyBossCB.Location = new System.Drawing.Point(7, 49);
             this.BladestormOnlyBossCB.Name = "BladestormOnlyBossCB";
             this.BladestormOnlyBossCB.Size = new System.Drawing.Size(104, 22);
             this.BladestormOnlyBossCB.TabIndex = 0;
@@ -978,20 +977,21 @@ namespace InnerRage.Interface {
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.RavagerAoeCount);
+            this.groupBox6.Controls.Add(this.TalentRavagerCB);
             this.groupBox6.Controls.Add(this.RavagerOnlyAoECountCB);
             this.groupBox6.Controls.Add(this.RavagerOnlyBossCB);
             this.groupBox6.Controls.Add(this.TalentSyncRavager);
             this.groupBox6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(6, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(251, 145);
+            this.groupBox6.Size = new System.Drawing.Size(251, 172);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Ravager";
             // 
             // RavagerAoeCount
             // 
-            this.RavagerAoeCount.Location = new System.Drawing.Point(7, 79);
+            this.RavagerAoeCount.Location = new System.Drawing.Point(6, 111);
             this.RavagerAoeCount.Name = "RavagerAoeCount";
             this.RavagerAoeCount.Size = new System.Drawing.Size(100, 26);
             this.RavagerAoeCount.TabIndex = 2;
@@ -999,7 +999,7 @@ namespace InnerRage.Interface {
             // RavagerOnlyAoECountCB
             // 
             this.RavagerOnlyAoECountCB.AutoSize = true;
-            this.RavagerOnlyAoECountCB.Location = new System.Drawing.Point(7, 52);
+            this.RavagerOnlyAoECountCB.Location = new System.Drawing.Point(7, 83);
             this.RavagerOnlyAoECountCB.Name = "RavagerOnlyAoECountCB";
             this.RavagerOnlyAoECountCB.Size = new System.Drawing.Size(207, 22);
             this.RavagerOnlyAoECountCB.TabIndex = 1;
@@ -1009,7 +1009,7 @@ namespace InnerRage.Interface {
             // RavagerOnlyBossCB
             // 
             this.RavagerOnlyBossCB.AutoSize = true;
-            this.RavagerOnlyBossCB.Location = new System.Drawing.Point(7, 24);
+            this.RavagerOnlyBossCB.Location = new System.Drawing.Point(7, 55);
             this.RavagerOnlyBossCB.Name = "RavagerOnlyBossCB";
             this.RavagerOnlyBossCB.Size = new System.Drawing.Size(104, 22);
             this.RavagerOnlyBossCB.TabIndex = 0;
@@ -1021,7 +1021,7 @@ namespace InnerRage.Interface {
             this.TalentSyncRavager.AutoSize = true;
             this.TalentSyncRavager.Checked = true;
             this.TalentSyncRavager.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TalentSyncRavager.Location = new System.Drawing.Point(7, 109);
+            this.TalentSyncRavager.Location = new System.Drawing.Point(6, 143);
             this.TalentSyncRavager.Name = "TalentSyncRavager";
             this.TalentSyncRavager.Size = new System.Drawing.Size(205, 22);
             this.TalentSyncRavager.TabIndex = 6;
