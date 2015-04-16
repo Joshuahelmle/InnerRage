@@ -315,6 +315,9 @@ namespace InnerRage.Core.Routines
             if (HkM.NoAoe) await ProtectionCombatRotation();
             if (Main.Debug) Log.Diagnostics("In ProtectionAoeRotation Call()");
             if (await InterruptManager.CheckMyTarget()) return true;
+            if (await Abilities.Cast<ShieldBlock>(Me)) return false; // not on global
+            if (await Abilities.Cast<ShieldBarrierAbility>(Me)) return false; //not on global
+            if (await Abilities.Cast<DemoralizingShoutAbility>(MyCurrentTarget)) return false; //not on global
             if (await Abilities.Cast<HeroicStrikeAbility>(MyCurrentTarget)) return false; //not on GCD
             if (await Abilities.Cast<ShieldSlamWithBlockUpAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
