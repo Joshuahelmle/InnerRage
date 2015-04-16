@@ -47,6 +47,12 @@ namespace InnerRage.Core.Managers
                         Combat.AbilityQueueDone.Add(cast);
                     }
                 });
+
+            HotkeysManager.Register("Debug Mode", Keys.NumPad0, ModifierKeys.Alt, ret =>
+            {
+                Main.Debug = !Main.Debug;
+                StyxWoW.Overlay.AddToast((Main.Debug ? "Debug in Log Activated" : "Debug in Log deactivated"), 2000);
+            });
         }
 
         #endregion
