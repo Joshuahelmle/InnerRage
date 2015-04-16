@@ -4,7 +4,7 @@ using Styx.Common;
 namespace InnerRage.Core.Utilities
 {
     /// <summary>
-    /// Logging class.
+    ///     Logging class.
     /// </summary>
     public static class Log
     {

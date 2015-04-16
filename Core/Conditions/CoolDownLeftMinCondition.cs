@@ -3,10 +3,10 @@ using Styx.WoWInternals;
 
 namespace InnerRage.Core.Conditions
 {
-    class CoolDownLeftMinCondition : ICondition
+    internal class CoolDownLeftMinCondition : ICondition
     {
-        private WoWSpell _spell;
-        private TimeSpan _maxCooldown;
+        private readonly TimeSpan _maxCooldown;
+        private readonly WoWSpell _spell;
 
         public CoolDownLeftMinCondition(WoWSpell spell, TimeSpan maxCooldown)
         {

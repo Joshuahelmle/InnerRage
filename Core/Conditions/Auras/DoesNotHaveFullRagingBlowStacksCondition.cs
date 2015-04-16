@@ -2,7 +2,7 @@
 
 namespace InnerRage.Core.Conditions.Auras
 {
-    class DoesNotHaveFullRagingBlowStacksCondition: ICondition
+    internal class DoesNotHaveFullRagingBlowStacksCondition : ICondition
     {
         public bool Satisfied()
         {
@@ -10,7 +10,7 @@ namespace InnerRage.Core.Conditions.Auras
             {
                 return StyxWoW.Me.GetAuraById(SpellBook.AuraRagingBlow).StackCount < 2;
             }
-            else return false;
+            return false;
         }
     }
 }

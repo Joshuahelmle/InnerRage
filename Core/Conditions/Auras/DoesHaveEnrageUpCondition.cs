@@ -2,7 +2,7 @@
 
 namespace InnerRage.Core.Conditions
 {
-    class DoesHaveEnrageUpCondition : ICondition
+    internal class DoesHaveEnrageUpCondition : ICondition
     {
         public bool Satisfied()
         {

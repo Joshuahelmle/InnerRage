@@ -4,25 +4,22 @@ using System.Linq;
 namespace InnerRage.Core.Conditions
 {
     /// <summary>
-    /// Condition dependency list where each condition must be satisfied to return true.
+    ///     Condition dependency list where each condition must be satisfied to return true.
     /// </summary>
     public class ConditionAndList : List<ICondition>, ICondition
     {
         public ConditionAndList()
-            : base()
         {
         }
 
         public ConditionAndList(params ICondition[] conditions)
         {
-            this.AddRange(conditions);
+            AddRange(conditions);
         }
 
         public bool Satisfied()
         {
             return this.All(item => item.Satisfied());
         }
-
-        
     }
 }

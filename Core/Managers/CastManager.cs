@@ -1,11 +1,11 @@
 ﻿/* CREDIT : Almost all of the code in this class is Work of SnowCrash , thanks for giving me insight and creative ideas buddy! */
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Buddy.Coroutines;
 using InnerRage.Core.Abilities;
-using InnerRage.Core.Abilities.Arms;
 using InnerRage.Core.Abilities.Fury;
 using InnerRage.Core.Conditions;
 using InnerRage.Core.Utilities;
@@ -13,7 +13,6 @@ using Styx;
 using Styx.CommonBot;
 using Styx.CommonBot.Coroutines;
 using Styx.Pathing;
-using Styx.WoWInternals;
 using Styx.WoWInternals.WoWObjects;
 
 namespace InnerRage.Core
@@ -50,12 +49,12 @@ namespace InnerRage.Core
             foreach (var condition in conditions)
                 if (!condition.Satisfied())
                 {
-                    if(Main.Debug && !(condition is IsOffGlobalCooldownCondition))
-                    if (Main.Debug) Log.Diagnostics("In " + ability + "call.");
-                    if (Main.Debug) 
-                       Log.Diagnostics("Failed at condition:" + condition);
-                    
-                   // if(Main.Debug) Log.Diagnostics("current Target: " + target);
+                    if (Main.Debug && !(condition is IsOffGlobalCooldownCondition))
+                        if (Main.Debug) Log.Diagnostics("In " + ability + "call.");
+                    if (Main.Debug)
+                        Log.Diagnostics("Failed at condition:" + condition);
+
+                    // if(Main.Debug) Log.Diagnostics("current Target: " + target);
                     return false;
                 }
 
@@ -101,14 +100,13 @@ namespace InnerRage.Core
             return true;
         }
 
-        public static async Task<bool> DropCast(IAbility ability, WoWUnit target, List<ICondition> conditions )
+        public static async Task<bool> DropCast(IAbility ability, WoWUnit target, List<ICondition> conditions)
         {
-
             foreach (var condition in conditions)
                 if (!condition.Satisfied())
                 {
                     if (Main.Debug) Log.Diagnostics("Failed at condition:" + condition);
-                   
+
                     return false;
                 }
 
@@ -123,7 +121,7 @@ namespace InnerRage.Core
                 return false;
             }
 
-            WoWPoint targetLocationOnGround = new WoWPoint(target.Location.X, target.Location.Y, StyxWoW.Me.Z);
+            var targetLocationOnGround = new WoWPoint(target.Location.X, target.Location.Y, StyxWoW.Me.Z);
             SpellManager.ClickRemoteLocation(targetLocationOnGround);
 
             var logColor = Colors.CornflowerBlue;
@@ -154,9 +152,6 @@ namespace InnerRage.Core
 
             await CommonCoroutines.SleepForLagDuration();
             return true;
-
-
-        
         }
 
         public static float HeightOffTheGround(WoWUnit unit)
@@ -168,6 +163,5 @@ namespace InnerRage.Core
 
             return unit.Z;
         }
-
     }
 }

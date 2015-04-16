@@ -2,15 +2,15 @@
 
 namespace InnerRage.Core.Conditions
 {
-    class IsInCurrentSpecializationCondition :ICondition
+    internal class IsInCurrentSpecializationCondition : ICondition
     {
+        private readonly WoWSpec _currentSpec;
 
-        private WoWSpec _currentSpec;
-
-       public IsInCurrentSpecializationCondition(WoWSpec currentSpec)
+        public IsInCurrentSpecializationCondition(WoWSpec currentSpec)
         {
-            this._currentSpec = currentSpec;
+            _currentSpec = currentSpec;
         }
+
         public bool Satisfied()
         {
             return StyxWoW.Me.Specialization == _currentSpec;

@@ -6,20 +6,19 @@ using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Shared.Racials
 {
-    class RacialsBloodElfAbility : AbilityBase
+    internal class RacialsBloodElfAbility : AbilityBase
     {
         public RacialsBloodElfAbility()
             : base(WoWSpell.FromId(SpellBook.RacialBloodElfArcaneTorrent), false, true)
         {
-            base.Category = AbilityCategory.Buff;
-            base.Conditions.Add(new IsRaceCondition(WoWRace.BloodElf));
-            base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseBloodElfRacial));
-            base.Conditions.Add(new ConditionSwitchTester(
+            Category = AbilityCategory.Buff;
+            Conditions.Add(new IsRaceCondition(WoWRace.BloodElf));
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseBloodElfRacial));
+            Conditions.Add(new ConditionSwitchTester(
                 new GlyphUnendingRageCondition(),
                 new MaxRageCondition(80),
                 new MaxRageCondition(60)
-            ));
-                
+                ));
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace InnerRage.Core.Conditions
 {
-    class BloodBathIsUpCondition : ICondition
+    internal class BloodBathIsUpCondition : ICondition
     {
         public bool Satisfied()
         {

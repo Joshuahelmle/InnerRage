@@ -2,11 +2,11 @@
 
 namespace InnerRage.Core.Conditions
 {
-    class DoesNotHaveAttackPowerBuffCondition : ICondition
+    internal class DoesNotHaveAttackPowerBuffCondition : ICondition
     {
         public bool Satisfied()
         {
-           return !StyxWoW.Me.HasAttackPowerBuff();
+            return !StyxWoW.Me.HasAttackPowerBuff();
         }
     }
 }

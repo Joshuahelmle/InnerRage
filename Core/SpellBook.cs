@@ -2,31 +2,26 @@
 
 namespace InnerRage.Core
 {
-    static class SpellBook
+    internal static class SpellBook
     {
-
         #region [IR] - Stances
+
         public const int StanceBattleStance = 2457,
-                         StanceDefensiveStance = 71 ,
-                         StanceImprovedDefensiveStance = 157494,
-                         StanceGladiatorStance = 156291;
+            StanceDefensiveStance = 71,
+            StanceImprovedDefensiveStance = 157494,
+            StanceGladiatorStance = 156291;
+
         #endregion
 
         #region [IR] - Aura List
 
         public const int
-
             AuraBloodBath = 12292,
             AuraBloodSurge = 46916,
             AuraEnrage = 12880,
             AuraMeatCleaver = 85739,
             AuraRagingBlow = 131116,
             AuraSuddenDeath = 52437,
-
-
-
-
-
 
             #endregion
 
@@ -38,10 +33,12 @@ namespace InnerRage.Core
 
             GlyphUnendingRage = 58098,
             GlyphOfResonatingPower = 58356,
-        #endregion
 
-        #region [IR] - Spell List
- SpellAvatar = 107574,
+            #endregion
+
+            #region [IR] - Spell List
+
+            SpellAvatar = 107574,
             SpellBattleshout = 6673,
             SpellCommandingShout = 469,
             SpellBerserkerRage = 18499,
@@ -87,24 +84,24 @@ namespace InnerRage.Core
         //Attackpower
         public const int
             AuraBattleShout = 6673,
-        AuraHornOfWinter = 57330,
-        AuraTrueshotAura = 19506,
+            AuraHornOfWinter = 57330,
+            AuraTrueshotAura = 19506,
 
-        //Stamina
-        AuraCommandingShout = 21562,
-        AuraPowerWordFortitude = 166928,
-        AuraBloodPact = 469,
-        AuraLoneWolfFortitudeOfTheBear = 160199,
+            //Stamina
+            AuraCommandingShout = 21562,
+            AuraPowerWordFortitude = 166928,
+            AuraBloodPact = 469,
+            AuraLoneWolfFortitudeOfTheBear = 160199,
 
-        //Stats
-        AuraMarkOfTheWild = 1126,
+            //Stats
+            AuraMarkOfTheWild = 1126,
 
-        //Haste
-        AuraAncientHysteria = 90355,
-        AuraBloodlust = 2825,
-        AuraHeroism = 32182,
-        AuraNetherwinds = 160452,
-        AuraTimewarp = 80353;
+            //Haste
+            AuraAncientHysteria = 90355,
+            AuraBloodlust = 2825,
+            AuraHeroism = 32182,
+            AuraNetherwinds = 160452,
+            AuraTimewarp = 80353;
 
         //Racials
 
@@ -113,7 +110,6 @@ namespace InnerRage.Core
             RacialOrcBloodFury = 33697,
             RacialBloodElfArcaneTorrent = 28730,
             RacialHumanEveryManForHimself = 59752;
-
 
         #endregion
     }

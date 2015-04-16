@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Styx.WoWInternals;
+﻿using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Arms
 {
-    class SweepingStrikesAbility : AbilityBase
+    internal class SweepingStrikesAbility : AbilityBase
     {
-        public SweepingStrikesAbility() 
+        public SweepingStrikesAbility()
             : base(WoWSpell.FromId(SpellBook.SpellSweepingStrikes), false, true)
         {
-            base.Category = AbilityCategory.Buff;
-
-            
+            Category = AbilityCategory.Buff;
         }
     }
 }

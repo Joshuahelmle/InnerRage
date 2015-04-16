@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace InnerRage.Core.Conditions.Talents
+﻿namespace InnerRage.Core.Conditions.Talents
 {
-    class TalentUnquenchableThirstNotEnabledCondition : ICondition
+    internal class TalentUnquenchableThirstNotEnabledCondition : ICondition
     {
         public bool Satisfied()
         {
-            return ! new TalentUnquenchableThirstCondition().Satisfied();
+            return !new TalentUnquenchableThirstCondition().Satisfied();
         }
     }
 }

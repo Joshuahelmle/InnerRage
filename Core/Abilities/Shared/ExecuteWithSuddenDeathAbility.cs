@@ -4,14 +4,14 @@ using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Shared
 {
-    class ExecuteWithSuddenDeathAbility : AbilityBase
+    internal class ExecuteWithSuddenDeathAbility : AbilityBase
     {
-        public ExecuteWithSuddenDeathAbility() 
+        public ExecuteWithSuddenDeathAbility()
             : base(WoWSpell.FromId(SpellBook.SpellExecute), true, false)
         {
-            base.Category = AbilityCategory.Combat;
-            base.Conditions.Add(new TalentSuddenDeathEnabledCondition());
-            base.Conditions.Add(new HasSuddenDeathProccCondition());
+            Category = AbilityCategory.Combat;
+            Conditions.Add(new TalentSuddenDeathEnabledCondition());
+            Conditions.Add(new HasSuddenDeathProccCondition());
         }
     }
 }

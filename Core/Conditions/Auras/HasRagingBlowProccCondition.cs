@@ -2,7 +2,7 @@
 
 namespace InnerRage.Core.Conditions.Auras
 {
-    class HasRagingBlowProccCondition : ICondition
+    internal class HasRagingBlowProccCondition : ICondition
     {
         public bool Satisfied()
         {

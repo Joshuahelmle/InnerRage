@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Styx.WoWInternals;
+﻿using Styx.WoWInternals;
 using Styx.WoWInternals.WoWObjects;
 
 namespace InnerRage.Core.Conditions.Auras
 {
-    class DoesNotHaveAuraUpCondition : ICondition
+    internal class DoesNotHaveAuraUpCondition : ICondition
     {
-
-        private WoWUnit _target;
-        private WoWSpell _aura;
+        private readonly WoWSpell _aura;
+        private readonly WoWUnit _target;
 
         public DoesNotHaveAuraUpCondition(WoWUnit target, WoWSpell aura)
         {
@@ -22,7 +16,7 @@ namespace InnerRage.Core.Conditions.Auras
 
         public bool Satisfied()
         {
-            return  _target != null && !_target.AuraExists(_aura.Id, true);
+            return _target != null && !_target.AuraExists(_aura.Id, true);
         }
     }
 }

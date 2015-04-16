@@ -3,19 +3,18 @@
 namespace InnerRage.Core.Conditions
 {
     /// <summary>
-    /// Checks wheter we are the given race.
+    ///     Checks wheter we are the given race.
     /// </summary>
-    class IsRaceCondition : ICondition
+    internal class IsRaceCondition : ICondition
     {
-
         /// <summary>
-        /// the Race to check for
+        ///     the Race to check for
         /// </summary>
-        private WoWRace _race;
+        private readonly WoWRace _race;
 
-       public  IsRaceCondition(WoWRace race)
+        public IsRaceCondition(WoWRace race)
         {
-            this._race = race;
+            _race = race;
         }
 
         public bool Satisfied()

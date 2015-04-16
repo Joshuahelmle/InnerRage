@@ -1,9 +1,8 @@
-﻿using System;
-using Styx;
+﻿using Styx;
 
 namespace InnerRage.Core.Conditions.Talents
 {
-    class TalentSiegebreakerEnabled : ICondition
+    internal class TalentSiegebreakerEnabled : ICondition
     {
         public bool Satisfied()
         {

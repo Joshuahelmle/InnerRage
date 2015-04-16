@@ -8,30 +8,28 @@ using Styx.WoWInternals.WoWObjects;
 
 namespace InnerRage.Core.Abilities.Shared
 {
-    class AvatarAbility : AbilityBase
+    internal class AvatarAbility : AbilityBase
     {
         public AvatarAbility()
             : base(WoWSpell.FromId(SpellBook.SpellAvatar), false, true)
         {
-            base.Category = AbilityCategory.Buff;
-        
+            Category = AbilityCategory.Buff;
         }
 
-        public async override Task<bool> CastOnTarget(WoWUnit target)
+        public override async Task<bool> CastOnTarget(WoWUnit target)
         {
-            
-            if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
-            if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
-            base.Conditions.Add(new InMeeleRangeCondition());
-            base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentAvatar));
-            base.Conditions.Add(new TalentAvatarEnabledCondition());
-            base.Conditions.Add(new ConditionOrList(
+            if (MustWaitForGlobalCooldown) Conditions.Add(new IsOffGlobalCooldownCondition());
+            if (MustWaitForSpellCooldown) Conditions.Add(new SpellIsNotOnCooldownCondition(Spell));
+            Conditions.Add(new InMeeleRangeCondition());
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentAvatar));
+            Conditions.Add(new TalentAvatarEnabledCondition());
+            Conditions.Add(new ConditionOrList(
                 new RecklessnessIsUpCondition(),
                 new CooldownTimeLeftMaxCondition(WoWSpell.FromId(SpellBook.SpellRecklessness), TimeSpan.FromSeconds(60)),
                 new TargetInExecuteRangeCondition(MyCurrentTarget))
                 );
-            base.Conditions.Add(
-                new ConditionSwitchTester(//Sync with bloodbath
+            Conditions.Add(
+                new ConditionSwitchTester( //Sync with bloodbath
                     new BooleanCondition(SettingsManager.Instance.TalentSyncAvatar),
                     new BloodBathUpOrNotEnabledCondition()));
             return await base.CastOnTarget(target);

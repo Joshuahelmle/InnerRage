@@ -6,19 +6,19 @@ using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Shared.Racials
 {
-    class RacialsTrollBerserkingAbility :AbilityBase
+    internal class RacialsTrollBerserkingAbility : AbilityBase
     {
-        public RacialsTrollBerserkingAbility() 
-            : base(WoWSpell.FromId(SpellBook.RacialTrollBerserking),false, true)
+        public RacialsTrollBerserkingAbility()
+            : base(WoWSpell.FromId(SpellBook.RacialTrollBerserking), false, true)
         {
-            base.Category = AbilityCategory.Buff;
-            base.Conditions.Add(new IsRaceCondition(WoWRace.Troll));
-            base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseTrollRacial));
-            base.Conditions.Add(new ConditionOrList(
-                        new ConditionOrList(
-                            new BloodBathIsUpCondition(),
-                            new TalentBloodBathNotEnabledCondition()),
-                            new RecklessnessIsUpCondition()));
+            Category = AbilityCategory.Buff;
+            Conditions.Add(new IsRaceCondition(WoWRace.Troll));
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseTrollRacial));
+            Conditions.Add(new ConditionOrList(
+                new ConditionOrList(
+                    new BloodBathIsUpCondition(),
+                    new TalentBloodBathNotEnabledCondition()),
+                new RecklessnessIsUpCondition()));
         }
     }
 }

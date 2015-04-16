@@ -2,7 +2,7 @@
 
 namespace InnerRage.Core.Conditions.Glyphs
 {
-    class GlyphUnendingRageCondition : ICondition
+    internal class GlyphUnendingRageCondition : ICondition
     {
         public bool Satisfied()
         {

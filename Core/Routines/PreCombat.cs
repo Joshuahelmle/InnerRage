@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using InnerRage.Core.Abilities.Shared;
 using InnerRage.Core.Managers;
@@ -10,15 +9,27 @@ namespace InnerRage.Core.Routines
 {
     public static class PreCombat
     {
-        private static LocalPlayer Me { get { return StyxWoW.Me; } }
-        private static WoWUnit MyCurrentTarget { get { return Me.CurrentTarget; } }
-        private static AbilityManager Abilities { get { return AbilityManager.Instance; } }
-
         /// <summary>
-        /// Buff after a 5 second pulse timer so we don't appear like an automated program that zones in and immediately buffs.
+        ///     Buff after a 5 second pulse timer so we don't appear like an automated program that zones in and immediately buffs.
         /// </summary>
         public const int BuffTimerIntervalMs = 5000;
-        private static Stopwatch _buffTimer = new Stopwatch();
+
+        private static readonly Stopwatch _buffTimer = new Stopwatch();
+
+        private static LocalPlayer Me
+        {
+            get { return StyxWoW.Me; }
+        }
+
+        private static WoWUnit MyCurrentTarget
+        {
+            get { return Me.CurrentTarget; }
+        }
+
+        private static AbilityManager Abilities
+        {
+            get { return AbilityManager.Instance; }
+        }
 
         public static async Task<bool> Rotation()
         {
@@ -37,20 +48,20 @@ namespace InnerRage.Core.Routines
                     return false;
 
 
-                if (Me.Specialization == WoWSpec.WarriorArms || Me.Specialization == WoWSpec.WarriorFury) return await DpsPreCombatRotation();
+                if (Me.Specialization == WoWSpec.WarriorArms || Me.Specialization == WoWSpec.WarriorFury)
+                    return await DpsPreCombatRotation();
                 return await DefensivePreCombatRotation();
             }
 
             return true;
         }
 
-
         private static async Task<bool> DpsPreCombatRotation()
         {
-           // if (await ItemManager.UseEligibleItems(MyState.NotInCombat)) return true;
+            // if (await ItemManager.UseEligibleItems(MyState.NotInCombat)) return true;
             if (await Abilities.Cast<BattleShoutAbility>(Me)) return true;
             if (await Abilities.Cast<CommandingShoutAbility>(Me)) return true;
-         //   if (await Abilities.Cast<Shared.BattleStance>(Me)) return true;
+            //   if (await Abilities.Cast<Shared.BattleStance>(Me)) return true;
 
             return true;
         }
@@ -60,7 +71,7 @@ namespace InnerRage.Core.Routines
             // if (await ItemManager.UseEligibleItems(MyState.NotInCombat)) return true;
             if (await Abilities.Cast<BattleShoutAbility>(Me)) return true;
             if (await Abilities.Cast<CommandingShoutAbility>(Me)) return true;
-           // if (await Abilities.Cast<Shared.GladiatorStance>(Me)) return true;
+            // if (await Abilities.Cast<Shared.GladiatorStance>(Me)) return true;
 
             return true;
         }

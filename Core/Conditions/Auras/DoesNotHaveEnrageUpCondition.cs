@@ -3,12 +3,13 @@ using Styx;
 
 namespace InnerRage.Core.Conditions
 {
-    class DoesNotHaveEnrageUpCondition :ICondition
+    internal class DoesNotHaveEnrageUpCondition : ICondition
     {
         public bool Satisfied()
         {
-            if (Main.Debug) { 
-            if(!StyxWoW.Me.HasAura(SpellBook.AuraEnrage)) Log.Diagnostics("Enrage is Not Up, should cast it now.");
+            if (Main.Debug)
+            {
+                if (!StyxWoW.Me.HasAura(SpellBook.AuraEnrage)) Log.Diagnostics("Enrage is Not Up, should cast it now.");
             }
             return !StyxWoW.Me.HasAura(SpellBook.AuraEnrage);
         }

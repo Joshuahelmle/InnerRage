@@ -1,7 +1,7 @@
 ﻿//using Arms = InnerRage.Core.Abilities.Arms;
+
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Media;
 using InnerRage.Core.Abilities.Arms;
 using InnerRage.Core.Abilities.Fury;
 using InnerRage.Core.Abilities.Shared;
@@ -39,7 +39,7 @@ namespace InnerRage.Core.Routines
 
         public static async Task<bool> Rotation()
         {
-            if(Main.Debug) Log.Diagnostics("In CombatRotationCall()");
+            if (Main.Debug) Log.Diagnostics("In CombatRotationCall()");
             if (Me.IsCasting || Me.IsChanneling || Me.IsFlying || Me.OnTaxi) return false;
 
             if (BotManager.Current.IsRoutineBased() && Me.Mounted) return false;
@@ -71,11 +71,11 @@ namespace InnerRage.Core.Routines
             }
             if (Me.Specialization == WoWSpec.WarriorArms)
             {
-                if(UnitManager.Instance.LastKnownSurroundingEnemies.Count > 1)
+                if (UnitManager.Instance.LastKnownSurroundingEnemies.Count > 1)
                     return await ArmsAoeRotation();
                 return await ArmsCombatRotation();
             }
-           return false;
+            return false;
         }
 
         #region Fury
@@ -153,7 +153,7 @@ namespace InnerRage.Core.Routines
             if (HkM.NoAoe)
                 await FuryCombatRotation();
 
-            if (await InterruptManager.CheckMyTarget()) return true;
+           // if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<DragonRoarAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<BladeStormAbility>(MyCurrentTarget)) return true;
@@ -162,7 +162,7 @@ namespace InnerRage.Core.Routines
             if (await Abilities.Cast<ExecuteWithSuddenDeathAbility>(MyCurrentTarget))
                 return true; //DPS Loss regarding simcraft
             if (await Abilities.Cast<ExecuteAbility>(MyCurrentTarget)) return true;
-           /* if (
+            /* if (
                 await
                     Abilities.Cast<ExecuteAbility>(
                         UnitManager.Instance.LastKnownSurroundingEnemies.FirstOrDefault())) return true; */
@@ -175,11 +175,11 @@ namespace InnerRage.Core.Routines
         }
 
         #endregion
+
         #region Arms
 
         private static async Task<bool> ArmsCombatRotation()
         {
-
             if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<RendAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
@@ -198,7 +198,6 @@ namespace InnerRage.Core.Routines
             if (await Abilities.Cast<ShockWaveAbility>(MyCurrentTarget)) return true;
 
             return false;
-
         }
 
         private static async Task<bool> ArmsAoeRotation()
@@ -221,9 +220,8 @@ namespace InnerRage.Core.Routines
             if (await Abilities.Cast<ExecuteWithSuddenDeathAbility>(MyCurrentTarget)) return true;
 
             return false;
+        }
 
-
-        } 
         #endregion
     }
 }

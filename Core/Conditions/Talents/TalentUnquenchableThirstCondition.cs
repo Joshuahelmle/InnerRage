@@ -2,7 +2,7 @@
 
 namespace InnerRage.Core.Conditions.Talents
 {
-    class TalentUnquenchableThirstCondition: ICondition
+    internal class TalentUnquenchableThirstCondition : ICondition
     {
         public bool Satisfied()
         {

@@ -2,11 +2,11 @@
 
 namespace InnerRage.Core.Conditions
 {
-    class DoesNotHaveStaminaBuffCondition : ICondition
+    internal class DoesNotHaveStaminaBuffCondition : ICondition
     {
         public bool Satisfied()
         {
-           return !StyxWoW.Me.HasStaminaBuff();
+            return !StyxWoW.Me.HasStaminaBuff();
         }
     }
 }

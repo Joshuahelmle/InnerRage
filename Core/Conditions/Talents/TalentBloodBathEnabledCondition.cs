@@ -2,12 +2,11 @@
 
 namespace InnerRage.Core.Conditions.Talents
 {
-    class TalentBloodBathEnabledCondition : ICondition
+    internal class TalentBloodBathEnabledCondition : ICondition
     {
         public bool Satisfied()
         {
             return StyxWoW.Me.KnowsSpell(SpellBook.SpellBloodbath);
         }
-
     }
 }

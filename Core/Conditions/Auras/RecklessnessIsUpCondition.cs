@@ -2,7 +2,7 @@
 
 namespace InnerRage.Core.Conditions
 {
-    class RecklessnessIsUpCondition : ICondition
+    internal class RecklessnessIsUpCondition : ICondition
     {
         public bool Satisfied()
         {

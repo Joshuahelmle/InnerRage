@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using InnerRage.Core.Conditions;
 using InnerRage.Core.Conditions.Talents;
 using InnerRage.Core.Managers;
@@ -13,26 +12,25 @@ namespace InnerRage.Core.Abilities.Shared
         public RecklessnessAbility()
             : base(WoWSpell.FromId(SpellBook.SpellRecklessness), false, true)
         {
-            base.Category = AbilityCategory.Buff;
-            
+            Category = AbilityCategory.Buff;
         }
 
-        public async override Task<bool> CastOnTarget(WoWUnit target)
+        public override async Task<bool> CastOnTarget(WoWUnit target)
         {
-            base.Conditions.Clear();
-            if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
-            if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
-            base.Conditions.Add(new InMeeleRangeCondition());
-            base.Conditions.Add(
-                    new ConditionOrList(new TargetInExecuteRangeCondition(MyCurrentTarget),
-                        new TargetIsInHealthRangeCondition(MyCurrentTarget, 40)
+            Conditions.Clear();
+            if (MustWaitForGlobalCooldown) Conditions.Add(new IsOffGlobalCooldownCondition());
+            if (MustWaitForSpellCooldown) Conditions.Add(new SpellIsNotOnCooldownCondition(Spell));
+            Conditions.Add(new InMeeleRangeCondition());
+            Conditions.Add(
+                new ConditionOrList(new TargetInExecuteRangeCondition(MyCurrentTarget),
+                    new TargetIsInHealthRangeCondition(MyCurrentTarget, 40)
                     ));
-            base.Conditions.Add(new ConditionSwitchTester(// only on bloodbath? then test if bloodbath is up or not learned
+            Conditions.Add(new ConditionSwitchTester( // only on bloodbath? then test if bloodbath is up or not learned
                 new BooleanCondition(SettingsManager.Instance.TalentRecklessnessOnBloodBath),
                 new BloodBathUpOrNotEnabledCondition(),
                 new BooleanCondition(SettingsManager.Instance.TalentRecklessnessAlways)
                 ));
-            base.Conditions.Add(new ConditionSwitchTester(
+            Conditions.Add(new ConditionSwitchTester(
                 new BooleanCondition(SettingsManager.Instance.RecklessOnlyOnBoss),
                 new OnlyOnBossCondition()));
             return await base.CastOnTarget(target);
