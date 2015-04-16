@@ -153,7 +153,7 @@ namespace InnerRage.Core.Routines
             if (HkM.NoAoe)
                 await FuryCombatRotation();
 
-           // if (await InterruptManager.CheckMyTarget()) return true;
+            if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<DragonRoarAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<BladeStormAbility>(MyCurrentTarget)) return true;
