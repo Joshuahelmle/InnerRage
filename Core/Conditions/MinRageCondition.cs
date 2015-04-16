@@ -2,13 +2,13 @@
 
 namespace InnerRage.Core.Conditions
 {
-    class MinRageCondition : ICondition
+    internal class MinRageCondition : ICondition
     {
-        private int _minRage;
+        private readonly int _minRage;
 
-       public  MinRageCondition(int minRage)
+        public MinRageCondition(int minRage)
         {
-            this._minRage = minRage;
+            _minRage = minRage;
         }
 
         public bool Satisfied()

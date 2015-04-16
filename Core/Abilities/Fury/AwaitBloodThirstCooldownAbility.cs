@@ -4,14 +4,14 @@ using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Fury
 {
-    class AwaitBloodThirstCooldownAbility: AbilityBase
+    internal class AwaitBloodThirstCooldownAbility : AbilityBase
     {
         public AwaitBloodThirstCooldownAbility()
             : base(WoWSpell.FromId(SpellBook.SpellBloodThirst), true, true)
         {
-            base.Category = AbilityCategory.Combat;
-            base.Conditions.Add(new CooldownTimeLeftMaxCondition(this.Spell, TimeSpan.FromSeconds(0.5)));
-            base.Conditions.Add(new MaxRageCondition(50));
+            Category = AbilityCategory.Combat;
+            Conditions.Add(new CooldownTimeLeftMaxCondition(Spell, TimeSpan.FromSeconds(0.5)));
+            Conditions.Add(new MaxRageCondition(50));
         }
     }
 }

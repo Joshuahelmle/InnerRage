@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using System.Windows.Media;
 using InnerRage.Core.Abilities.Shared;
 using Styx;
@@ -30,12 +25,9 @@ namespace InnerRage.Core.Managers
                 NoAoe = !NoAoe;
                 StyxWoW.Overlay.AddToast((NoAoe ? "Aoe Mode Disabled" : "Aoe Mode Enabled"), 2000);
             });
-           
-            HotkeysManager.Register("Test Ability", Keys.G, ModifierKeys.Control, ret =>
-            {
-               AbilityManager.Instance.Cast<DieByTheSwordAbility>(StyxWoW.Me);
 
-            });
+            HotkeysManager.Register("Test Ability", Keys.G, ModifierKeys.Control,
+                ret => { AbilityManager.Instance.Cast<DieByTheSwordAbility>(StyxWoW.Me); });
         }
 
         #endregion
@@ -54,6 +46,5 @@ namespace InnerRage.Core.Managers
         }
 
         #endregion
-
     }
 }

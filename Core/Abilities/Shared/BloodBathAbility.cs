@@ -1,6 +1,5 @@
 ﻿using System;
 using InnerRage.Core.Conditions;
-using InnerRage.Core.Conditions.Auras;
 using InnerRage.Core.Conditions.Talents;
 using InnerRage.Core.Managers;
 using Styx;
@@ -9,22 +8,22 @@ using Styx.WoWInternals;
 namespace InnerRage.Core.Abilities.Shared
 {
     /// <summary>
-    /// Uses Bloodbath with syncing on Enrage and Collosus Smash
-    /// TODO: Add Sync with Recklessness and Trinkets.
+    ///     Uses Bloodbath with syncing on Enrage and Collosus Smash
+    ///     TODO: Add Sync with Recklessness and Trinkets.
     /// </summary>
-    class BloodBathAbility : AbilityBase
+    internal class BloodBathAbility : AbilityBase
     {
         public BloodBathAbility()
             : base(WoWSpell.FromId(SpellBook.SpellBloodbath), false, true)
         {
-            base.Category = AbilityCategory.Buff;
-            base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentBloodBath));
-            base.Conditions.Add(new ConditionOrList( // Bloodbath always? or on trinketprocc?
+            Category = AbilityCategory.Buff;
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentBloodBath));
+            Conditions.Add(new ConditionOrList( // Bloodbath always? or on trinketprocc?
                 new BooleanCondition(SettingsManager.Instance.TalentBloodbathAlways),
                 new BooleanCondition(Me.HasAura(SettingsManager.Instance.TrinketProccAura))));
             //TODO: add logic for Recklessness base.Conditions.Add(CooldownTimeLeftMinCondition(WoWSpell.FromId(SpellBook.spellRecklessness),TimeSpan.FromSeconds(10)));
-            base.Conditions.Add(new TalentBloodBathEnabledCondition());
-            base.Conditions.Add(new ConditionSwitchTester(
+            Conditions.Add(new TalentBloodBathEnabledCondition());
+            Conditions.Add(new ConditionSwitchTester(
                 new IsInCurrentSpecializationCondition(WoWSpec.WarriorFury),
                 //We are in Fury Specc, sync BloodBath with Enrage
                 new DoesHaveEnrageUpCondition(),
@@ -32,8 +31,8 @@ namespace InnerRage.Core.Abilities.Shared
                 //TODO: really check if in Arms for future implementation of Defrotations.
                 new ConditionAndList(
                     new RendIsTickingCondition(),
-                    new CooldownTimeLeftMaxCondition(WoWSpell.FromId(SpellBook.SpellCollosusSmash), TimeSpan.FromSeconds(4)))
-                
+                    new CooldownTimeLeftMaxCondition(WoWSpell.FromId(SpellBook.SpellCollosusSmash),
+                        TimeSpan.FromSeconds(4)))
                 ));
         }
     }

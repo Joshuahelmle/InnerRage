@@ -6,21 +6,19 @@ using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Shared.Racials
 {
-    class RacialOrcBloodFuryAbility : AbilityBase
+    internal class RacialOrcBloodFuryAbility : AbilityBase
     {
-       public RacialOrcBloodFuryAbility()
+        public RacialOrcBloodFuryAbility()
             : base(WoWSpell.FromId(SpellBook.RacialOrcBloodFury), false, true)
         {
-           base.Category = AbilityCategory.Buff;
-           base.Conditions.Add(new IsRaceCondition(WoWRace.Orc));
-           base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseOrcRacial));
-           base.Conditions.Add(new ConditionOrList(
-                        new ConditionOrList(
-                            new BloodBathIsUpCondition(),
-                            new TalentBloodBathNotEnabledCondition())
-                            ));
-       }
-       
+            Category = AbilityCategory.Buff;
+            Conditions.Add(new IsRaceCondition(WoWRace.Orc));
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseOrcRacial));
+            Conditions.Add(new ConditionOrList(
+                new ConditionOrList(
+                    new BloodBathIsUpCondition(),
+                    new TalentBloodBathNotEnabledCondition())
+                ));
         }
     }
-
+}

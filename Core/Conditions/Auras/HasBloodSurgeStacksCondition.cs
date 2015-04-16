@@ -1,9 +1,8 @@
-﻿using System;
-using Styx;
+﻿using Styx;
 
 namespace InnerRage.Core.Conditions.Auras
 {
-    class HasBloodSurgeStacksCondition : ICondition
+    internal class HasBloodSurgeStacksCondition : ICondition
     {
         public bool Satisfied()
         {

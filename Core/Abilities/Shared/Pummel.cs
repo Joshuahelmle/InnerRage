@@ -8,9 +8,8 @@ namespace InnerRage.Core.Abilities.Shared
     {
         public Pummel() : base(WoWSpell.FromId(SpellBook.SpellPummel), false, true)
         {
-            base.Category = AbilityCategory.Combat;
-            base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.InterruptPummel));
-
+            Category = AbilityCategory.Combat;
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.InterruptPummel));
         }
     }
 }

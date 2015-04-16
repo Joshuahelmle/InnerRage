@@ -1,6 +1,7 @@
 ﻿/* CREDIT : UI Skeleton and  vertical tabs from Hackersrage Thread
  * https://www.thebuddyforum.com/honorbuddy-forum/community-developer-forum/201626-4k-resolution-skinned-form-plugin-sample.html 
  * Thanks a lot! */
+
 using System;
 using System.Drawing;
 using System.IO;
@@ -24,8 +25,6 @@ namespace InnerRage.Interface
                 InitSettings();
                 SettingsManager.Instance.Save();
                 GlobalSettings.Instance.Save();
-
-                
             }
         }
 
@@ -132,7 +131,7 @@ namespace InnerRage.Interface
             else TalentsRecklessnessCondition.SelectedIndex = 2;
             TalentSyncAvatar.Checked = SMInstance.Instance.TalentSyncAvatar;
             TalentSyncDragonRoar.Checked = SMInstance.Instance.TalentSyncDragonRoar;
-          
+
             TalentSyncRavager.Checked = SMInstance.Instance.TalentSyncRavager;
             TrinketAura.Text = Convert.ToString(SMInstance.Instance.TrinketProccAura);
             RecklessnessOnlyOnBossCB.Checked = SMInstance.Instance.RecklessOnlyOnBoss;
@@ -181,18 +180,19 @@ namespace InnerRage.Interface
             DieByTheSwordCB.Checked = SMInstance.Instance.UseDieByTheSword;
             DBTSHP.Text = SMInstance.Instance.UseDieByTheSwordHP.ToString();
 
-            if (Main.Debug) { 
-            Log.Diagnostics("You are in InitSettings:");
-            Log.Diagnostics(" SMInstance.Instance.BuffEnabled: " + SMInstance.Instance.BuffEnabled);
-            Log.Diagnostics(String.Format(" SMInstance.Instance.DieByTheSword : {0} , on {1} HP",
-                SMInstance.Instance.UseDieByTheSword,
-                SMInstance.Instance.UseDieByTheSwordHP));
-            Log.Diagnostics(String.Format("SMInstance.Instance.Bladestorm only on AoECount : {0} , on {1} Targets",
-            SMInstance.Instance.BladestormOnlyOnAoECount,
-            SMInstance.Instance.BladestormAoeCount));
-            Log.Diagnostics(String.Format("SMInstance.Instance.Bladestorm only on Boss : {0}",
-            SMInstance.Instance.BladestormOnlyOnBoss
-            ));
+            if (Main.Debug)
+            {
+                Log.Diagnostics("You are in InitSettings:");
+                Log.Diagnostics(" SMInstance.Instance.BuffEnabled: " + SMInstance.Instance.BuffEnabled);
+                Log.Diagnostics(String.Format(" SMInstance.Instance.DieByTheSword : {0} , on {1} HP",
+                    SMInstance.Instance.UseDieByTheSword,
+                    SMInstance.Instance.UseDieByTheSwordHP));
+                Log.Diagnostics(String.Format("SMInstance.Instance.Bladestorm only on AoECount : {0} , on {1} Targets",
+                    SMInstance.Instance.BladestormOnlyOnAoECount,
+                    SMInstance.Instance.BladestormAoeCount));
+                Log.Diagnostics(String.Format("SMInstance.Instance.Bladestorm only on Boss : {0}",
+                    SMInstance.Instance.BladestormOnlyOnBoss
+                    ));
             }
         }
 
@@ -207,7 +207,7 @@ namespace InnerRage.Interface
 
             //Interrupts
             SMInstance.Instance.InterruptPummel = InterruptPummelCB.Checked;
-           
+
             SMInstance.Instance.InterruptStormBolt = InterruptStormBoltCB.Checked;
             SMInstance.Instance.InterruptShockWave = InterruptShockWaveCB.Checked;
 
@@ -229,7 +229,7 @@ namespace InnerRage.Interface
 
             SMInstance.Instance.TalentSyncAvatar = TalentSyncAvatar.Checked;
             SMInstance.Instance.TalentSyncDragonRoar = TalentSyncDragonRoar.Checked;
-           
+
             SMInstance.Instance.TalentSyncRavager = TalentSyncRavager.Checked;
 
             SMInstance.Instance.TrinketProccAura = Convert.ToInt32(TrinketAura.Text);
@@ -267,7 +267,7 @@ namespace InnerRage.Interface
 
             SMInstance.Instance.RavagerOnlyOnBoss = RavagerOnlyBossCB.Checked;
             SMInstance.Instance.RavagerOnlyOnAoECount = RavagerOnlyAoECountCB.Checked;
-            SMInstance.Instance.RavagerAoeCount = Convert.ToInt32(RavagerAoeCount.Text) ;
+            SMInstance.Instance.RavagerAoeCount = Convert.ToInt32(RavagerAoeCount.Text);
 
             SMInstance.Instance.DragonRoarOnlyOnBoss = DragonRoarOnlyOnBossCB.Checked;
             SMInstance.Instance.DragonRoarOnlyOnAoECount = DragonRoarAoECountCB.Checked;
@@ -408,9 +408,5 @@ namespace InnerRage.Interface
         }
 
         #endregion
-
-       
-
-       
     }
 }

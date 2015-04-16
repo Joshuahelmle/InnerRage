@@ -1,6 +1,6 @@
 ﻿namespace InnerRage.Core.Conditions.Talents
 {
-    class TalentBloodBathNotEnabledCondition : ICondition
+    internal class TalentBloodBathNotEnabledCondition : ICondition
     {
         public bool Satisfied()
         {

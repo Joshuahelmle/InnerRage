@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Drawing.Text;
 using Styx.WoWInternals;
 using Styx.WoWInternals.WoWObjects;
 
 namespace InnerRage.Core.Conditions.Auras
 {
-    class AuraMaxRemaningTimeCondition : ICondition
+    internal class AuraMaxRemaningTimeCondition : ICondition
     {
+        private readonly WoWSpell _aura;
+        private readonly TimeSpan _maxRemaingTime;
+        private readonly WoWUnit _target;
 
-        private TimeSpan _maxRemaingTime;
-        private WoWSpell _aura;
-        private WoWUnit _target;
-
-       public AuraMaxRemaningTimeCondition(TimeSpan maxRemaingTime, WoWSpell aura, WoWUnit target)
+        public AuraMaxRemaningTimeCondition(TimeSpan maxRemaingTime, WoWSpell aura, WoWUnit target)
         {
             _maxRemaingTime = maxRemaingTime;
             _aura = aura;

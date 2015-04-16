@@ -1,10 +1,9 @@
-﻿using InnerRage.Core.Utilities;
-using Styx.CommonBot;
+﻿using Styx.CommonBot;
 
 namespace InnerRage.Core.Conditions
 {
     /// <summary>
-    /// Condition based on if the GCD is not on cooldown.
+    ///     Condition based on if the GCD is not on cooldown.
     /// </summary>
     public class IsOffGlobalCooldownCondition : ICondition
     {

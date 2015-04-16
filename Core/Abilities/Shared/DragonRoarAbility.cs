@@ -12,21 +12,22 @@ namespace InnerRage.Core.Abilities.Shared
         public DragonRoarAbility()
             : base(WoWSpell.FromId(SpellBook.SpellDragonRoar), true, true)
         {
-            base.Category = AbilityCategory.Combat;
+            Category = AbilityCategory.Combat;
             Conditions.Add(new InMeeleRangeCondition());
-            base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentDragonRoar));
-            base.Conditions.Add(new ConditionSwitchTester(
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentDragonRoar));
+            Conditions.Add(new ConditionSwitchTester(
                 new BooleanCondition(SettingsManager.Instance.DragonRoarOnlyOnBoss),
                 new OnlyOnBossCondition()));
-            base.Conditions.Add(new ConditionSwitchTester(
+            Conditions.Add(new ConditionSwitchTester(
                 new BooleanCondition(SettingsManager.Instance.DragonRoarOnlyOnAoECount),
-                new BooleanCondition(UnitManager.Instance.LastKnownSurroundingEnemies.Count >= SettingsManager.Instance.DragonRoarAoeCount)));
-            base.Conditions.Add(new TalentDragonRoarEnabledCondition());
-            base.Conditions.Add(// Sync with bloodbath
+                new BooleanCondition(UnitManager.Instance.LastKnownSurroundingEnemies.Count >=
+                                     SettingsManager.Instance.DragonRoarAoeCount)));
+            Conditions.Add(new TalentDragonRoarEnabledCondition());
+            Conditions.Add( // Sync with bloodbath
                 new ConditionSwitchTester(
                     new BooleanCondition(SettingsManager.Instance.TalentSyncDragonRoar),
                     new BloodBathUpOrNotEnabledCondition()));
-            base.Conditions.Add(new ConditionSwitchTester(
+            Conditions.Add(new ConditionSwitchTester(
                 new IsInCurrentSpecializationCondition(WoWSpec.WarriorArms),
                 new DoesNotHaveAuraUpCondition(MyCurrentTarget, WoWSpell.FromId(SpellBook.SpellCollosusSmash))));
         }

@@ -3,14 +3,15 @@ using InnerRage.Core.Managers;
 
 namespace InnerRage.Core.Conditions
 {
-    class TargetMaxTimeToDieCondition :ICondition
+    internal class TargetMaxTimeToDieCondition : ICondition
     {
-        private TimeSpan _maxTimeToDie;
+        private readonly TimeSpan _maxTimeToDie;
 
-       public TargetMaxTimeToDieCondition(TimeSpan maxTimeToDie)
+        public TargetMaxTimeToDieCondition(TimeSpan maxTimeToDie)
         {
-            this._maxTimeToDie = maxTimeToDie;
+            _maxTimeToDie = maxTimeToDie;
         }
+
         public bool Satisfied()
         {
             return UnitManager.Instance.TargetTimeToDie > _maxTimeToDie;

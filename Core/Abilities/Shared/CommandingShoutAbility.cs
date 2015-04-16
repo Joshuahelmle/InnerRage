@@ -4,15 +4,14 @@ using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Shared
 {
-    class CommandingShoutAbility : AbilityBase
+    internal class CommandingShoutAbility : AbilityBase
     {
-
-        public CommandingShoutAbility() : base(WoWSpell.FromId(SpellBook.SpellCommandingShout), true, mustWaitForSpellCooldown: false)
+        public CommandingShoutAbility()
+            : base(WoWSpell.FromId(SpellBook.SpellCommandingShout), true, false)
         {
-            base.Category = AbilityCategory.Buff;
-            base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.BuffCommandingShout));
-            base.Conditions.Add(new DoesNotHaveStaminaBuffCondition());
-           
+            Category = AbilityCategory.Buff;
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.BuffCommandingShout));
+            Conditions.Add(new DoesNotHaveStaminaBuffCondition());
         }
     }
 }

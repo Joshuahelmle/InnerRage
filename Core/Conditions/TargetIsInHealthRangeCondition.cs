@@ -1,30 +1,28 @@
-﻿using Styx;
-using Styx.WoWInternals.WoWObjects;
+﻿using Styx.WoWInternals.WoWObjects;
 
 namespace InnerRage.Core.Conditions
 {
-    class TargetIsInHealthRangeCondition :ICondition
+    internal class TargetIsInHealthRangeCondition : ICondition
     {
+        private readonly int _maxHealthPercentage;
+        private readonly int _minHealthPercentage;
+        private readonly WoWUnit _target;
 
-        private int _minHealthPercentage, _maxHealthPercentage;
-        private WoWUnit _target;
-       public TargetIsInHealthRangeCondition(WoWUnit target, int minHealthPercentage = 0, int maxHealtPercentage = 100)
+        public TargetIsInHealthRangeCondition(WoWUnit target, int minHealthPercentage = 0, int maxHealtPercentage = 100)
         {
-           _target = target;
-           this._minHealthPercentage = minHealthPercentage;
-            this._maxHealthPercentage = maxHealtPercentage;
+            _target = target;
+            _minHealthPercentage = minHealthPercentage;
+            _maxHealthPercentage = maxHealtPercentage;
         }
 
         public bool Satisfied()
         {
             if (_minHealthPercentage > _maxHealthPercentage)
                 throw new ConditionException("minHealth can't be bigger than maxHealth!");
-            else if (_maxHealthPercentage < _minHealthPercentage)
+            if (_maxHealthPercentage < _minHealthPercentage)
                 throw new ConditionException("maxhealth can't be bigger than minhealth!");
             return _target != null && _target.HealthPercent >= _minHealthPercentage &&
-                     _target.HealthPercent <= _maxHealthPercentage;
+                   _target.HealthPercent <= _maxHealthPercentage;
         }
-
-        
     }
 }

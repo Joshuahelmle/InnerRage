@@ -9,12 +9,12 @@ using Styx.WoWInternals.WoWObjects;
 namespace InnerRage.Core
 {
     /// <summary>
-    /// Extensions added to the LocalPlayer class.
+    ///     Extensions added to the LocalPlayer class.
     /// </summary>
     public static class PlayerExtensions
     {
         /// <summary>
-        /// Determines if the player's current target is attackable.
+        ///     Determines if the player's current target is attackable.
         /// </summary>
         public static bool HasAttackableTarget(this LocalPlayer thisPlayer)
         {
@@ -24,9 +24,9 @@ namespace InnerRage.Core
                     thisPlayer.CurrentTarget != null &&
                     (thisPlayer.CurrentTarget.Name.ToUpper().Contains("DUMMY")) ||
                     (thisPlayer.CurrentTarget.IsValid &&
-                    thisPlayer.CurrentTarget.Attackable &&
-                    thisPlayer.CurrentTarget.CanSelect &&
-                    !thisPlayer.CurrentTarget.IsDead);
+                     thisPlayer.CurrentTarget.Attackable &&
+                     thisPlayer.CurrentTarget.CanSelect &&
+                     !thisPlayer.CurrentTarget.IsDead);
             }
             catch
             {
@@ -35,7 +35,7 @@ namespace InnerRage.Core
         }
 
         /// <summary>
-        /// Determines if the player is within melee distance of the current target.
+        ///     Determines if the player is within melee distance of the current target.
         /// </summary>
         public static bool IsWithinMeleeDistanceOfTarget(this LocalPlayer thisPlayer)
         {
@@ -45,7 +45,7 @@ namespace InnerRage.Core
         }
 
         /// <summary>
-        /// Determines if the player is in BattleStance.
+        ///     Determines if the player is in BattleStance.
         /// </summary>
         public static bool IsInBattleStance(this LocalPlayer thisPlayer)
         {
@@ -54,7 +54,7 @@ namespace InnerRage.Core
         }
 
         /// <summary>
-        /// Determines if the player is in DefensiveStance
+        ///     Determines if the player is in DefensiveStance
         /// </summary>
         public static bool IsInDefensiveStance(this LocalPlayer thisPlayer)
         {
@@ -64,7 +64,7 @@ namespace InnerRage.Core
         }
 
         /// <summary>
-        /// Determines if the player is in GladiatorStance
+        ///     Determines if the player is in GladiatorStance
         /// </summary>
         public static bool IsInGladiatorStance(this LocalPlayer thisPlayer)
         {
@@ -73,7 +73,8 @@ namespace InnerRage.Core
         }
 
         /// <summary>
-        /// Determines if the player currently has stats buff: Mark of the Wild, Blessing of Kings, Legacy of Emperor, or Legacy of White Tiger
+        ///     Determines if the player currently has stats buff: Mark of the Wild, Blessing of Kings, Legacy of Emperor, or
+        ///     Legacy of White Tiger
         /// </summary>
         public static bool HasAttackPowerBuff(this LocalPlayer thisPlayer)
         {
@@ -91,8 +92,9 @@ namespace InnerRage.Core
                 thisPlayer.HasAura(SpellBook.AuraBloodPact) ||
                 thisPlayer.HasAura(SpellBook.AuraLoneWolfFortitudeOfTheBear);
         }
+
         /// <summary>
-        /// Determines if the cast on the player's target can be interrupted.
+        ///     Determines if the cast on the player's target can be interrupted.
         /// </summary>
         public static bool CanActuallyInterruptCurrentTargetSpellCast(this LocalPlayer thisPlayer, int milliseconds)
         {
@@ -100,19 +102,19 @@ namespace InnerRage.Core
             if (thisPlayer.CurrentTarget.IsChanneling && thisPlayer.ChanneledSpell != null)
             {
                 return (thisPlayer.CurrentTarget.CurrentChannelTimeLeft.TotalMilliseconds > milliseconds) &&
-                    (thisPlayer.CurrentTarget.CanInterruptCurrentSpellCast);
+                       (thisPlayer.CurrentTarget.CanInterruptCurrentSpellCast);
             }
             if (thisPlayer.CurrentTarget.IsCasting && thisPlayer.CurrentTarget.CastingSpell != null)
             {
                 return (thisPlayer.CurrentTarget.CurrentCastTimeLeft.TotalMilliseconds > milliseconds) &&
-                    (thisPlayer.CurrentTarget.CanInterruptCurrentSpellCast);
+                       (thisPlayer.CurrentTarget.CanInterruptCurrentSpellCast);
             }
 
             return false;
         }
 
         /// <summary>
-        /// Determines if the player currently has lost control.
+        ///     Determines if the player currently has lost control.
         public static bool HasLossOfControl(this LocalPlayer thisPlayer)
         {
             foreach (var aura in thisPlayer.GetAllAuras())
@@ -132,7 +134,8 @@ namespace InnerRage.Core
                     aura.Spell.Mechanic == WoWSpellMechanic.Sapped ||
                     aura.Spell.Mechanic == WoWSpellMechanic.Stunned)
                 {
-                    Log.Equipment(string.Format("Loss of control detected on me: {0} ({1})", aura.Spell.Name, aura.Spell.Mechanic));
+                    Log.Equipment(string.Format("Loss of control detected on me: {0} ({1})", aura.Spell.Name,
+                        aura.Spell.Mechanic));
                     return true;
                 }
             }
@@ -141,7 +144,7 @@ namespace InnerRage.Core
         }
 
         /// <summary>
-        /// Determines if the player currently has total loss of control (cannot clear).
+        ///     Determines if the player currently has total loss of control (cannot clear).
         public static bool HasTotalLossOfControl(this LocalPlayer thisPlayer)
         {
             if (thisPlayer.HasLossOfControl()) return true;
@@ -158,7 +161,8 @@ namespace InnerRage.Core
                     aura.Spell.Mechanic == WoWSpellMechanic.Frozen ||
                     aura.Spell.Mechanic == WoWSpellMechanic.Polymorphed)
                 {
-                    Log.Equipment(string.Format("Total Loss of control detected on me: {0} ({1})", aura.Spell.Name, aura.Spell.Mechanic));
+                    Log.Equipment(string.Format("Total Loss of control detected on me: {0} ({1})", aura.Spell.Name,
+                        aura.Spell.Mechanic));
                     return true;
                 }
             }
@@ -167,8 +171,8 @@ namespace InnerRage.Core
         }
 
         /// <summary>
-        /// <para>Determines if the player currently has a root or snare effect</para>
-        /// <para>Release 1.1.0</para>
+        ///     <para>Determines if the player currently has a root or snare effect</para>
+        ///     <para>Release 1.1.0</para>
         /// </summary>
         public static bool HasRootOrSnare(this LocalPlayer thisPlayer)
         {
@@ -187,12 +191,12 @@ namespace InnerRage.Core
     }
 
     /// <summary>
-    /// Extensions added to WoWSpell spells.
+    ///     Extensions added to WoWSpell spells.
     /// </summary>
     public static class SpellExtensions
     {
         /// <summary>
-        /// Determines if the spell is on cooldown or not.
+        ///     Determines if the spell is on cooldown or not.
         /// </summary>
         public static bool IsOnCooldown(this WoWSpell thisSpell)
         {
@@ -208,31 +212,35 @@ namespace InnerRage.Core
         }
 
         /// <summary>
-        /// DEtermines the remaining Cooldown of the given spell.
+        ///     DEtermines the remaining Cooldown of the given spell.
         /// </summary>
-    public static double CooldownTimeLeft(this WoWSpell spell)
+        public static double CooldownTimeLeft(this WoWSpell spell)
         {
-             try
-         {
-        SpellFindResults results;
-        return (SpellManager.FindSpell(spell.Id, out results) ? (results.Override != null ? results.Override.CooldownTimeLeft.TotalMilliseconds : results.Original.CooldownTimeLeft.TotalMilliseconds) : 9999) / 1000;
-         }
-        catch (Exception xException)
-        {
-        Log.Diagnostics("Exception in cooldownTimeLeft(): "+ xException);
-        return 9999;
-        }
+            try
+            {
+                SpellFindResults results;
+                return (SpellManager.FindSpell(spell.Id, out results)
+                    ? (results.Override != null
+                        ? results.Override.CooldownTimeLeft.TotalMilliseconds
+                        : results.Original.CooldownTimeLeft.TotalMilliseconds)
+                    : 9999)/1000;
+            }
+            catch (Exception xException)
+            {
+                Log.Diagnostics("Exception in cooldownTimeLeft(): " + xException);
+                return 9999;
+            }
         }
     }
 
 
     /// <summary>
-    /// Extensions added to the BotBase class.
+    ///     Extensions added to the BotBase class.
     /// </summary>
     public static class BotBaseExtensions
     {
         /// <summary>
-        /// Determines if the current bot base is Enyo or Raid Bot.
+        ///     Determines if the current bot base is Enyo or Raid Bot.
         /// </summary>
         public static bool IsRoutineBased(this BotBase thisBotBase)
         {
@@ -261,7 +269,6 @@ namespace InnerRage.Core
                 return false;
             }
         }
-
 
         public static TimeSpan AuraRemainingTime(this WoWUnit unit, int auraId, bool isMyAura = false)
         {

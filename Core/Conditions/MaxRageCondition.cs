@@ -2,14 +2,15 @@
 
 namespace InnerRage.Core.Conditions
 {
-    class MaxRageCondition : ICondition
+    internal class MaxRageCondition : ICondition
     {
-        private int _maxRage;
+        private readonly int _maxRage;
 
-       public MaxRageCondition(int maxRage)
+        public MaxRageCondition(int maxRage)
         {
-            this._maxRage = maxRage;
+            _maxRage = maxRage;
         }
+
         public bool Satisfied()
         {
             return StyxWoW.Me.CurrentRage < _maxRage;

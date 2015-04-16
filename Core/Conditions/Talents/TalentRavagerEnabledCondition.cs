@@ -3,9 +3,9 @@
 namespace InnerRage.Core.Conditions.Talents
 {
     /// <summary>
-    /// determines if Ravager Talent chosen.
+    ///     determines if Ravager Talent chosen.
     /// </summary>
-    class TalentRavagerEnabledCondition : ICondition
+    internal class TalentRavagerEnabledCondition : ICondition
     {
         public bool Satisfied()
         {

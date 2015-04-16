@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics;
-using Styx.WoWInternals.WoWObjects;
 using System.Threading.Tasks;
-using System.Linq;
-using InnerRage.Core;
+using InnerRage.Core.Abilities.Shared;
+using InnerRage.Core.Abilities.Shared.Racials;
 using InnerRage.Core.Conditions.Talents;
 using InnerRage.Core.Managers;
 using InnerRage.Core.Utilities;
@@ -10,14 +9,16 @@ using Styx;
 using Styx.CommonBot;
 using Styx.CommonBot.Coroutines;
 using Styx.WoWInternals;
-using Shared = InnerRage.Core.Abilities.Shared;
-using Fury = InnerRage.Core.Abilities.Fury;
+using Styx.WoWInternals.WoWObjects;
+
 //using Arms = InnerRage.Core.Abilities.Arms;
 
 namespace InnerRage.Core.Routines
 {
     public static class CombatBuff
     {
+        private static readonly Stopwatch _locDelay = new Stopwatch();
+
         private static LocalPlayer Me
         {
             get { return StyxWoW.Me; }
@@ -39,24 +40,21 @@ namespace InnerRage.Core.Routines
             get { return UnitManager.Instance; }
         }
 
-        private static Stopwatch _locDelay = new Stopwatch();
-
         public static async Task<bool> Rotation()
         {
-           if(Main.Debug) Log.Diagnostics("InCombatBuffRotationCall()");
+            if (Main.Debug) Log.Diagnostics("InCombatBuffRotationCall()");
             if (Me.IsCasting || Me.IsChanneling || Me.IsFlying || Me.OnTaxi) return false;
 
             if (BotManager.Current.IsRoutineBased() && Me.Mounted) return false;
 
             if (BotManager.Current.IsRoutineBased() && !Me.Combat) return false;
 
-             if (Me.HasLossOfControl() || Me.HasTotalLossOfControl())
-             {
-                 if (await Abilities.Cast<Shared.BerserkerBreakCCAbility>(Me)) return true;
-                 if (await UseRacialToClearLoC()) return true;
-                 if (await UseTrinketsToClearLoC()) return true;
-
-             }
+            if (Me.HasLossOfControl() || Me.HasTotalLossOfControl())
+            {
+                if (await Abilities.Cast<BerserkerBreakCCAbility>(Me)) return true;
+                if (await UseRacialToClearLoC()) return true;
+                if (await UseTrinketsToClearLoC()) return true;
+            }
 
             #region [IR] - Trinkets
 
@@ -66,48 +64,38 @@ namespace InnerRage.Core.Routines
 
             #region [IR] - Racials
 
-            if (await Abilities.Cast<Shared.Racials.RacialOrcBloodFuryAbility>(Me)) return true;
-            if (await Abilities.Cast<Shared.Racials.RacialsTrollBerserkingAbility>(Me)) return true;
-            if (await Abilities.Cast<Shared.Racials.RacialsBloodElfAbility>(Me)) return true;
-           
+            if (await Abilities.Cast<RacialOrcBloodFuryAbility>(Me)) return true;
+            if (await Abilities.Cast<RacialsTrollBerserkingAbility>(Me)) return true;
+            if (await Abilities.Cast<RacialsBloodElfAbility>(Me)) return true;
 
             #endregion
 
-
-
-
             if (Me.Specialization == WoWSpec.WarriorFury) return await FuryCombatBuffRotation();
             return await ArmsCombatBuffRotation();
-            
         }
-
-
 
         private static async Task<bool> FuryCombatBuffRotation()
         {
-            if(Main.Debug) Log.Diagnostics("In FuryCombatBuffRotation() call");
-            if (await Abilities.Cast<Shared.BerserkerRageAbility>(Me)) return true;
-            if (await Abilities.Cast<Shared.BloodBathAbility>(Me)) return true;
-            if (await Abilities.Cast<Shared.RecklessnessAbility>(Me)) return true;
-            if (await Abilities.Cast<Shared.AvatarAbility>(Me)) return true;
+            if (Main.Debug) Log.Diagnostics("In FuryCombatBuffRotation() call");
+            if (await Abilities.Cast<BerserkerRageAbility>(Me)) return true;
+            if (await Abilities.Cast<BloodBathAbility>(Me)) return true;
+            if (await Abilities.Cast<RecklessnessAbility>(Me)) return true;
+            if (await Abilities.Cast<AvatarAbility>(Me)) return true;
             return false;
         }
 
         private static async Task<bool> ArmsCombatBuffRotation()
         {
-            if(Main.Debug) Log.Diagnostics("In ArmsCombatBuffRotation() call");
-            if (await Abilities.Cast<Shared.BloodBathAbility>(Me)) return true;
-            if (await Abilities.Cast<Shared.RecklessnessAbility>(Me)) return true;
-            if (await Abilities.Cast<Shared.AvatarAbility>(Me)) return true;
+            if (Main.Debug) Log.Diagnostics("In ArmsCombatBuffRotation() call");
+            if (await Abilities.Cast<BloodBathAbility>(Me)) return true;
+            if (await Abilities.Cast<RecklessnessAbility>(Me)) return true;
+            if (await Abilities.Cast<AvatarAbility>(Me)) return true;
             return false;
         }
 
-
-
         private static async Task<bool> UseRacialToClearLoC()
         {
-
-            if(Main.Debug) Log.Diagnostics("In UseRacialToClearLoc() call");
+            if (Main.Debug) Log.Diagnostics("In UseRacialToClearLoc() call");
             if (!_locDelay.IsRunning)
             {
                 _locDelay.Start();
@@ -117,28 +105,26 @@ namespace InnerRage.Core.Routines
             {
                 if (WoWSpell.FromId(SpellBook.RacialHumanEveryManForHimself).CooldownTimeLeft.TotalMilliseconds == 0)
                 {
-                    if (await Abilities.Cast<Shared.Racials.RacialHumanAbility>(Me))
+                    if (await Abilities.Cast<RacialHumanAbility>(Me))
                     {
                         _locDelay.Reset();
                         return true;
-
                     }
-                       
                 }
                 else Log.Diagnostics("Human Racial is on Cooldown.");
                 return true;
-
             }
             return true;
         }
 
         /// <summary>
-        /// Checks whether we have trinkets equipped, and are allowed to use them, if so we are trying to Clear our Loss of control with them.
+        ///     Checks whether we have trinkets equipped, and are allowed to use them, if so we are trying to Clear our Loss of
+        ///     control with them.
         /// </summary>
         /// <returns></returns>
         private static async Task<bool> UseTrinketsToClearLoC()
         {
-            if(Main.Debug) Log.Diagnostics("in UseTrinketsToClearLoC call");
+            if (Main.Debug) Log.Diagnostics("in UseTrinketsToClearLoC call");
 
             if (Me.Inventory.Equipped.Trinket1 != null)
             {
@@ -165,7 +151,6 @@ namespace InnerRage.Core.Routines
                             {
                                 Log.Diagnostics("Trinket 1 on Cooldown.");
                             }
-
                         }
                     }
                 }
@@ -181,7 +166,6 @@ namespace InnerRage.Core.Routines
                     //Clear Loss of Control
                     if (SettingsManager.Instance.UseTrinket2OnLoC)
                     {
-
                         if (!_locDelay.IsRunning)
                         {
                             _locDelay.Start();
@@ -200,7 +184,6 @@ namespace InnerRage.Core.Routines
                                 Log.Diagnostics("Trinket 2 on Cooldown.");
                                 _locDelay.Reset();
                             }
-
                         }
                     }
                 }
@@ -216,8 +199,7 @@ namespace InnerRage.Core.Routines
                 Me.Inventory.Equipped.Trinket1.CooldownTimeLeft.Milliseconds != 0)
             {
                 Me.Inventory.Equipped.Trinket1.Use();
-               await CommonCoroutines.SleepForLagDuration();
-               
+                await CommonCoroutines.SleepForLagDuration();
             }
 
             if (SettingsManager.Instance.UseTrinket2ToBurst &&
@@ -226,7 +208,6 @@ namespace InnerRage.Core.Routines
             {
                 Me.Inventory.Equipped.Trinket2.Use();
                 await CommonCoroutines.SleepForLagDuration();
-
             }
             return false;
         }

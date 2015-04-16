@@ -1,23 +1,24 @@
-﻿using System;
-using Styx;
+﻿using Styx;
 using Styx.WoWInternals;
 
 namespace InnerRage.Core.Conditions.Auras
 {
-    class DoesHaveMinAuraStacksCondition : ICondition
+    internal class DoesHaveMinAuraStacksCondition : ICondition
     {
-
-        private WoWSpell _spell;
-        private int _stacks;
+        private readonly WoWSpell _spell;
+        private readonly int _stacks;
 
         public DoesHaveMinAuraStacksCondition(WoWSpell spell, int stacks)
         {
             _spell = spell;
             _stacks = stacks;
         }
+
         public bool Satisfied()
         {
-            return StyxWoW.Me.HasAura(_spell.Id) ? StyxWoW.Me.GetAuraById(_spell.Id).StackCount <= _stacks : (_stacks <= 0);
+            return StyxWoW.Me.HasAura(_spell.Id)
+                ? StyxWoW.Me.GetAuraById(_spell.Id).StackCount <= _stacks
+                : (_stacks <= 0);
         }
     }
 }

@@ -1,14 +1,13 @@
-﻿using InnerRage.Core.Conditions;
-using Styx.WoWInternals;
+﻿using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Fury
 {
-    class FillerBloodThirstAbility :AbilityBase
+    internal class FillerBloodThirstAbility : AbilityBase
     {
-        public FillerBloodThirstAbility() 
-            : base(WoWSpell.FromId(SpellBook.SpellBloodThirst),true,true)
+        public FillerBloodThirstAbility()
+            : base(WoWSpell.FromId(SpellBook.SpellBloodThirst), true, true)
         {
-            base.Category = AbilityCategory.Combat;
+            Category = AbilityCategory.Combat;
         }
     }
 }

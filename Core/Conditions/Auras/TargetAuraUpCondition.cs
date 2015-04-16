@@ -1,13 +1,12 @@
-﻿using System;
-using Styx.WoWInternals;
+﻿using Styx.WoWInternals;
 using Styx.WoWInternals.WoWObjects;
 
 namespace InnerRage.Core.Conditions.Auras
 {
-    class TargetAuraUpCondition : ICondition
+    internal class TargetAuraUpCondition : ICondition
     {
-        private WoWUnit _target;
-        private WoWSpell _aura;
+        private readonly WoWSpell _aura;
+        private readonly WoWUnit _target;
 
         public TargetAuraUpCondition(WoWUnit target, WoWSpell aura)
         {

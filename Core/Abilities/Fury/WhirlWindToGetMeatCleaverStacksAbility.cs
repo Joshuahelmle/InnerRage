@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using InnerRage.Core.Conditions;
 using InnerRage.Core.Conditions.Auras;
 using Styx.WoWInternals;
@@ -10,23 +6,22 @@ using Styx.WoWInternals.WoWObjects;
 
 namespace InnerRage.Core.Abilities.Fury
 {
-    class WhirlWindToGetMeatCleaverStacksAbility : AbilityBase
+    internal class WhirlWindToGetMeatCleaverStacksAbility : AbilityBase
     {
         public WhirlWindToGetMeatCleaverStacksAbility()
             : base(WoWSpell.FromId(SpellBook.SpellWhirlwind), true, false)
         {
-            base.Category = AbilityCategory.Combat;
-            
+            Category = AbilityCategory.Combat;
         }
 
         public override async Task<bool> CastOnTarget(WoWUnit target)
         {
-            base.Conditions.Clear();
-            if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
-            if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
-            base.Conditions.Add(new InMeeleRangeCondition());
-            base.Conditions.Add(new DoesNotHaveMeatCleaverStacksCondition());
-            base.Conditions.Add(new TargetNotInExecuteRangeCondition(Target));
+            Conditions.Clear();
+            if (MustWaitForGlobalCooldown) Conditions.Add(new IsOffGlobalCooldownCondition());
+            if (MustWaitForSpellCooldown) Conditions.Add(new SpellIsNotOnCooldownCondition(Spell));
+            Conditions.Add(new InMeeleRangeCondition());
+            Conditions.Add(new DoesNotHaveMeatCleaverStacksCondition());
+            Conditions.Add(new TargetNotInExecuteRangeCondition(Target));
             return await base.CastOnTarget(Target);
         }
     }

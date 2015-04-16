@@ -2,7 +2,7 @@
 
 namespace InnerRage.Core.Conditions.Talents
 {
-    class TalentDragonRoarEnabledCondition : ICondition
+    internal class TalentDragonRoarEnabledCondition : ICondition
     {
         public bool Satisfied()
         {

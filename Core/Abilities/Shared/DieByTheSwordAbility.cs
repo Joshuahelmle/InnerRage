@@ -6,12 +6,12 @@ namespace InnerRage.Core.Abilities.Shared
 {
     public class DieByTheSwordAbility : AbilityBase
     {
-        public DieByTheSwordAbility() 
+        public DieByTheSwordAbility()
             : base(WoWSpell.FromId(SpellBook.SpellDieByTheSword), false, true)
         {
             Category = AbilityCategory.Buff;
-            base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseDieByTheSword));
-            base.Conditions.Add(new TargetIsInHealthRangeCondition(Me, 0 ,SettingsManager.Instance.UseDieByTheSwordHP));
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseDieByTheSword));
+            Conditions.Add(new TargetIsInHealthRangeCondition(Me, 0, SettingsManager.Instance.UseDieByTheSwordHP));
         }
     }
 }

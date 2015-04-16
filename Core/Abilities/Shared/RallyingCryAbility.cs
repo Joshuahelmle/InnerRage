@@ -10,8 +10,8 @@ namespace InnerRage.Core.Abilities.Shared
             : base(WoWSpell.FromId(SpellBook.SpellRallyingCry), false, true)
         {
             Category = AbilityCategory.Heal;
-            base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseRallyingCry));
-            base.Conditions.Add(new TargetIsInHealthRangeCondition(Me, 0, SettingsManager.Instance.RallyingCryHP));
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.UseRallyingCry));
+            Conditions.Add(new TargetIsInHealthRangeCondition(Me, 0, SettingsManager.Instance.RallyingCryHP));
         }
     }
 }

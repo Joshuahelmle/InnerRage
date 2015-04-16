@@ -1,9 +1,8 @@
-﻿using System;
-using Styx;
+﻿using Styx;
 
 namespace InnerRage.Core.Conditions.Auras
 {
-    class DoesNotHaveMeatCleaverStacksCondition : ICondition
+    internal class DoesNotHaveMeatCleaverStacksCondition : ICondition
     {
         public bool Satisfied()
         {

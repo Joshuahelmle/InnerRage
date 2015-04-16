@@ -3,13 +3,13 @@ using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Shared
 {
-    class SiegeBreakerAbility : AbilityBase
+    internal class SiegeBreakerAbility : AbilityBase
     {
-        public SiegeBreakerAbility() 
-        : base(WoWSpell.FromId(SpellBook.SpellSiegeBreaker), true, true)
+        public SiegeBreakerAbility()
+            : base(WoWSpell.FromId(SpellBook.SpellSiegeBreaker), true, true)
         {
-            base.Category = AbilityCategory.Combat;
-            base.Conditions.Add(new TalentSiegebreakerEnabled());
+            Category = AbilityCategory.Combat;
+            Conditions.Add(new TalentSiegebreakerEnabled());
         }
     }
 }

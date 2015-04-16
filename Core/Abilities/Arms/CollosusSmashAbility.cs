@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InnerRage.Core.Conditions;
-using Styx.WoWInternals;
+﻿using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Arms
 {
-    class CollosusSmashAbility : AbilityBase
+    internal class CollosusSmashAbility : AbilityBase
     {
-        public CollosusSmashAbility() 
+        public CollosusSmashAbility()
             : base(WoWSpell.FromId(SpellBook.SpellCollosusSmash), true, true)
         {
-            base.Category = AbilityCategory.Combat;
+            Category = AbilityCategory.Combat;
         }
     }
 }

@@ -1,14 +1,13 @@
-﻿using System;
-using InnerRage.Core.Utilities;
+﻿using InnerRage.Core.Utilities;
 using Styx;
 
 namespace InnerRage.Core.Conditions.Talents
 {
-    class TalentSuddenDeathEnabledCondition : ICondition
+    internal class TalentSuddenDeathEnabledCondition : ICondition
     {
         public bool Satisfied()
         {
-            if(Main.Debug)
+            if (Main.Debug)
             {
                 if (StyxWoW.Me.KnowsSpell(SpellBook.SpellSuddenDeath)) Log.Diagnostics("Talent SuddenDeath enabled.");
             }

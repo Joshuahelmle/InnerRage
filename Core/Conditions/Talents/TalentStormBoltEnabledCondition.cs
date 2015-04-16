@@ -1,9 +1,8 @@
-﻿using System;
-using Styx;
+﻿using Styx;
 
 namespace InnerRage.Core.Conditions.Talents
 {
-    class TalentStormBoltEnabledCondition : ICondition
+    internal class TalentStormBoltEnabledCondition : ICondition
     {
         public bool Satisfied()
         {

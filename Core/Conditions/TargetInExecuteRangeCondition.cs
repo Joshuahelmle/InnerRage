@@ -2,9 +2,9 @@
 
 namespace InnerRage.Core.Conditions
 {
-    class TargetInExecuteRangeCondition : ICondition
+    internal class TargetInExecuteRangeCondition : ICondition
     {
-        private WoWUnit _target;
+        private readonly WoWUnit _target;
 
         public TargetInExecuteRangeCondition(WoWUnit target)
         {

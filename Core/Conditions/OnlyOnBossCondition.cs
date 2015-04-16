@@ -1,10 +1,8 @@
-﻿using System;
-using InnerRage.Core.Managers;
-using Styx;
+﻿using Styx;
 
 namespace InnerRage.Core.Conditions
 {
-    class OnlyOnBossCondition : ICondition
+    internal class OnlyOnBossCondition : ICondition
     {
         public bool Satisfied()
         {
