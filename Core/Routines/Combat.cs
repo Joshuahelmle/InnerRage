@@ -43,8 +43,8 @@ namespace InnerRage.Core.Routines
         /// <summary>
         /// A List of Abilitys queued to execute before the Normal Rotation is Executed. This is to give User inputs like Hotkeys a higher prio.
         /// </summary>
-        public static List<AbilityBase> AbilityQueue;
-        public static List<AbilityBase> AbilityQueueDone; 
+        public static List<AbilityBase> AbilityQueue = new List<AbilityBase>();
+        public static List<AbilityBase> AbilityQueueDone = new List<AbilityBase>(); 
 
         public static async Task<bool> Rotation()
         {
