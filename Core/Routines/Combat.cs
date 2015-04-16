@@ -266,6 +266,8 @@ namespace InnerRage.Core.Routines
 
         private static async Task<bool> ArmsAoeRotation()
         {
+            if (HkM.NoAoe)
+                await ArmsCombatRotation();
             if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<SweepingStrikesAbility>(Me)) return true;
             if (await Abilities.Cast<RendAbility>(MyCurrentTarget)) return true;
@@ -307,6 +309,7 @@ namespace InnerRage.Core.Routines
 
         private static async Task<bool> ProtectionAoeRotation()
         {
+            if (HkM.NoAoe) await ProtectionCombatRotation();
             if (Main.Debug) Log.Diagnostics("In ProtectionAoeRotation Call()");
             if (await InterruptManager.CheckMyTarget()) return true;
             if (await Abilities.Cast<HeroicStrikeAbility>(MyCurrentTarget)) return false; //not on GCD
