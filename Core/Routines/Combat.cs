@@ -75,7 +75,7 @@ namespace InnerRage.Core.Routines
             {
                 AbilityQueue.Remove(cast);
             }
-
+            AbilityQueueDone.Clear();
 
             //Check for user pressed Hotkeys Abilitys.
             if (AbilityQueue.Any())

@@ -23,7 +23,7 @@ namespace InnerRage
         /// <summary>
         ///     used to log debug Messages, defaults to false.
         /// </summary>
-        public static bool Debug = false;
+        public static bool Debug = true;
 
         private static readonly Version _version = new Version(1, 0, 0, 1);
         public static Stopwatch DeathTimer = new Stopwatch();

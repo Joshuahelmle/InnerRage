@@ -15,6 +15,7 @@ namespace InnerRage.Core.Managers
         public static bool CooldownsOn { get; set; }
         public static bool ManualOn { get; set; }
         public static bool KeysRegistered { get; set; }
+        public static bool AlreadyQueued { get; set; }
 
         #region [Method] - Hotkey Registration
 
@@ -34,14 +35,16 @@ namespace InnerRage.Core.Managers
                     RallyingCryAbility cast = new RallyingCryAbility();
                     cast.Conditions.Clear();
                     cast.initBaseConditions();
-                    if (!Combat.AbilityQueue.Contains(cast))
+                    AlreadyQueued = Combat.AbilityQueue.Contains(cast);
+                    if (!AlreadyQueued)
                     {
                         Combat.AbilityQueue.Add(cast);
                         StyxWoW.Overlay.AddToast("Queued Rallying Cry", 2000);
                     }
                     else
                     {
-                        StyxWoW.Overlay.AddToast("Rallying Cry already queued up", 2000);  
+                        StyxWoW.Overlay.AddToast("Rallying Cry already queued up", 2000);
+                        Combat.AbilityQueueDone.Add(cast);
                     }
                 });
         }
