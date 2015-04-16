@@ -21,8 +21,8 @@ namespace InnerRage.Core.Conditions
                 throw new ConditionException("minHealth can't be bigger than maxHealth!");
             else if (_maxHealthPercentage < _minHealthPercentage)
                 throw new ConditionException("maxhealth can't be bigger than minhealth!");
-            return _target != null && _target.HealthPercent > _minHealthPercentage &&
-                     _target.HealthPercent < _maxHealthPercentage;
+            return _target != null && _target.HealthPercent >= _minHealthPercentage &&
+                     _target.HealthPercent <= _maxHealthPercentage;
         }
 
         
