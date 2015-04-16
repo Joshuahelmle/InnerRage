@@ -1,10 +1,14 @@
 ﻿//using Arms = InnerRage.Core.Abilities.Arms;
 
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InnerRage.Core.Abilities;
 using InnerRage.Core.Abilities.Arms;
 using InnerRage.Core.Abilities.Fury;
 using InnerRage.Core.Abilities.Shared;
+using InnerRage.Core.Conditions;
 using InnerRage.Core.Managers;
 using InnerRage.Core.Utilities;
 using Styx;
@@ -37,6 +41,12 @@ namespace InnerRage.Core.Routines
             get { return UnitManager.Instance; }
         }
 
+        /// <summary>
+        /// A List of Abilitys queued to execute before the Normal Rotation is Executed. This is to give User inputs like Hotkeys a higher prio.
+        /// </summary>
+        public static List<AbilityBase> AbilityQueue = new List<AbilityBase>();
+        public static List<AbilityBase> AbilityQueueDone = new List<AbilityBase>(); 
+
         public static async Task<bool> Rotation()
         {
             if (Main.Debug) Log.Diagnostics("In CombatRotationCall()");
@@ -53,6 +63,51 @@ namespace InnerRage.Core.Routines
             // Don't go any further if we have total loss of control //
             //    if (Me.HasTotalLossOfControl()) return false;
 
+            if (Main.Debug)
+            {
+                Log.Diagnostics(String.Format("AbilityQueueDone is Empty: {0}",
+                    !AbilityQueueDone.Any()));
+                Log.Diagnostics(String.Format("AbilityQueue is Empty: {0}",
+                    !AbilityQueue.Any()));
+            }
+
+            foreach (var cast in AbilityQueueDone)
+            {
+                AbilityQueue.Remove(cast);
+            }
+            AbilityQueueDone.Clear();
+
+            //Check for user pressed Hotkeys Abilitys.
+            if (AbilityQueue.Any())
+            {
+                foreach (var cast in AbilityQueue)
+                {
+                    if (cast.MustWaitForSpellCooldown && new SpellIsOnCooldownCondition(cast.Spell).Satisfied())
+                    {
+                        AbilityQueueDone.Add(cast);
+                        return false;
+                    }
+                    if (cast.Category == AbilityCategory.Buff)
+                    {
+                        if (await CastManager.CastOnTarget(Me, cast, cast.Conditions))
+                        {
+                            AbilityQueueDone.Add(cast);
+                            return cast.MustWaitForGlobalCooldown; //casted, is spell on GCD? if so start rotation again, if not walk tree further
+                        }
+                        return false; //cast was not succesful
+                    }
+                    else
+                    {
+                        if (await CastManager.CastOnTarget(MyCurrentTarget, cast, cast.Conditions))
+                        {
+                            AbilityQueueDone.Add(cast);
+                            return cast.MustWaitForGlobalCooldown;
+                        }
+                        return false; //cast was not successful
+                    }  
+                }
+                
+            }
 
             if (Me.Specialization == WoWSpec.WarriorFury)
             {

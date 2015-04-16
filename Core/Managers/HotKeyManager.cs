@@ -1,8 +1,10 @@
 ﻿using System.Windows.Forms;
 using System.Windows.Media;
 using InnerRage.Core.Abilities.Shared;
+using InnerRage.Core.Routines;
 using Styx;
 using Styx.Common;
+using Styx.Patchables;
 using Styx.WoWInternals;
 
 namespace InnerRage.Core.Managers
@@ -13,6 +15,7 @@ namespace InnerRage.Core.Managers
         public static bool CooldownsOn { get; set; }
         public static bool ManualOn { get; set; }
         public static bool KeysRegistered { get; set; }
+        public static bool AlreadyQueued { get; set; }
 
         #region [Method] - Hotkey Registration
 
@@ -27,7 +30,29 @@ namespace InnerRage.Core.Managers
             });
 
             HotkeysManager.Register("Test Ability", Keys.G, ModifierKeys.Control,
-                ret => { AbilityManager.Instance.Cast<DieByTheSwordAbility>(StyxWoW.Me); });
+                ret =>
+                {
+                    RallyingCryAbility cast = new RallyingCryAbility();
+                    cast.Conditions.Clear();
+                    cast.initBaseConditions();
+                    AlreadyQueued = Combat.AbilityQueue.Contains(cast);
+                    if (!AlreadyQueued)
+                    {
+                        Combat.AbilityQueue.Add(cast);
+                        StyxWoW.Overlay.AddToast("Queued Rallying Cry", 2000);
+                    }
+                    else
+                    {
+                        StyxWoW.Overlay.AddToast("Rallying Cry already queued up", 2000);
+                        Combat.AbilityQueueDone.Add(cast);
+                    }
+                });
+
+            HotkeysManager.Register("Debug Mode", Keys.NumPad0, ModifierKeys.Alt, ret =>
+            {
+                Main.Debug = !Main.Debug;
+                StyxWoW.Overlay.AddToast((Main.Debug ? "Debug in Log Activated" : "Debug in Log deactivated"), 2000);
+            });
         }
 
         #endregion
