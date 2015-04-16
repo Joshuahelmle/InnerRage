@@ -77,9 +77,9 @@ namespace InnerRage.Core.Routines
         private static async Task<bool> FuryCombatBuffRotation()
         {
             if (Main.Debug) Log.Diagnostics("In FuryCombatBuffRotation() call");
-            if (await Abilities.Cast<BerserkerRageAbility>(Me)) return true;
-            if (await Abilities.Cast<BloodBathAbility>(Me)) return true;
-            if (await Abilities.Cast<RecklessnessAbility>(Me)) return true;
+            if (await Abilities.Cast<BerserkerRageAbility>(Me)) return false;
+            if (await Abilities.Cast<BloodBathAbility>(Me)) return false;
+            if (await Abilities.Cast<RecklessnessAbility>(Me)) return false;
             if (await Abilities.Cast<AvatarAbility>(Me)) return true;
             return false;
         }
@@ -87,8 +87,8 @@ namespace InnerRage.Core.Routines
         private static async Task<bool> ArmsCombatBuffRotation()
         {
             if (Main.Debug) Log.Diagnostics("In ArmsCombatBuffRotation() call");
-            if (await Abilities.Cast<BloodBathAbility>(Me)) return true;
-            if (await Abilities.Cast<RecklessnessAbility>(Me)) return true;
+            if (await Abilities.Cast<BloodBathAbility>(Me)) return false;
+            if (await Abilities.Cast<RecklessnessAbility>(Me)) return false;
             if (await Abilities.Cast<AvatarAbility>(Me)) return true;
             return false;
         }
