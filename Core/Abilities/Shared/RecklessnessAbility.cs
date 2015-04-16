@@ -32,7 +32,9 @@ namespace InnerRage.Core.Abilities.Shared
                 new BloodBathUpOrNotEnabledCondition(),
                 new BooleanCondition(SettingsManager.Instance.TalentRecklessnessAlways)
                 ));
-            base.Conditions.Add(new OnlyOnBossCondition());
+            base.Conditions.Add(new ConditionSwitchTester(
+                new BooleanCondition(SettingsManager.Instance.RecklessOnlyOnBoss),
+                new OnlyOnBossCondition()));
             return await base.CastOnTarget(target);
         }
     }

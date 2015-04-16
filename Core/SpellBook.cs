@@ -50,6 +50,7 @@ namespace InnerRage.Core
             SpellBloodThirst = 23881,
             SpellCharge = 100,
             SpellCollosusSmash = 167105,
+            SpellDieByTheSword = 118038,
             SpellDragonRoar = 118000,
             SpellEnragedRegeneration = 55694,
             SpellFuriousStrikes = 169679,
@@ -57,6 +58,7 @@ namespace InnerRage.Core
             SpellImpendingVictory = 103840,
             SpellMortalStrike = 12294,
             SpellPummel = 6552,
+            SpellRallyingCry = 97462,
             SpellRagingBlow = 85288,
             SpellRavager = 152277,
             SpellRecklessness = 1719,
@@ -70,6 +72,7 @@ namespace InnerRage.Core
             SpellTasteForBlood = 566636,
             SpellThunderClap = 6343,
             SpellUnquenchableThirst = 169683,
+            SpellVictoryRush = 34428,
             SpellWhirlwind = 1680,
             SpellWildStrike = 100130;
 

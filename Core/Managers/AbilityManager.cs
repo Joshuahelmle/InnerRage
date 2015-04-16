@@ -225,10 +225,13 @@ namespace InnerRage.Core.Managers
             
             
             this.Abilities.Add(new BerserkerRageAbility());
+            this.Abilities.Add(new BerserkerBreakCCAbility());
             this.Abilities.Add(new BladeStormAbility());
             this.Abilities.Add(new BloodBathAbility());
             this.Abilities.Add(new CommandingShoutAbility());
             this.Abilities.Add(new DragonRoarAbility());
+            this.Abilities.Add(new DieByTheSwordAbility());
+            this.Abilities.Add(new EnragedRegenerationAbility());
             this.Abilities.Add(new ExecuteAbility());
             this.Abilities.Add(new ExecuteWithSuddenDeathAbility());
             this.Abilities.Add(new ImpendingVictoryAbility());
@@ -237,8 +240,10 @@ namespace InnerRage.Core.Managers
             this.Abilities.Add(new ShockWaveAbility());
             this.Abilities.Add(new SiegeBreakerAbility());
             this.Abilities.Add(new StormBoltAbility());
+            this.Abilities.Add(new VictoryRushAbility());
             this.Abilities.Add(new WhirlWindAbility());
             this.Abilities.Add(new ThunderclapAbility());
+            this.Abilities.Add(new RallyingCryAbility());
             this.Abilities.Add(new RacialOrcBloodFuryAbility());
             this.Abilities.Add(new RacialsBloodElfAbility());
             this.Abilities.Add(new RacialsTrollBerserkingAbility());

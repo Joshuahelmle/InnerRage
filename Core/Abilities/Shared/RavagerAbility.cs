@@ -44,6 +44,12 @@ namespace InnerRage.Core.Abilities.Shared
             base.Conditions.Add(new ConditionSwitchTester(// If we are in Armsspecc, test if Collosus Smash is up in 4 seconds, if so, wait with ravager to sync it
                 new IsInCurrentSpecializationCondition(WoWSpec.WarriorArms),
                 new SpellCoolDownLowerThanCondition(WoWSpell.FromId(SpellBook.SpellCollosusSmash), TimeSpan.FromSeconds(4))));
+            base.Conditions.Add(new ConditionSwitchTester(
+                new BooleanCondition(SettingsManager.Instance.RavagerOnlyOnBoss),
+                new OnlyOnBossCondition()));
+            base.Conditions.Add(new ConditionSwitchTester(
+                new BooleanCondition(SettingsManager.Instance.RavagerOnlyOnAoECount),
+                new BooleanCondition(UnitManager.Instance.LastKnownSurroundingEnemies.Count >= SettingsManager.Instance.RavagerAoeCount)));
            if(await CastManager.DropCast(this, target, this.Conditions)) return true;
             return false;
         }

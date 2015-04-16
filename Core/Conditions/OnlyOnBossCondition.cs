@@ -8,7 +8,7 @@ namespace InnerRage.Core.Conditions
     {
         public bool Satisfied()
         {
-            return !SettingsManager.Instance.RecklessOnlyOnBoss || (SettingsManager.Instance.RecklessOnlyOnBoss && StyxWoW.Me.CurrentTarget.IsBoss);
+            return StyxWoW.Me.CurrentTarget.IsBoss;
         }
     }
 }

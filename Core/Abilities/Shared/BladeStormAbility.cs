@@ -26,6 +26,12 @@ namespace InnerRage.Core.Abilities.Shared
             if (MustWaitForGlobalCooldown) this.Conditions.Add(new IsOffGlobalCooldownCondition());
             if (MustWaitForSpellCooldown) this.Conditions.Add(new SpellIsNotOnCooldownCondition(this.Spell));
             base.Conditions.Add(new InMeeleRangeCondition());
+            base.Conditions.Add(new ConditionSwitchTester(
+                new BooleanCondition(SettingsManager.Instance.BladestormOnlyOnBoss),
+                new OnlyOnBossCondition()));
+            base.Conditions.Add(new ConditionSwitchTester(
+                new BooleanCondition(SettingsManager.Instance.BladestormOnlyOnAoECount),
+                new BooleanCondition(UnitManager.Instance.LastKnownSurroundingEnemies.Count >= SettingsManager.Instance.BladestormAoeCount)));
             base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentBladeStorm));
             base.Conditions.Add(new TalentBladeStormEnabledCondition());
             base.Conditions.Add(new ConditionSwitchTester(

@@ -72,13 +72,17 @@
     <Compile Include="Core\Abilities\Fury\WhirlWindToGetMeatCleaverStacksAbility.cs" />
     <Compile Include="Core\Abilities\Fury\WildStrikeWithBloodSurgeUpAbility.cs" />
     <Compile Include="Core\Abilities\Fury\WildStrikeWithoutBloodSurgeAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\BerserkerBreakCCAbility.cs" />
     <Compile Include="Core\Abilities\Shared\BladeStormAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\DieByTheSwordAbility.cs" />
     <Compile Include="Core\Abilities\Shared\DragonRoarAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\EnragedRegenerationAbility.cs" />
     <Compile Include="Core\Abilities\Shared\ExecuteAbility.cs" />
     <Compile Include="Core\Abilities\Shared\ExecuteWithSuddenDeathAbility.cs" />
     <Compile Include="Core\Abilities\Shared\ImpendingVictoryAbility.cs" />
     <Compile Include="Core\Abilities\Shared\Pummel.cs" />
     <Compile Include="Core\Abilities\Shared\Racials\RacialHumanAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\RallyingCryAbility.cs" />
     <Compile Include="Core\Abilities\Shared\RavagerAbility.cs" />
     <Compile Include="Core\Abilities\Fury\WildStrikeRageDumpAbility.cs" />
     <Compile Include="Core\Abilities\IAbility.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="Core\Abilities\Shared\SiegeBreakerAbility.cs" />
     <Compile Include="Core\Abilities\Shared\StormBoltAbility.cs" />
     <Compile Include="Core\Abilities\Shared\ThunderclapAbility.cs" />
+    <Compile Include="Core\Abilities\Shared\VictoryRushAbility.cs" />
     <Compile Include="Core\Abilities\Shared\WhirlWindAbility.cs" />
     <Compile Include="Core\Conditions\Auras\AuraMaxRemaningTimeCondition.cs" />
     <Compile Include="Core\Conditions\Auras\BloodBathIsUpCondition.cs" />

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using InnerRage.Core.Abilities.Shared;
 using InnerRage.Core.Managers;
 using Styx;
 using Styx.WoWInternals.WoWObjects;
@@ -29,12 +30,15 @@ namespace InnerRage.Core.Routines
 
         private static async Task<bool> HealRotation()
         {
-            if (await Abilities.Cast<Abilities.Shared.ImpendingVictoryAbility>(Me)) return true;
+            
          //   if (await ItemManager.UseHealthstone()) return true;
           //  if (await ItemManager.UseEligibleItems(MyState.CombatHealing)) return true;
-       /*     if (await Abilities.Cast<Shared.EnragedRegenaration>(Me)) return true;
-            if (await Abilities.Cast<Shared.VictoryRush>(MyCurrentTarget)) return true;
-            if (await Abilities.Cast<Shared.ImpendingVictory>(Me)) return true; */
+            if (await Abilities.Cast<RallyingCryAbility>(Me)) return false;
+            if (await Abilities.Cast<DieByTheSwordAbility>(Me)) return false;
+           if (await Abilities.Cast<EnragedRegenerationAbility>(Me)) return false;
+           if (await Abilities.Cast<ImpendingVictoryAbility>(Me)) return true;
+            if (await Abilities.Cast<VictoryRushAbility>(MyCurrentTarget)) return false;
+           
             return false;
         }
     }

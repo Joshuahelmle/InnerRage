@@ -158,6 +158,36 @@ namespace InnerRage.Interface
 
             InterruptDelay.Text = SMInstance.Instance.InterruptDelay.ToString();
             LoCDelay.Text = SMInstance.Instance.LoCDelay.ToString();
+
+
+            //Talents - Advanced
+            BladestormOnlyBossCB.Checked = SMInstance.Instance.BladestormOnlyOnBoss;
+            BladestormOnlyAoECountCB.Checked = SMInstance.Instance.BladestormOnlyOnAoECount;
+            BladestormAoECount.Text = SMInstance.Instance.BladestormAoeCount.ToString();
+
+            RavagerOnlyBossCB.Checked = SMInstance.Instance.RavagerOnlyOnBoss;
+            RavagerOnlyAoECountCB.Checked = SMInstance.Instance.RavagerOnlyOnAoECount;
+            RavagerAoeCount.Text = SMInstance.Instance.RavagerAoeCount.ToString();
+
+            DragonRoarOnlyOnBossCB.Checked = SMInstance.Instance.DragonRoarOnlyOnBoss;
+            DragonRoarAoECountCB.Checked = SMInstance.Instance.DragonRoarOnlyOnAoECount;
+            DragonRoarAoECount.Text = SMInstance.Instance.DragonRoarAoeCount.ToString();
+
+            BerserkerBreakFearCB.Checked = SMInstance.Instance.UseBerserkerBreakFear;
+
+            EnragedRegenerationCB.Checked = SMInstance.Instance.UseEnragedRegeneration;
+            RallyingCryCB.Checked = SMInstance.Instance.UseRallyingCry;
+            RallyingCryHP.Text = SMInstance.Instance.RallyingCryHP.ToString();
+            DieByTheSwordCB.Checked = SMInstance.Instance.UseDieByTheSword;
+            DBTSHP.Text = SMInstance.Instance.UseDieByTheSwordHP.ToString();
+
+            if (Main.Debug) { 
+            Log.Diagnostics("You are in InitSettings:");
+            Log.Diagnostics(" SMInstance.Instance.BuffEnabled: " + SMInstance.Instance.BuffEnabled);
+            Log.Diagnostics(String.Format(" SMInstance.Instance.DieByTheSword : {0} , on {1} HP",
+                SMInstance.Instance.UseDieByTheSword,
+                SMInstance.Instance.UseDieByTheSwordHP));
+            }
         }
 
         /// <summary>
@@ -223,11 +253,35 @@ namespace InnerRage.Interface
             SMInstance.Instance.InterruptDelay = Convert.ToInt32(InterruptDelay.Text);
             SMInstance.Instance.LoCDelay = Convert.ToInt32(LoCDelay.Text);
 
+
+            //Talents - Advanced
+            SMInstance.Instance.BladestormOnlyOnBoss = BladestormOnlyBossCB.Checked;
+            SMInstance.Instance.BladestormOnlyOnAoECount = BladestormOnlyAoECountCB.Checked;
+            SMInstance.Instance.BladestormAoeCount = Convert.ToInt32(BladestormAoECount.Text);
+
+            SMInstance.Instance.RavagerOnlyOnBoss = RavagerOnlyBossCB.Checked;
+            SMInstance.Instance.RavagerOnlyOnAoECount = RavagerOnlyAoECountCB.Checked;
+            SMInstance.Instance.RavagerAoeCount = Convert.ToInt32(RavagerAoeCount.Text) ;
+
+            SMInstance.Instance.DragonRoarOnlyOnBoss = DragonRoarOnlyOnBossCB.Checked;
+            SMInstance.Instance.DragonRoarOnlyOnAoECount = DragonRoarAoECountCB.Checked;
+            SMInstance.Instance.DragonRoarAoeCount = Convert.ToInt32(DragonRoarAoECount.Text);
+
+            SMInstance.Instance.UseBerserkerBreakFear = BerserkerBreakFearCB.Checked;
+            SMInstance.Instance.UseEnragedRegeneration = EnragedRegenerationCB.Checked;
+            SMInstance.Instance.UseRallyingCry = RallyingCryCB.Checked;
+            SMInstance.Instance.RallyingCryHP = Convert.ToInt32(RallyingCryHP.Text);
+            SMInstance.Instance.UseDieByTheSword = DieByTheSwordCB.Checked;
+            SMInstance.Instance.UseDieByTheSwordHP = Convert.ToInt32(DBTSHP.Text);
+
+
             if (Main.Debug) // debug
             {
                 Log.Diagnostics("You are in CommitSettings:");
-
                 Log.Diagnostics(" SMInstance.Instance.BuffEnabled: " + SMInstance.Instance.BuffEnabled);
+                Log.Diagnostics(String.Format(" SMInstance.Instance.DieByTheSword : {0} , on {1} HP",
+                    SMInstance.Instance.UseDieByTheSword,
+                    SMInstance.Instance.UseDieByTheSwordHP));
             }
         }
 
@@ -348,6 +402,8 @@ namespace InnerRage.Interface
         }
 
         #endregion
+
+       
 
        
     }

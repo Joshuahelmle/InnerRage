@@ -52,6 +52,7 @@ namespace InnerRage.Core.Routines
 
              if (Me.HasLossOfControl() || Me.HasTotalLossOfControl())
              {
+                 if (await Abilities.Cast<Shared.BerserkerBreakCCAbility>(Me)) return true;
                  if (await UseRacialToClearLoC()) return true;
                  if (await UseTrinketsToClearLoC()) return true;
 

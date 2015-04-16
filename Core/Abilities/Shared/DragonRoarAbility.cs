@@ -15,6 +15,12 @@ namespace InnerRage.Core.Abilities.Shared
             base.Category = AbilityCategory.Combat;
             Conditions.Add(new InMeeleRangeCondition());
             base.Conditions.Add(new BooleanCondition(SettingsManager.Instance.TalentDragonRoar));
+            base.Conditions.Add(new ConditionSwitchTester(
+                new BooleanCondition(SettingsManager.Instance.DragonRoarOnlyOnBoss),
+                new OnlyOnBossCondition()));
+            base.Conditions.Add(new ConditionSwitchTester(
+                new BooleanCondition(SettingsManager.Instance.DragonRoarOnlyOnAoECount),
+                new BooleanCondition(UnitManager.Instance.LastKnownSurroundingEnemies.Count >= SettingsManager.Instance.DragonRoarAoeCount)));
             base.Conditions.Add(new TalentDragonRoarEnabledCondition());
             base.Conditions.Add(// Sync with bloodbath
                 new ConditionSwitchTester(

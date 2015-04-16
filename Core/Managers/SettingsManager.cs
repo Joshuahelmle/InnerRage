@@ -110,6 +110,39 @@ namespace InnerRage.Core.Managers
         public int LoCDelay { get; set; }
         [Setting, DefaultValue(false)]
         public bool RecklessOnlyOnBoss { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool RavagerOnlyOnBoss { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool RavagerOnlyOnAoECount { get; set; }
+        [Setting, DefaultValue(2)]
+        public int RavagerAoeCount { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool BladestormOnlyOnBoss { get; set; }        
+        [Setting, DefaultValue(false)]
+        public bool BladestormOnlyOnAoECount { get; set; }
+        [Setting, DefaultValue(2)]
+        public int BladestormAoeCount { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool DragonRoarOnlyOnBoss { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool DragonRoarOnlyOnAoECount { get; set; }
+        [Setting, DefaultValue(2)]
+        public int DragonRoarAoeCount { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool UseBerserkerBreakFear { get; set; }
+        [Setting, DefaultValue(60)]
+        public int EnragedRegenerationHP { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool UseEnragedRegeneration { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool UseRallyingCry { get; set; }
+        [Setting, DefaultValue(25)]
+        public int RallyingCryHP { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool UseDieByTheSword { get; set; }
+        [Setting, DefaultValue(25)]
+        public int UseDieByTheSwordHP { get; set; }
+
 
         #endregion
 
@@ -117,5 +150,11 @@ namespace InnerRage.Core.Managers
             : base(pathToFile)
         {
         }
+
+
+
+
+
+        
     }
 }

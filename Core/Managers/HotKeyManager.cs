@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
+using InnerRage.Core.Abilities.Shared;
 using Styx;
 using Styx.Common;
 using Styx.WoWInternals;
@@ -30,6 +31,11 @@ namespace InnerRage.Core.Managers
                 StyxWoW.Overlay.AddToast((NoAoe ? "Aoe Mode Disabled" : "Aoe Mode Enabled"), 2000);
             });
            
+            HotkeysManager.Register("Test Ability", Keys.G, ModifierKeys.Control, ret =>
+            {
+               AbilityManager.Instance.Cast<DieByTheSwordAbility>(StyxWoW.Me);
+
+            });
         }
 
         #endregion
