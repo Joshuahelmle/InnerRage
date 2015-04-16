@@ -73,6 +73,7 @@ namespace InnerRage.Core.Routines
             if (Me.Specialization == WoWSpec.WarriorFury) return await FuryCombatBuffRotation();
             if (Me.Specialization == WoWSpec.WarriorArms) return await ArmsCombatBuffRotation();
             if (Me.Specialization == WoWSpec.WarriorProtection) return await ProtCombatBuffRotation();
+            return false;
         }
 
         private static async Task<bool> FuryCombatBuffRotation()
