@@ -71,7 +71,8 @@ namespace InnerRage.Core.Routines
             #endregion
 
             if (Me.Specialization == WoWSpec.WarriorFury) return await FuryCombatBuffRotation();
-            return await ArmsCombatBuffRotation();
+            if (Me.Specialization == WoWSpec.WarriorArms) return await ArmsCombatBuffRotation();
+            if (Me.Specialization == WoWSpec.WarriorProtection) return await ProtCombatBuffRotation();
         }
 
         private static async Task<bool> FuryCombatBuffRotation()
@@ -87,6 +88,15 @@ namespace InnerRage.Core.Routines
         private static async Task<bool> ArmsCombatBuffRotation()
         {
             if (Main.Debug) Log.Diagnostics("In ArmsCombatBuffRotation() call");
+            if (await Abilities.Cast<BloodBathAbility>(Me)) return false;
+            if (await Abilities.Cast<RecklessnessAbility>(Me)) return false;
+            if (await Abilities.Cast<AvatarAbility>(Me)) return true;
+            return false;
+        }
+
+        private static async Task<bool> ProtCombatBuffRotation()
+        {
+            if(Main.Debug) Log.Diagnostics("In ProtCombatBuffRotation() call");
             if (await Abilities.Cast<BloodBathAbility>(Me)) return false;
             if (await Abilities.Cast<RecklessnessAbility>(Me)) return false;
             if (await Abilities.Cast<AvatarAbility>(Me)) return true;

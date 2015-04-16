@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using InnerRage.Core.Abilities;
 using InnerRage.Core.Abilities.Arms;
 using InnerRage.Core.Abilities.Fury;
+using InnerRage.Core.Abilities.Protection;
 using InnerRage.Core.Abilities.Shared;
 using InnerRage.Core.Abilities.Shared.Racials;
 using InnerRage.Core.Utilities;
@@ -73,6 +74,14 @@ namespace InnerRage.Core.Managers
 
             #endregion
 
+            #region [IR] - Prot
+            Abilities.Add(new DevastateAbility());
+            Abilities.Add(new HeroicStrikeAbility());
+            Abilities.Add(new ProtThunderClapAbility());
+            Abilities.Add(new RevengeAbility());
+            Abilities.Add(new ShieldSlamAbility());
+            Abilities.Add(new ShieldSlamWithBlockUpAbility());
+            #endregion
             #region [IR] - Shared
 
             Abilities.Add(new AvatarAbility());

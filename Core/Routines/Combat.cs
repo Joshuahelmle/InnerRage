@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using InnerRage.Core.Abilities;
 using InnerRage.Core.Abilities.Arms;
 using InnerRage.Core.Abilities.Fury;
+using InnerRage.Core.Abilities.Protection;
 using InnerRage.Core.Abilities.Shared;
 using InnerRage.Core.Conditions;
 using InnerRage.Core.Managers;
@@ -130,6 +131,14 @@ namespace InnerRage.Core.Routines
                     return await ArmsAoeRotation();
                 return await ArmsCombatRotation();
             }
+
+            if (Me.Specialization == WoWSpec.WarriorProtection)
+            {
+                if (UnitManager.Instance.LastKnownSurroundingEnemies.Count > 1)
+                    return await ProtectionAoeRotation();
+                return await ProtectionCombatRotation(); 
+            }
+
             return false;
         }
 
@@ -278,5 +287,44 @@ namespace InnerRage.Core.Routines
         }
 
         #endregion
+
+        #region Protection
+
+        private static async Task<bool> ProtectionCombatRotation()
+        {
+            if(Main.Debug) Log.Diagnostics("In ProtectionCombatRotation Call()");
+            if (await InterruptManager.CheckMyTarget()) return true;
+            if (await Abilities.Cast<HeroicStrikeAbility>(MyCurrentTarget)) return false; //is not on the GCD
+            if (await Abilities.Cast<ShieldSlamAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<RevengeAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<StormBoltAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<DragonRoarAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<ExecuteWithSuddenDeathAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<DevastateAbility>(MyCurrentTarget)) return true;
+            return false;
+        }
+
+        private static async Task<bool> ProtectionAoeRotation()
+        {
+            if (Main.Debug) Log.Diagnostics("In ProtectionAoeRotation Call()");
+            if (await InterruptManager.CheckMyTarget()) return true;
+            if (await Abilities.Cast<HeroicStrikeAbility>(MyCurrentTarget)) return false; //not on GCD
+            if (await Abilities.Cast<ShieldSlamWithBlockUpAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<DragonRoarAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<ShockWaveAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<RevengeAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<ProtThunderClapAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<BladeStormAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<ShieldSlamAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<StormBoltAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<ExecuteWithSuddenDeathAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<DevastateAbility>(MyCurrentTarget)) return true;
+
+            return false;
+        } 
+        #endregion
+
     }
 }

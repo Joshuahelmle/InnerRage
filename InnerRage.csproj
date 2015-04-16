@@ -72,6 +72,12 @@
     <Compile Include="Core\Abilities\Fury\WhirlWindToGetMeatCleaverStacksAbility.cs" />
     <Compile Include="Core\Abilities\Fury\WildStrikeWithBloodSurgeUpAbility.cs" />
     <Compile Include="Core\Abilities\Fury\WildStrikeWithoutBloodSurgeAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\DevastateAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\HeroicStrikeAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\ProtThunderClapAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\RevengeAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\ShieldSlamAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\ShieldSlamWithBlockUpAbility.cs" />
     <Compile Include="Core\Abilities\Shared\BerserkerBreakCCAbility.cs" />
     <Compile Include="Core\Abilities\Shared\BladeStormAbility.cs" />
     <Compile Include="Core\Abilities\Shared\DieByTheSwordAbility.cs" />
@@ -153,6 +159,7 @@
     <Compile Include="Core\Conditions\Talents\TalentSuddenDeathEnabledCondition.cs" />
     <Compile Include="Core\Conditions\Talents\TalentUnquenchableThirstCondition.cs" />
     <Compile Include="Core\Conditions\Talents\TalentUnquenchableThirstNotEnabledCondition.cs" />
+    <Compile Include="Core\Conditions\Talents\TalentUnyieldingStrikesEnabledCondition.cs" />
     <Compile Include="Core\Conditions\TargetInExecuteRangeCondition.cs" />
     <Compile Include="Core\Conditions\TargetIsInHealthRangeCondition.cs" />
     <Compile Include="Core\Conditions\TargetMaxTimeToDieCondition.cs" />
@@ -205,6 +212,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -17,7 +17,7 @@ namespace InnerRage.Core.Conditions.Auras
         public bool Satisfied()
         {
             return StyxWoW.Me.HasAura(_spell.Id)
-                ? StyxWoW.Me.GetAuraById(_spell.Id).StackCount <= _stacks
+                ? StyxWoW.Me.GetAuraById(_spell.Id).StackCount >= _stacks
                 : (_stacks <= 0);
         }
     }
