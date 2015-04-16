@@ -37,5 +37,21 @@
   <TrinketProccAura>0</TrinketProccAura>
   <InterruptDelay>300</InterruptDelay>
   <LoCDelay>300</LoCDelay>
-  <RecklessOnlyOnBoss>False</RecklessOnlyOnBoss>
+  <RecklessOnlyOnBoss>True</RecklessOnlyOnBoss>
+  <RavagerOnlyOnBoss>False</RavagerOnlyOnBoss>
+  <RavagerOnlyOnAoECount>True</RavagerOnlyOnAoECount>
+  <RavagerAoeCount>3</RavagerAoeCount>
+  <BladestormOnlyOnBoss>False</BladestormOnlyOnBoss>
+  <BladestormOnlyOnAoECount>True</BladestormOnlyOnAoECount>
+  <BladestormAoeCount>2</BladestormAoeCount>
+  <DragonRoarOnlyOnBoss>False</DragonRoarOnlyOnBoss>
+  <DragonRoarOnlyOnAoECount>True</DragonRoarOnlyOnAoECount>
+  <DragonRoarAoeCount>3</DragonRoarAoeCount>
+  <UseBerserkerBreakFear>True</UseBerserkerBreakFear>
+  <EnragedRegenerationHP>60</EnragedRegenerationHP>
+  <UseEnragedRegeneration>True</UseEnragedRegeneration>
+  <UseRallyingCry>True</UseRallyingCry>
+  <RallyingCryHP>20</RallyingCryHP>
+  <UseDieByTheSword>True</UseDieByTheSword>
+  <UseDieByTheSwordHP>35</UseDieByTheSwordHP>
 </SettingsManager>
