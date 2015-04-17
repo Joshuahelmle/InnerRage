@@ -179,6 +179,10 @@ namespace InnerRage.Interface
             RallyingCryHP.Text = SMInstance.Instance.RallyingCryHP.ToString();
             DieByTheSwordCB.Checked = SMInstance.Instance.UseDieByTheSword;
             DBTSHP.Text = SMInstance.Instance.UseDieByTheSwordHP.ToString();
+            UseLastStandCB.Checked = SMInstance.Instance.UseLastStand;
+            UseLastStandHP.Text = SMInstance.Instance.UseLastStandHP.ToString();
+            UseShieldWallCB.Checked = SMInstance.Instance.UseShieldWall;
+            UseShieldWallHP.Text = SMInstance.Instance.UseShieldWallHP.ToString();
 
             if (Main.Debug)
             {
@@ -279,6 +283,11 @@ namespace InnerRage.Interface
             SMInstance.Instance.RallyingCryHP = Convert.ToInt32(RallyingCryHP.Text);
             SMInstance.Instance.UseDieByTheSword = DieByTheSwordCB.Checked;
             SMInstance.Instance.UseDieByTheSwordHP = Convert.ToInt32(DBTSHP.Text);
+
+            SMInstance.Instance.UseLastStand = UseLastStandCB.Checked;
+            SMInstance.Instance.UseLastStandHP = Convert.ToInt32(UseLastStandHP.Text);
+            SMInstance.Instance.UseShieldWall = UseShieldWallCB.Checked;
+            SMInstance.Instance.UseShieldWallHP = Convert.ToInt32(UseShieldWallHP.Text);
 
 
             if (Main.Debug) // debug

@@ -81,16 +81,14 @@ namespace InnerRage.Interface {
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.EnragedRegenerationCB = new System.Windows.Forms.CheckBox();
-            this.TalentRavagerCB = new System.Windows.Forms.CheckBox();
-            this.TalentBladeStormCB = new System.Windows.Forms.CheckBox();
             this.TalentAvatarCB = new System.Windows.Forms.CheckBox();
-            this.TalentDragonRoarCB = new System.Windows.Forms.CheckBox();
             this.TalentShockWaveCB = new System.Windows.Forms.CheckBox();
             this.TalentStormBoltCB = new System.Windows.Forms.CheckBox();
             this.TalentsBloodBathCB = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.DragonRoarAoECount = new System.Windows.Forms.TextBox();
             this.DragonRoarAoECountCB = new System.Windows.Forms.CheckBox();
+            this.TalentDragonRoarCB = new System.Windows.Forms.CheckBox();
             this.DragonRoarOnlyOnBossCB = new System.Windows.Forms.CheckBox();
             this.TalentSyncDragonRoar = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -104,13 +102,21 @@ namespace InnerRage.Interface {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.BladestormAoECount = new System.Windows.Forms.TextBox();
+            this.TalentBladeStormCB = new System.Windows.Forms.CheckBox();
             this.BladestormOnlyAoECountCB = new System.Windows.Forms.CheckBox();
             this.BladestormOnlyBossCB = new System.Windows.Forms.CheckBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.RavagerAoeCount = new System.Windows.Forms.TextBox();
+            this.TalentRavagerCB = new System.Windows.Forms.CheckBox();
             this.RavagerOnlyAoECountCB = new System.Windows.Forms.CheckBox();
             this.RavagerOnlyBossCB = new System.Windows.Forms.CheckBox();
             this.TalentSyncRavager = new System.Windows.Forms.CheckBox();
+            this.UseLastStandCB = new System.Windows.Forms.CheckBox();
+            this.UseShieldWallCB = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.UseLastStandHP = new System.Windows.Forms.TextBox();
+            this.UseShieldWallHP = new System.Windows.Forms.TextBox();
             this.vt.SuspendLayout();
             this.tabAbout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -327,6 +333,12 @@ namespace InnerRage.Interface {
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.UseShieldWallHP);
+            this.groupBox10.Controls.Add(this.UseLastStandHP);
+            this.groupBox10.Controls.Add(this.label10);
+            this.groupBox10.Controls.Add(this.label9);
+            this.groupBox10.Controls.Add(this.UseShieldWallCB);
+            this.groupBox10.Controls.Add(this.UseLastStandCB);
             this.groupBox10.Controls.Add(this.RallyingCryHP);
             this.groupBox10.Controls.Add(this.DBTSHP);
             this.groupBox10.Controls.Add(this.label8);
@@ -335,7 +347,7 @@ namespace InnerRage.Interface {
             this.groupBox10.Controls.Add(this.DieByTheSwordCB);
             this.groupBox10.Location = new System.Drawing.Point(399, 237);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(415, 86);
+            this.groupBox10.Size = new System.Drawing.Size(415, 152);
             this.groupBox10.TabIndex = 10;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Defensives";
@@ -710,26 +722,6 @@ namespace InnerRage.Interface {
             this.EnragedRegenerationCB.Text = "Enraged Regeneration";
             this.EnragedRegenerationCB.UseVisualStyleBackColor = true;
             // 
-            // TalentRavagerCB
-            // 
-            this.TalentRavagerCB.AutoSize = true;
-            this.TalentRavagerCB.Location = new System.Drawing.Point(7, 27);
-            this.TalentRavagerCB.Name = "TalentRavagerCB";
-            this.TalentRavagerCB.Size = new System.Drawing.Size(130, 22);
-            this.TalentRavagerCB.TabIndex = 6;
-            this.TalentRavagerCB.Text = "Ravager enabled";
-            this.TalentRavagerCB.UseVisualStyleBackColor = true;
-            // 
-            // TalentBladeStormCB
-            // 
-            this.TalentBladeStormCB.AutoSize = true;
-            this.TalentBladeStormCB.Location = new System.Drawing.Point(7, 21);
-            this.TalentBladeStormCB.Name = "TalentBladeStormCB";
-            this.TalentBladeStormCB.Size = new System.Drawing.Size(152, 22);
-            this.TalentBladeStormCB.TabIndex = 5;
-            this.TalentBladeStormCB.Text = "Bladestorm enabled";
-            this.TalentBladeStormCB.UseVisualStyleBackColor = true;
-            // 
             // TalentAvatarCB
             // 
             this.TalentAvatarCB.AutoSize = true;
@@ -739,16 +731,6 @@ namespace InnerRage.Interface {
             this.TalentAvatarCB.TabIndex = 4;
             this.TalentAvatarCB.Text = "Avatar";
             this.TalentAvatarCB.UseVisualStyleBackColor = true;
-            // 
-            // TalentDragonRoarCB
-            // 
-            this.TalentDragonRoarCB.AutoSize = true;
-            this.TalentDragonRoarCB.Location = new System.Drawing.Point(7, 25);
-            this.TalentDragonRoarCB.Name = "TalentDragonRoarCB";
-            this.TalentDragonRoarCB.Size = new System.Drawing.Size(150, 22);
-            this.TalentDragonRoarCB.TabIndex = 3;
-            this.TalentDragonRoarCB.Text = "Dragonroar enabled";
-            this.TalentDragonRoarCB.UseVisualStyleBackColor = true;
             // 
             // TalentShockWaveCB
             // 
@@ -811,6 +793,16 @@ namespace InnerRage.Interface {
             this.DragonRoarAoECountCB.TabIndex = 1;
             this.DragonRoarAoECountCB.Text = "only on Enemies surrounding";
             this.DragonRoarAoECountCB.UseVisualStyleBackColor = true;
+            // 
+            // TalentDragonRoarCB
+            // 
+            this.TalentDragonRoarCB.AutoSize = true;
+            this.TalentDragonRoarCB.Location = new System.Drawing.Point(7, 25);
+            this.TalentDragonRoarCB.Name = "TalentDragonRoarCB";
+            this.TalentDragonRoarCB.Size = new System.Drawing.Size(150, 22);
+            this.TalentDragonRoarCB.TabIndex = 3;
+            this.TalentDragonRoarCB.Text = "Dragonroar enabled";
+            this.TalentDragonRoarCB.UseVisualStyleBackColor = true;
             // 
             // DragonRoarOnlyOnBossCB
             // 
@@ -954,6 +946,16 @@ namespace InnerRage.Interface {
             this.BladestormAoECount.Size = new System.Drawing.Size(100, 26);
             this.BladestormAoECount.TabIndex = 2;
             // 
+            // TalentBladeStormCB
+            // 
+            this.TalentBladeStormCB.AutoSize = true;
+            this.TalentBladeStormCB.Location = new System.Drawing.Point(7, 21);
+            this.TalentBladeStormCB.Name = "TalentBladeStormCB";
+            this.TalentBladeStormCB.Size = new System.Drawing.Size(152, 22);
+            this.TalentBladeStormCB.TabIndex = 5;
+            this.TalentBladeStormCB.Text = "Bladestorm enabled";
+            this.TalentBladeStormCB.UseVisualStyleBackColor = true;
+            // 
             // BladestormOnlyAoECountCB
             // 
             this.BladestormOnlyAoECountCB.AutoSize = true;
@@ -996,6 +998,16 @@ namespace InnerRage.Interface {
             this.RavagerAoeCount.Size = new System.Drawing.Size(100, 26);
             this.RavagerAoeCount.TabIndex = 2;
             // 
+            // TalentRavagerCB
+            // 
+            this.TalentRavagerCB.AutoSize = true;
+            this.TalentRavagerCB.Location = new System.Drawing.Point(7, 27);
+            this.TalentRavagerCB.Name = "TalentRavagerCB";
+            this.TalentRavagerCB.Size = new System.Drawing.Size(130, 22);
+            this.TalentRavagerCB.TabIndex = 6;
+            this.TalentRavagerCB.Text = "Ravager enabled";
+            this.TalentRavagerCB.UseVisualStyleBackColor = true;
+            // 
             // RavagerOnlyAoECountCB
             // 
             this.RavagerOnlyAoECountCB.AutoSize = true;
@@ -1027,6 +1039,58 @@ namespace InnerRage.Interface {
             this.TalentSyncRavager.TabIndex = 6;
             this.TalentSyncRavager.Text = "Sync Ravager with Bloodbath";
             this.TalentSyncRavager.UseVisualStyleBackColor = true;
+            // 
+            // UseLastStandCB
+            // 
+            this.UseLastStandCB.AutoSize = true;
+            this.UseLastStandCB.Location = new System.Drawing.Point(7, 84);
+            this.UseLastStandCB.Name = "UseLastStandCB";
+            this.UseLastStandCB.Size = new System.Drawing.Size(88, 22);
+            this.UseLastStandCB.TabIndex = 6;
+            this.UseLastStandCB.Text = "Last stand";
+            this.UseLastStandCB.UseVisualStyleBackColor = true;
+            // 
+            // UseShieldWallCB
+            // 
+            this.UseShieldWallCB.AutoSize = true;
+            this.UseShieldWallCB.Location = new System.Drawing.Point(7, 113);
+            this.UseShieldWallCB.Name = "UseShieldWallCB";
+            this.UseShieldWallCB.Size = new System.Drawing.Size(92, 22);
+            this.UseShieldWallCB.TabIndex = 7;
+            this.UseShieldWallCB.Text = "Shieldwall";
+            this.UseShieldWallCB.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(144, 85);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(121, 18);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "on HP percentage:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(144, 114);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(121, 18);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "on HP percentage:";
+            // 
+            // UseLastStandHP
+            // 
+            this.UseLastStandHP.Location = new System.Drawing.Point(272, 85);
+            this.UseLastStandHP.Name = "UseLastStandHP";
+            this.UseLastStandHP.Size = new System.Drawing.Size(100, 26);
+            this.UseLastStandHP.TabIndex = 10;
+            // 
+            // UseShieldWallHP
+            // 
+            this.UseShieldWallHP.Location = new System.Drawing.Point(272, 114);
+            this.UseShieldWallHP.Name = "UseShieldWallHP";
+            this.UseShieldWallHP.Size = new System.Drawing.Size(100, 26);
+            this.UseShieldWallHP.TabIndex = 11;
             // 
             // Settings
             // 
@@ -1165,5 +1229,11 @@ namespace InnerRage.Interface {
         private Label label7;
         private CheckBox RallyingCryCB;
         private CheckBox DieByTheSwordCB;
+        private TextBox UseShieldWallHP;
+        private TextBox UseLastStandHP;
+        private Label label10;
+        private Label label9;
+        private CheckBox UseShieldWallCB;
+        private CheckBox UseLastStandCB;
 	}
 }
