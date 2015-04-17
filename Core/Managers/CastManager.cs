@@ -48,6 +48,7 @@ namespace InnerRage.Core
         public static async Task<bool> CastOnTarget(WoWUnit target, IAbility ability, List<ICondition> conditions)
         {
             if (Main.Debug) Log.Diagnostics("In " + ability + "call.");
+
             foreach (var condition in conditions)
                 if (!condition.Satisfied())
                 {

@@ -9,6 +9,7 @@ namespace InnerRage.Core.Abilities.Protection
         public ShieldSlamWithBlockUpAbility()
             : base(WoWSpell.FromId(SpellBook.SpellShieldSlam), true, true)
         {
+            base.Category = AbilityCategory.Combat;
             base.Conditions.Add(new TargetAuraUpCondition(Me , WoWSpell.FromId(SpellBook.AuraShieldBlock)));
         }
     }

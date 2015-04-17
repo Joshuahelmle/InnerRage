@@ -3,13 +3,13 @@ using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Protection
 {
-    public class ShieldSlamAbility : AbilityBase
+    public class ShieldSlamWithBuffUp : AbilityBase
     {
-        public ShieldSlamAbility() 
+        public ShieldSlamWithBuffUp() 
             : base(WoWSpell.FromId(SpellBook.SpellShieldSlam), true, true)
         {
             base.Category = AbilityCategory.Combat;
-            Conditions.Add(new DoesNotHaveAuraUpCondition(Me, WoWSpell.FromId(50227)));
+            Conditions.Add(new TargetAuraUpCondition(Me, WoWSpell.FromId(50227)));
         }
     }
 }

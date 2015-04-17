@@ -82,6 +82,7 @@
     <Compile Include="Core\Abilities\Protection\ShieldBlock.cs" />
     <Compile Include="Core\Abilities\Protection\ShieldSlamAbility.cs" />
     <Compile Include="Core\Abilities\Protection\ShieldSlamWithBlockUpAbility.cs" />
+    <Compile Include="Core\Abilities\Protection\ShieldSlamWithBuffUp.cs" />
     <Compile Include="Core\Abilities\Protection\ShieldWallAbility.cs" />
     <Compile Include="Core\Abilities\Shared\BerserkerBreakCCAbility.cs" />
     <Compile Include="Core\Abilities\Shared\BladeStormAbility.cs" />

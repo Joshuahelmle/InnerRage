@@ -300,8 +300,9 @@ namespace InnerRage.Core.Routines
             if (await Abilities.Cast<ShieldBarrierAbility>(Me)) return false; //not on global
             if (await Abilities.Cast<DemoralizingShoutAbility>(MyCurrentTarget)) return false; //not on global
             if (await Abilities.Cast<HeroicStrikeAbility>(MyCurrentTarget)) return false; //is not on the GCD
-            if (await Abilities.Cast<ShieldSlamAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<ShieldSlamWithBuffUpAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RevengeAbility>(MyCurrentTarget)) return true;
+            if (await Abilities.Cast<ShieldSlamAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<RavagerAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<StormBoltAbility>(MyCurrentTarget)) return true;
             if (await Abilities.Cast<DragonRoarAbility>(MyCurrentTarget)) return true;

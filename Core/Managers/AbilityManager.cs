@@ -84,6 +84,7 @@ namespace InnerRage.Core.Managers
             Abilities.Add(new ShieldBarrierAbility());
             Abilities.Add(new ShieldBlock());
             Abilities.Add(new ShieldSlamAbility());
+            Abilities.Add(new ShieldSlamWithBuffUp());
             Abilities.Add(new ShieldSlamWithBlockUpAbility());
             Abilities.Add(new ShieldWallAbility());
             #endregion
