@@ -13,7 +13,9 @@ namespace InnerRage.Core.Abilities.Protection
             Conditions.Add(new ConditionAndList(
                 new DoesNotHaveAuraUpCondition(Me, Spell),
                 new ConditionOrList(
-                    new DoesNotHaveAuraUpCondition(Me, WoWSpell.FromId(SpellBook.AuraShieldBlock)),
+                    new ConditionAndList(
+                        new DoesNotHaveAuraUpCondition(Me, WoWSpell.FromId(SpellBook.AuraShieldBlock)),
+                        new SpellIsOnCooldownCondition(WoWSpell.FromId(SpellBook.SpellShieldBlock))),                 
                     new MinRageCondition(85))));
         }
     }
