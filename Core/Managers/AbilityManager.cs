@@ -198,7 +198,7 @@ namespace InnerRage.Core.Managers
 
                 ability.Target = target;
                 var castResult = await ability.CastOnTarget(target);
-
+                if(Main.Debug) Log.Diagnostics("Cast result was : "+castResult);
                 if (castResult)
                 {
                     if (ability == LastCastAbility)
