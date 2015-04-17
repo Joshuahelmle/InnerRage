@@ -1,5 +1,6 @@
 ﻿/* CREDIT : Almost all of the code in this class is Work of SnowCrash , thanks for giving me insight and creative ideas buddy! */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -68,6 +69,8 @@ namespace InnerRage.Core
 
             if (!SpellManager.HasSpell(ability.Spell)) return false;
             if (!SpellManager.CanCast(ability.Spell)) return false;
+            if (0 != GetSpellCooldown(ability.Spell.Id).TotalMilliseconds)
+                return false; 
             if (!SpellManager.Cast(ability.Spell, target)) return false;
 
             var logColor = Colors.CornflowerBlue;
@@ -117,6 +120,8 @@ namespace InnerRage.Core
 
             if (!SpellManager.HasSpell(ability.Spell)) return false;
             if (!SpellManager.CanCast(ability.Spell)) return false;
+            if (0 != GetSpellCooldown(ability.Spell.Id).TotalMilliseconds)
+                return false; 
             if (!SpellManager.Cast(ability.Spell, target)) return false;
 
             if (!await Coroutine.Wait(1000, () => StyxWoW.Me.CurrentPendingCursorSpell != null))
@@ -167,5 +172,18 @@ namespace InnerRage.Core
 
             return unit.Z;
         }
+
+
+        public static TimeSpan GetSpellCooldown(int spell, int indetermValue = int.MaxValue)
+        {
+            SpellFindResults sfr;
+            if (SpellManager.FindSpell(spell, out sfr))
+                return (sfr.Override ?? sfr.Original).CooldownTimeLeft;
+
+            if (indetermValue == int.MaxValue)
+                return TimeSpan.MaxValue;
+
+            return TimeSpan.FromSeconds(indetermValue);
+        } 
     }
 }
