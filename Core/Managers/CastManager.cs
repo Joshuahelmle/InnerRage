@@ -47,12 +47,13 @@ namespace InnerRage.Core
         /// <returns>Returns true if the cast is successful</returns>
         public static async Task<bool> CastOnTarget(WoWUnit target, IAbility ability, List<ICondition> conditions)
         {
+            if (Main.Debug) Log.Diagnostics("In " + ability + "call.");
             foreach (var condition in conditions)
                 if (!condition.Satisfied())
                 {
                     if (Main.Debug && !(condition is IsOffGlobalCooldownCondition))
                     {
-                        if (Main.Debug) Log.Diagnostics("In " + ability + "call.");
+                        
                         if (Main.Debug)
                             Log.Diagnostics("Failed at condition:" + condition);
                     }
