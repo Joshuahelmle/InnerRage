@@ -2,6 +2,7 @@
 using InnerRage.Core.Abilities.Protection;
 using InnerRage.Core.Abilities.Shared;
 using InnerRage.Core.Managers;
+using InnerRage.Core.Utilities;
 using Styx;
 using Styx.WoWInternals.WoWObjects;
 
@@ -42,6 +43,7 @@ namespace InnerRage.Core.Routines
 
         private static async Task<bool> HealRotation()
         {
+            if(Main.Debug) Log.Diagnostics("In HealRotation() Call");
             //   if (await ItemManager.UseHealthstone()) return true;
             //  if (await ItemManager.UseEligibleItems(MyState.CombatHealing)) return true;
             if (await Abilities.Cast<LastStandAbility>(Me)) return false;

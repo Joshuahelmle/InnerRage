@@ -29,11 +29,12 @@ namespace InnerRage.Core.Abilities.Shared
                 new DoesHaveEnrageUpCondition(),
                 //We are not in Fury Specc, assume we are in Arms
                 //TODO: really check if in Arms for future implementation of Defrotations.
-                new ConditionAndList(
-                    new RendIsTickingCondition(),
-                    new CooldownTimeLeftMaxCondition(WoWSpell.FromId(SpellBook.SpellCollosusSmash),
-                        TimeSpan.FromSeconds(4)))
-                ));
+                new ConditionSwitchTester(
+                    new IsInCurrentSpecializationCondition(WoWSpec.WarriorArms),
+                    new ConditionAndList(
+                        new RendIsTickingCondition(),
+                        new CooldownTimeLeftMaxCondition(WoWSpell.FromId(SpellBook.SpellCollosusSmash),
+                            TimeSpan.FromSeconds(4))))));
         }
     }
 }
