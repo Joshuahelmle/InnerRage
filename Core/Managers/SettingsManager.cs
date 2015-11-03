@@ -209,7 +209,11 @@ namespace InnerRage.Core.Managers
         public bool UseLastStand { get; set; }
         [Setting, DefaultValue(25)]
         public int UseLastStandHP { get; set; }
+        [Setting, DefaultValue(true)]
+        public bool ShieldBarrierEnabled { get; set; }
+        [Setting, DefaultValue(true)]
+        public bool ShieldBlockEnabled { get; set; }
         #endregion
-       
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using InnerRage.Core.Conditions;
 using InnerRage.Core.Conditions.Auras;
+using InnerRage.Core.Managers;
 using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Protection
@@ -12,6 +13,7 @@ namespace InnerRage.Core.Abilities.Protection
             Category = AbilityCategory.Buff;
             Conditions.Add(new MinRageCondition(60));
             Conditions.Add(new DoesNotHaveAuraUpCondition(Me , WoWSpell.FromId(SpellBook.AuraShieldBlock)));
+            Conditions.Add(new BooleanCondition(SettingsManager.Instance.ShieldBlockEnabled));
 
         }
     }

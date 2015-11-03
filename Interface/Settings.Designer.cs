@@ -46,6 +46,12 @@ namespace InnerRage.Interface {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.UseShieldWallHP = new System.Windows.Forms.TextBox();
+            this.UseLastStandHP = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.UseShieldWallCB = new System.Windows.Forms.CheckBox();
+            this.UseLastStandCB = new System.Windows.Forms.CheckBox();
             this.RallyingCryHP = new System.Windows.Forms.TextBox();
             this.DBTSHP = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -111,12 +117,9 @@ namespace InnerRage.Interface {
             this.RavagerOnlyAoECountCB = new System.Windows.Forms.CheckBox();
             this.RavagerOnlyBossCB = new System.Windows.Forms.CheckBox();
             this.TalentSyncRavager = new System.Windows.Forms.CheckBox();
-            this.UseLastStandCB = new System.Windows.Forms.CheckBox();
-            this.UseShieldWallCB = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.UseLastStandHP = new System.Windows.Forms.TextBox();
-            this.UseShieldWallHP = new System.Windows.Forms.TextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.UseSBlock = new System.Windows.Forms.CheckBox();
+            this.UseSBarrier = new System.Windows.Forms.CheckBox();
             this.vt.SuspendLayout();
             this.tabAbout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -135,6 +138,7 @@ namespace InnerRage.Interface {
             this.groupBox3.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // FormHeader
@@ -316,6 +320,7 @@ namespace InnerRage.Interface {
             // tabSettings
             // 
             this.tabSettings.BackColor = System.Drawing.Color.DarkGray;
+            this.tabSettings.Controls.Add(this.groupBox11);
             this.tabSettings.Controls.Add(this.groupBox10);
             this.tabSettings.Controls.Add(this.groupBox9);
             this.tabSettings.Controls.Add(this.Racials);
@@ -351,6 +356,58 @@ namespace InnerRage.Interface {
             this.groupBox10.TabIndex = 10;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Defensives";
+            // 
+            // UseShieldWallHP
+            // 
+            this.UseShieldWallHP.Location = new System.Drawing.Point(272, 114);
+            this.UseShieldWallHP.Name = "UseShieldWallHP";
+            this.UseShieldWallHP.Size = new System.Drawing.Size(100, 26);
+            this.UseShieldWallHP.TabIndex = 11;
+            // 
+            // UseLastStandHP
+            // 
+            this.UseLastStandHP.Location = new System.Drawing.Point(272, 85);
+            this.UseLastStandHP.Name = "UseLastStandHP";
+            this.UseLastStandHP.Size = new System.Drawing.Size(100, 26);
+            this.UseLastStandHP.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(144, 114);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(121, 18);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "on HP percentage:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(144, 85);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(121, 18);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "on HP percentage:";
+            // 
+            // UseShieldWallCB
+            // 
+            this.UseShieldWallCB.AutoSize = true;
+            this.UseShieldWallCB.Location = new System.Drawing.Point(7, 113);
+            this.UseShieldWallCB.Name = "UseShieldWallCB";
+            this.UseShieldWallCB.Size = new System.Drawing.Size(92, 22);
+            this.UseShieldWallCB.TabIndex = 7;
+            this.UseShieldWallCB.Text = "Shieldwall";
+            this.UseShieldWallCB.UseVisualStyleBackColor = true;
+            // 
+            // UseLastStandCB
+            // 
+            this.UseLastStandCB.AutoSize = true;
+            this.UseLastStandCB.Location = new System.Drawing.Point(7, 84);
+            this.UseLastStandCB.Name = "UseLastStandCB";
+            this.UseLastStandCB.Size = new System.Drawing.Size(88, 22);
+            this.UseLastStandCB.TabIndex = 6;
+            this.UseLastStandCB.Text = "Last stand";
+            this.UseLastStandCB.UseVisualStyleBackColor = true;
             // 
             // RallyingCryHP
             // 
@@ -1040,57 +1097,36 @@ namespace InnerRage.Interface {
             this.TalentSyncRavager.Text = "Sync Ravager with Bloodbath";
             this.TalentSyncRavager.UseVisualStyleBackColor = true;
             // 
-            // UseLastStandCB
+            // groupBox11
             // 
-            this.UseLastStandCB.AutoSize = true;
-            this.UseLastStandCB.Location = new System.Drawing.Point(7, 84);
-            this.UseLastStandCB.Name = "UseLastStandCB";
-            this.UseLastStandCB.Size = new System.Drawing.Size(88, 22);
-            this.UseLastStandCB.TabIndex = 6;
-            this.UseLastStandCB.Text = "Last stand";
-            this.UseLastStandCB.UseVisualStyleBackColor = true;
+            this.groupBox11.Controls.Add(this.UseSBarrier);
+            this.groupBox11.Controls.Add(this.UseSBlock);
+            this.groupBox11.Location = new System.Drawing.Point(6, 329);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(387, 61);
+            this.groupBox11.TabIndex = 11;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "groupBox11";
             // 
-            // UseShieldWallCB
+            // UseSBlock
             // 
-            this.UseShieldWallCB.AutoSize = true;
-            this.UseShieldWallCB.Location = new System.Drawing.Point(7, 113);
-            this.UseShieldWallCB.Name = "UseShieldWallCB";
-            this.UseShieldWallCB.Size = new System.Drawing.Size(92, 22);
-            this.UseShieldWallCB.TabIndex = 7;
-            this.UseShieldWallCB.Text = "Shieldwall";
-            this.UseShieldWallCB.UseVisualStyleBackColor = true;
+            this.UseSBlock.AutoSize = true;
+            this.UseSBlock.Location = new System.Drawing.Point(7, 25);
+            this.UseSBlock.Name = "UseSBlock";
+            this.UseSBlock.Size = new System.Drawing.Size(128, 22);
+            this.UseSBlock.TabIndex = 0;
+            this.UseSBlock.Text = "Use Shield Block";
+            this.UseSBlock.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // UseSBarrier
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(144, 85);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 18);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "on HP percentage:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(144, 114);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 18);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "on HP percentage:";
-            // 
-            // UseLastStandHP
-            // 
-            this.UseLastStandHP.Location = new System.Drawing.Point(272, 85);
-            this.UseLastStandHP.Name = "UseLastStandHP";
-            this.UseLastStandHP.Size = new System.Drawing.Size(100, 26);
-            this.UseLastStandHP.TabIndex = 10;
-            // 
-            // UseShieldWallHP
-            // 
-            this.UseShieldWallHP.Location = new System.Drawing.Point(272, 114);
-            this.UseShieldWallHP.Name = "UseShieldWallHP";
-            this.UseShieldWallHP.Size = new System.Drawing.Size(100, 26);
-            this.UseShieldWallHP.TabIndex = 11;
+            this.UseSBarrier.AutoSize = true;
+            this.UseSBarrier.Location = new System.Drawing.Point(171, 24);
+            this.UseSBarrier.Name = "UseSBarrier";
+            this.UseSBarrier.Size = new System.Drawing.Size(137, 22);
+            this.UseSBarrier.TabIndex = 1;
+            this.UseSBarrier.Text = "Use Shield Barrier";
+            this.UseSBarrier.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
@@ -1140,6 +1176,8 @@ namespace InnerRage.Interface {
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1235,5 +1273,8 @@ namespace InnerRage.Interface {
         private Label label9;
         private CheckBox UseShieldWallCB;
         private CheckBox UseLastStandCB;
-	}
+        private GroupBox groupBox11;
+        private CheckBox UseSBarrier;
+        private CheckBox UseSBlock;
+    }
 }

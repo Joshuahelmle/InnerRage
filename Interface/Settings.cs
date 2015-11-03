@@ -183,6 +183,8 @@ namespace InnerRage.Interface
             UseLastStandHP.Text = SMInstance.Instance.UseLastStandHP.ToString();
             UseShieldWallCB.Checked = SMInstance.Instance.UseShieldWall;
             UseShieldWallHP.Text = SMInstance.Instance.UseShieldWallHP.ToString();
+            UseSBarrier.Checked = SMInstance.Instance.ShieldBarrierEnabled;
+            UseSBlock.Checked = SMInstance.Instance.ShieldBlockEnabled;
 
             if (Main.Debug)
             {
@@ -289,6 +291,8 @@ namespace InnerRage.Interface
             SMInstance.Instance.UseShieldWall = UseShieldWallCB.Checked;
             SMInstance.Instance.UseShieldWallHP = Convert.ToInt32(UseShieldWallHP.Text);
 
+            SMInstance.Instance.ShieldBarrierEnabled = UseSBarrier.Checked;
+            SMInstance.Instance.ShieldBlockEnabled = UseSBlock.Checked;
 
             if (Main.Debug) // debug
             {

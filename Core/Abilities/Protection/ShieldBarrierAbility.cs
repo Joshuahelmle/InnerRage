@@ -1,5 +1,6 @@
 ﻿using InnerRage.Core.Conditions;
 using InnerRage.Core.Conditions.Auras;
+using InnerRage.Core.Managers;
 using Styx.WoWInternals;
 
 namespace InnerRage.Core.Abilities.Protection
@@ -16,7 +17,8 @@ namespace InnerRage.Core.Abilities.Protection
                     new ConditionAndList(
                         new DoesNotHaveAuraUpCondition(Me, WoWSpell.FromId(SpellBook.AuraShieldBlock)),
                         new SpellIsOnCooldownCondition(WoWSpell.FromId(SpellBook.SpellShieldBlock))),                 
-                    new MinRageCondition(85))));
+                    new MinRageCondition(100))));
+             Conditions.Add(new BooleanCondition(SettingsManager.Instance.ShieldBarrierEnabled));
         }
     }
 }

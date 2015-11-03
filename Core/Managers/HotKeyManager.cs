@@ -48,7 +48,7 @@ namespace InnerRage.Core.Managers
                     }
                 });
 
-            HotkeysManager.Register("Debug Mode", Keys.NumPad0, ModifierKeys.Alt, ret =>
+            HotkeysManager.Register("Debug Mode", Keys.L, ModifierKeys.Shift, ret =>
             {
                 Main.Debug = !Main.Debug;
                 StyxWoW.Overlay.AddToast((Main.Debug ? "Debug in Log Activated" : "Debug in Log deactivated"), 2000);
@@ -66,7 +66,6 @@ namespace InnerRage.Core.Managers
             HotkeysManager.Unregister("noAoe");
             NoAoe = false;
             KeysRegistered = false;
-            Lua.DoString(@"print('Hotkeys: \124cFFE61515 Removed!')");
             Logging.Write(Colors.OrangeRed, "Hotkeys: Removed!");
         }
 
